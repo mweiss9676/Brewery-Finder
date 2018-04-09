@@ -4,20 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-
-
+    <link href="~/Content/Site.css" rel="stylesheet"/>
 </head>
 <body>
-
     <header>
-        
+        <nav>
+            @Html.Partial("_LoginPartial")
+        </nav>
     </header>
+    
 
-    <nav>
-        @Html.Partial("_LoginPartial")
-    </nav>
-
-    <main>
+    <main class="backgroundMain">
+        <video autoplay loop class="barVid">
+            <source src="http://res.cloudinary.com/yyy32pf/video/upload/v1523302267/Brewery%20Search/735339073.mp4" type="video/mp4"/>
+        </video>
         @RenderBody()
     </main>
 
