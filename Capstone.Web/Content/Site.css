@@ -1,13 +1,13 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
+
+
 /* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
+
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -17,8 +17,93 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+
+/**********************************************HOMEPAGE INDEX***************************************/
+header {
+    background-color: black;
+    height: 50px;
+    position: fixed;
+    width: 100%;
 }
+
+.headerLinks {
+    text-align: right;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
+a#registerLink {
+    text-decoration: none;
+    color: white;
+    text-align: right;
+    font-family: cursive;
+    padding-right: 20px;
+}
+
+a#loginLink {
+    text-decoration: none;
+    color: white;
+    text-align: right;
+    font-family: cursive;
+}
+
+.backgroundMain{
+    /*background-image: url('IMGS/TestBackground.jpeg');*/   
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+}
+
+.searchBarDiv{
+    height: 100vh;
+}
+
+.searchBar {
+    border-radius: 25px;
+    border: 1px solid white;
+    padding: 5px 5px 5px 5px;
+    border-width: 2px;
+    height: 50px;
+    width: 35%;
+    background-color: black;
+    color: white;
+    font-family: 'Comic Sans MS';
+    font-size:larger;
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform:translate(-50%,-50%);
+}
+
+.ageCheckerDiv {
+    height: 50vh;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-size: larger;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    z-index: 100;
+}
+
+.ageWarning {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+
+.barVid{
+    position: fixed;
+    z-index: -1;
+}
+/******************************************END HOMEPAGE INDEX***************************************/
+
+
+
+

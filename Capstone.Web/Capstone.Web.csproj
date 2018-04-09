@@ -201,6 +201,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\IMGS\TestBackground.jpeg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="schema.sql" />
@@ -255,7 +256,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55900</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
