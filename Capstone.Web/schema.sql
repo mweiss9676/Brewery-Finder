@@ -63,6 +63,7 @@ CREATE TABLE Beer
 	BeerID INT IDENTITY(1,1) PRIMARY KEY,
 	BreweryId INT NOT NULL FOREIGN KEY REFERENCES Brewery(BreweryId),
 	Beer_Name VARCHAR(100) NOT NULL,
+	BeerType VARCHAR(50) NULL,
 	Description varchar(max) NULL,
 	IsBestSeller bit NULL,
 	ABV int NULL,
@@ -89,3 +90,22 @@ CREATE TABLE Ratings
 	Review varchar(max) NULL,
 	UserId int FOREIGN KEY REFERENCES Users(UserId),
 );
+
+-- add breweries here --
+
+BEGIN TRANSACTION
+
+INSERT INTO Brewery (Brewery_Name, Brewery_Address, Brewery_City, Brewery_District, Brewery_PostalCode, Brewery_Country, History, Year_Founded)
+VALUES ('Goldhorn Brewery', '1361 E 55th St', 'Cleveland', 'OH', '44103', 'USA', 
+'Cool taproom offering seasonal, housemade beer in a vast space with a long bar & tables outside.', '2010');
+
+COMMIT TRANSACTION
+
+-- add beers here -- 
+
+BEGIN TRANSACTION
+
+INSERT INTO Beer (BreweryId, Beer_Name, IsBestSeller, ABV, IBU, DateBrewed)
+VALUES (1, 'Dead Man''s Curve IPA', 1, '8', '80', '2018-03-01');
+
+COMMIT TRANSACTION
