@@ -19,9 +19,9 @@ namespace Capstone.Web
         {
             base.OnApplicationStarted();
 
-            GlobalConfiguration.Configure(WebApiConfig.Register);
+            //GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
 
@@ -32,9 +32,9 @@ namespace Capstone.Web
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
             // Configure Bindings
-            kernel.Bind<IBreweryDAL>().To<BreweryDAL>();
+            kernel.Bind<IBreweryDAL>().To<BreweryDAL>().WithConstructorArgument("connectionString",connectionString);
 
-            GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
+            //GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
 
             return kernel;
         }

@@ -1,4 +1,5 @@
-﻿using Capstone.Web.Models;
+﻿using Capstone.Web.DAL;
+using Capstone.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +10,23 @@ namespace Capstone.Web.Controllers
 {
     public class HomeController : Controller
     {
+        IBreweryDAL dal;
+        public HomeController(IBreweryDAL dal)
+        {
+            this.dal = dal;
+        }
+
         public ActionResult Index()
         {
+
             return View();
         }
 
-        public ActionResult ListPage(SearchResultModel searchModel)
+        public ActionResult ListPage()
         {
-            
-            return View(searchModel);
+            IList<BreweryModel> list = dal.GetAllBreweries();
+            list.ToList();
+            return View("ListPage", list);
         }
 
     }

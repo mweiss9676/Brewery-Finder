@@ -12,13 +12,12 @@ namespace Capstone.Web.DAL
     {
         private string connectionString;
 
-        private IBreweryDAL breweryDAL;
-
-        public BreweryDAL(IBreweryDAL breweryDAL)
+        public BreweryDAL(string connectionString)
         {
-            this.breweryDAL = breweryDAL;
-            connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            this.connectionString = connectionString;
         }
+
+       
 
         public IList<BreweryModel> GetAllBreweries()
         {
@@ -30,7 +29,7 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM Brewery");
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM Brewery", conn);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -92,7 +91,7 @@ namespace Capstone.Web.DAL
                 YearFounded = Convert.ToInt32(reader["YearFounded"]),
                 BreweryProfileImg = Convert.ToString(reader["BreweryProfileImg"]),
                 BreweryBackgroundImg = Convert.ToString(reader["BreweryBackgroundImg"]),
-                BreweryHeaderImage = Convert.ToString(reader["BreweryHeaderImage"])
+                BreweryHeaderImage = Convert.ToString(reader["BreweryHeaderImg"])
             };
         }
     }
