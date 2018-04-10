@@ -78,38 +78,52 @@ namespace Capstone.Web.DAL
             return null;
         }
 
-        public IList<BreweryModel> SearchBreweries(SearchResultModel searchString)
+        public HashSet<BreweryModel> SearchBreweries(SearchResultModel searchString)
         {
-            //List<string> searchParameters = new List<string>();
+            HashSet<BreweryModel> searchResults = new HashSet<BreweryModel>();
 
-            Regex reg = new Regex(@"(?:,\s)");
+            Regex reg = new Regex(@"(?:\s)");
 
             var searchParameters = reg.Split(searchString.SearchString);
 
-
             try
             {
-                using (SqlConnection conn = new SqlConnection())
+
+                for (int i = 0; i < searchParameters.Length; i++)
                 {
-                    conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("", conn);
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
+                    using (SqlConnection conn = new SqlConnection(connectionString))
                     {
-                        BreweryModel brewery = new BreweryModel();
+                        conn.Open();
 
+                        string searchTerm = searchParameters[i];
+                        SqlCommand cmd = new SqlCommand(@"SELECT * FROM Brewery
+                                                      WHERE BreweryName LIKE @brewery
+                                                      OR BreweryDistrict LIKE @district
+                                                      OR BreweryCity LIKE @city
+                                                      OR BreweryPostalCode LIKE @postal", conn);
 
-                    }
+                        cmd.Parameters.AddWithValue("@brewery", $"%{searchTerm}%");
+                        cmd.Parameters.AddWithValue("@district", $"%{searchTerm}%");
+                        cmd.Parameters.AddWithValue("@city", $"%{searchTerm}%");
+                        cmd.Parameters.AddWithValue("@postal", $"%{searchTerm}%");
+
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            BreweryModel brewery = BreweryReader(reader);
+                            searchResults.Add(brewery);
+                        }
+                    }                    
                 }
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 Console.WriteLine(ex);
             }
-            return null;
+
+            return searchResults;
         }
 
         private BreweryModel BreweryReader(SqlDataReader reader)

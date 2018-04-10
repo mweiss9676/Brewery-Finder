@@ -24,9 +24,9 @@ namespace Capstone.Web.Controllers
 
         public ActionResult ListPage(SearchResultModel searchresult)
         {
-            dal.SearchBreweries(searchresult);
+            var results = dal.SearchBreweries(searchresult);
 
-            return View("ListPage", searchresult);
+            return View("ListPage", results);
         }
 
     }
