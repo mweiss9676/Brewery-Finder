@@ -25,7 +25,7 @@ CREATE TABLE [dbo].[Users]
 	UserCountry					VARCHAR(50) NOT NULL,
 	UserPostalCode				VARCHAR(50) NOT NULL,
 	NumberOfAttempts			int NOT NULL,
-	ProfilePic					VARCHAR(50) NULL,
+	ProfilePic					VARCHAR(100) NULL,
 	Password1stAttempt			DATE NULL,
 );
 
@@ -56,9 +56,9 @@ CREATE TABLE Brewery
 	BreweryPostalCode			VARCHAR(50) NOT NULL,
 	History						VARCHAR(MAX) NOT NULL,
 	YearFounded					INT NOT NULL,
-	BreweryProfileImg			VARCHAR(50) NULL,
-	BreweryBackgroundImg		VARCHAR(50) NULL,
-	BreweryHeaderImg			VARCHAR(50) NULL
+	BreweryProfileImg			VARCHAR(100) NULL,
+	BreweryBackgroundImg		VARCHAR(100) NULL,
+	BreweryHeaderImg			VARCHAR(100) NULL
 );
 
 CREATE TABLE BeerTypes
@@ -79,7 +79,7 @@ CREATE TABLE Beer
 	ABV							int NULL,
 	IBU							int NULL,
 	DateBrewed					date NOT NULL,
-	BeerLabelImg				varchar(50) NULL,
+	BeerLabelImg				varchar(100) NULL,
 	--Beer_Img_Name_2		varchar(50) NULL,
 	--Beer_Img_Name_3		varchar(50) NULL	
 );
@@ -101,3 +101,5 @@ CREATE TABLE BreweryRating
 );
 
 COMMIT TRANSACTION
+
+INSERT INTO Brewery VALUES ('Goldhorn', '1361 E 55th St.', 'Cleveland', 'OH', 'USA', '44103', 'A local Cleveland staple', '2010', 'http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header2-1.jpg','http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header1.jpg', 'http://www.ohiocraftbeer.org/wp-content/uploads/2015/12/OCBA_simplified_color.png')
