@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    @model Capstone.Web.Models.SearchResultModel
 }
-
 
 <div class="container">
     <div class="ageCheckerDiv">
@@ -9,8 +9,8 @@
         <button id="ageSubmit">Submit</button>
     </div>
     <div class="searchBarDiv">
-        <form>           
-            <input style="text-align: center" class="searchBar" type="search" placeholder="Search for beers or breweries" />
+        <form method="get" action="@Url.Action("ListPage","Home")">                    
+            <input style="text-align: center" class="searchBar" type="search" name="" placeholder="Search for beers or breweries" />
         </form>
     </div>
 </div>
