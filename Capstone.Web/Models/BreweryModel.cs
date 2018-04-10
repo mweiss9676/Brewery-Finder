@@ -17,7 +17,7 @@ namespace Capstone.Web.Models
         public int YearFounded { get; set; }
         public string BreweryProfileImg { get; set; }
         public string BreweryBackgroundImg { get; set; }
-        public string BrewryHeaderImage { get; set; }
+        public string BreweryHeaderImage { get; set; }
 
     }
 }

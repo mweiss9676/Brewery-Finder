@@ -24,8 +24,8 @@ CREATE TABLE [dbo].[Users]
 	UserDistrict				VARCHAR(50) NOT NULL,
 	UserCountry					VARCHAR(50) NOT NULL,
 	UserPostalCode				VARCHAR(50) NOT NULL,
-	NumberOfAttempts			int NOT NULL,
-	ProfilePic					VARCHAR(50) NULL,
+	NumberOfAttempts			INT NOT NULL,
+	ProfilePic					VARCHAR(200) NULL,
 	Password1stAttempt			DATE NULL,
 );
 
@@ -56,9 +56,9 @@ CREATE TABLE Brewery
 	BreweryPostalCode			VARCHAR(50) NOT NULL,
 	History						VARCHAR(MAX) NOT NULL,
 	YearFounded					INT NOT NULL,
-	BreweryProfileImg			VARCHAR(50) NULL,
-	BreweryBackgroundImg		VARCHAR(50) NULL,
-	BreweryHeaderImg			VARCHAR(50) NULL
+	BreweryProfileImg			VARCHAR(200) NULL,
+	BreweryBackgroundImg		VARCHAR(200) NULL,
+	BreweryHeaderImg			VARCHAR(200) NULL
 );
 
 CREATE TABLE BeerTypes
@@ -76,10 +76,10 @@ CREATE TABLE Beer
 	BeerTypeId					INT NULL FOREIGN KEY REFERENCES BeerTypes(BeerTypeId),
 	BeerDescription				varchar(max) NULL,
 	IsBestSeller				bit NULL,
-	ABV							int NULL,
-	IBU							int NULL,
+	ABV							DECIMAL NULL,
+	IBU							DECIMAL NULL,
 	DateBrewed					date NOT NULL,
-	BeerLabelImg				varchar(50) NULL,
+	BeerLabelImg				varchar(200) NULL,
 	--Beer_Img_Name_2		varchar(50) NULL,
 	--Beer_Img_Name_3		varchar(50) NULL	
 );
@@ -101,3 +101,17 @@ CREATE TABLE BreweryRating
 );
 
 COMMIT TRANSACTION
+
+/******************************************** GoldHorn Brewery Info ****************************************************************/
+
+INSERT INTO Brewery VALUES ('Goldhorn', '1361 E 55th St.', 'Cleveland', 'OH', 'USA', '44103', 'A local Cleveland staple', '2010', 'http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header2-1.jpg','http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header1.jpg', 'http://www.ohiocraftbeer.org/wp-content/uploads/2015/12/OCBA_simplified_color.png')
+INSERT INTO Beer VALUES ('1', 'Lagunitas', Null, 'Piney and resinous with classic West Coast citrus zing', '0', '6.2', '51.5', '2017-01-18', 'https://lagunitas.com/uploads/beers_landing/beer-landing-hitting-selves-waldos.png')
+INSERT INTO Beer VALUES ('1', 'Back In Black', Null, 'Brewed like an American IPA but with the addition of rich, dark malts, this beer has all the flavor and hop character you expect with a smooth, mellow finish.', '0', '6.8', '65', '2017-11-18', 'http://21st-amendment.com/assets/backinblack_can_022113-230x409.png')
+INSERT INTO Beer VALUES ('1', 'Breakside', Null, 'Golden IPA made with five different hops. Intense grapefruit and dank notes with a crisp finish.', '0', '6.2', '64', '2017-01-19', 'https://res.cloudinary.com/ratebeer/image/upload/w_120,c_limit/beer_139634.jpg')
+INSERT INTO Beer VALUES ('1', 'Edward APA', Null, 'Aromatic and flowery, with impressions of citrus and pine', '0', '5.2', '85', '2017-10-01', 'https://i.pinimg.com/736x/0c/09/a3/0c09a3a75d02b72c6a1798013902b946.jpg')
+INSERT INTO Beer VALUES ('1', 'Heady Topper', Null, 'Extremely pleasant hoppy taste with a light nodes of citrus. ', '0', '8.0', '75', '2016-01-18', 'https://cdn.beeradvocate.com/im/beers/16814.jpg')
+INSERT INTO Beer VALUES ('1', 'Hofbrau Dunkel', Null, 'Pours dark amber, head slow to dissapate. Dark malt flavor is weak, mouthfeel is thin.', '0', '5.5', '62.5', '2017-01-18', 'https://beerconnoisseur.com/sites/default/files/styles/beer_page_245w/public/beer/hofbrau-dunkel-bc.jpg?itok=Xw1DoL1k')
+INSERT INTO Beer VALUES ('1', 'Delirium Tremens', Null, 'Slightly malty, a nice touch of alcohol, spicy.', '0', '8.5', '65.5', '2017-01-18', 'https://drizly-products1.imgix.net/ci-delirium-tremens-cc7c777c5292a683.png?auto=format%2Ccompress&fm=jpeg&q=20')
+
+/******************************************** GoldHorn Brewery Info ****************************************************************/
+
