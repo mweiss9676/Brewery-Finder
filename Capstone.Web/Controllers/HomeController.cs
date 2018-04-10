@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capstone.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,9 +14,10 @@ namespace Capstone.Web.Controllers
             return View();
         }
 
-        public ActionResult ListPage()
+        public ActionResult ListPage(SearchResultModel searchModel)
         {
-            return View();
+            
+            return View(searchModel);
         }
 
     }

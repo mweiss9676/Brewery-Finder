@@ -1,7 +1,14 @@
-﻿
+﻿@model Capstone.Web.Models.SearchResultModel
 @{
     ViewBag.Title = "ListPage";
+
 }
 
-<h2>ListPage</h2>
+<div class="container">
+    
+    <div class="searchList">
+       <p>@Model.SearchString</p>
+    </div>
+</div>
+
 
