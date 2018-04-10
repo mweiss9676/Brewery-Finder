@@ -52,26 +52,50 @@ namespace Capstone.Web.DAL
         public BreweryModel GetBreweryDetail()
         {
             // Use SQL REader to get the details of a single brewery
+            BreweryModel brewery;
 
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(/*@""*/);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        brewery = BreweryReader(reader);
+                        return brewery;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return null;
         }
 
         private BreweryModel BreweryReader(SqlDataReader reader)
         {
             return new BreweryModel()
             {
-              BreweryName = Convert.ToString(reader["BreweryName"]),
-              BreweryAddress = Convert.ToString(reader["BreweryAddress"]),
-              BreweryCity = Convert.ToString(reader["BreweryCity"]),
-              BreweryPostalCode = Convert.ToString(reader["BreweryPostalCode"]),
-              BreweryDistrict = Convert.ToString(reader["BreweryDistrict"]),
-              BreweryCountry = Convert.ToString(reader["BreweryCountry"]),
-              History = Convert.ToString(reader["History"]),
-              YearFounded = Convert.ToInt32(reader["YearFounded"]),
-              BreweryProfileImg = Convert.ToString(reader["BreweryProfileImg"]),
-              BreweryBackgroundImg = Convert.ToString(reader["BreweryBackgroundImg"]),
-              BreweryHeaderImage = Convert.ToString(reader["BreweryHeaderImage"])
+                BreweryName = Convert.ToString(reader["BreweryName"]),
+                BreweryAddress = Convert.ToString(reader["BreweryAddress"]),
+                BreweryCity = Convert.ToString(reader["BreweryCity"]),
+                BreweryPostalCode = Convert.ToString(reader["BreweryPostalCode"]),
+                BreweryDistrict = Convert.ToString(reader["BreweryDistrict"]),
+                BreweryCountry = Convert.ToString(reader["BreweryCountry"]),
+                History = Convert.ToString(reader["History"]),
+                YearFounded = Convert.ToInt32(reader["YearFounded"]),
+                BreweryProfileImg = Convert.ToString(reader["BreweryProfileImg"]),
+                BreweryBackgroundImg = Convert.ToString(reader["BreweryBackgroundImg"]),
+                BreweryHeaderImage = Convert.ToString(reader["BreweryHeaderImage"])
             };
         }
     }
 }
+
+

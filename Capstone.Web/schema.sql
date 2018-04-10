@@ -115,3 +115,5 @@ INSERT INTO Beer VALUES ('1', 'Delirium Tremens', Null, 'Slightly malty, a nice 
 
 /******************************************** GoldHorn Brewery Info ****************************************************************/
 
+SELECT * FROM Brewery
+SELECT * FROM Beer
