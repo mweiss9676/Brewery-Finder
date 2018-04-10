@@ -50,11 +50,12 @@ CREATE TABLE Brewery
 	BreweryId					INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	BreweryName					VARCHAR(100) NOT NULL,
 	BreweryAddress				VARCHAR(100) NOT NULL,
+	BreweryCity					VARCHAR(100) NOT NULL,
 	BreweryDistrict				VARCHAR(50) NOT NULL,
 	BreweryCountry				VARCHAR(50) NOT NULL,
 	BreweryPostalCode			VARCHAR(50) NOT NULL,
 	History						VARCHAR(MAX) NOT NULL,
-	Year_Founded				VARCHAR(50) NOT NULL,
+	YearFounded					INT NOT NULL,
 	BreweryProfileImg			VARCHAR(50) NULL,
 	BreweryBackgroundImg		VARCHAR(50) NULL,
 	BreweryHeaderImg			VARCHAR(50) NULL
@@ -64,7 +65,7 @@ CREATE TABLE BeerTypes
 (
 	BeerTypeId					int identity(1,1) PRIMARY KEY,
 	BeerType					varchar (50) NOT NULL,
-	Description					varchar(max) NULL,
+	BeerTypeDescription			varchar(max) NULL,
 );
 
 CREATE TABLE Beer 
@@ -73,7 +74,7 @@ CREATE TABLE Beer
 	BreweryId					INT NOT NULL FOREIGN KEY REFERENCES Brewery(BreweryId),
 	BeerName					VARCHAR(100) NOT NULL,
 	BeerTypeId					INT NULL FOREIGN KEY REFERENCES BeerTypes(BeerTypeId),
-	Description					varchar(max) NULL,
+	BeerDescription				varchar(max) NULL,
 	IsBestSeller				bit NULL,
 	ABV							int NULL,
 	IBU							int NULL,

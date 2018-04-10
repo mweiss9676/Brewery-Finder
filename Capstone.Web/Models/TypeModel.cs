@@ -8,6 +8,6 @@ namespace Capstone.Web.Models
     public class TypeModel
     {
         public string BeerType { get; set; }
-        public string Description { get; set; }
+        public string BeerTypeDescription { get; set; }
     }
 }
