@@ -22,11 +22,11 @@ namespace Capstone.Web.Controllers
             return View();
         }
 
-        public ActionResult ListPage()
+        public ActionResult ListPage(SearchResultModel searchresult)
         {
-            IList<BreweryModel> list = dal.GetAllBreweries();
-            list.ToList();
-            return View("ListPage", list);
+            dal.SearchBreweries(searchresult);
+
+            return View("ListPage", searchresult);
         }
 
     }

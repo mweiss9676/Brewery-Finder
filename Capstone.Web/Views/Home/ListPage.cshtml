@@ -1,5 +1,5 @@
-﻿@*@model Capstone.Web.Models.SearchResultModel*@
-@model IList<Capstone.Web.Models.BreweryModel>
+﻿@model Capstone.Web.Models.SearchResultModel
+@*@model IList<Capstone.Web.Models.BreweryModel>*@
 
 
 @{
@@ -12,12 +12,12 @@
     
     
     <div class="searchList">
-       @*<p>@Model.SearchString</p>*@
+       <p>@Model.SearchString</p>
        
-       @foreach (var brewery in Model)
+       @*@foreach (var brewery in Model)
        {
           <p>@brewery.BreweryName</p>
-       }
+       }*@
 
     </div>
 </div>

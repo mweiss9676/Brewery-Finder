@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using Capstone.Web.Models;
 using System.Configuration;
+using System.Text.RegularExpressions;
 
 namespace Capstone.Web.DAL
 {
@@ -73,6 +74,40 @@ namespace Capstone.Web.DAL
             catch (SqlException ex)
             {
                 throw ex;
+            }
+            return null;
+        }
+
+        public IList<BreweryModel> SearchBreweries(SearchResultModel searchString)
+        {
+            //List<string> searchParameters = new List<string>();
+
+            Regex reg = new Regex(@"(?:,\s)");
+
+            var searchParameters = reg.Split(searchString.SearchString);
+
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("", conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        BreweryModel brewery = new BreweryModel();
+
+
+                    }
+                }
+            }
+            catch(SqlException ex)
+            {
+                Console.WriteLine(ex);
             }
             return null;
         }
