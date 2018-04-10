@@ -115,5 +115,14 @@ INSERT INTO Beer VALUES ('1', 'Delirium Tremens', Null, 'Slightly malty, a nice 
 
 /******************************************** GoldHorn Brewery Info ****************************************************************/
 
+
+
+/******************************************** Great Lakes Brewery Info *************************************************************/
+
+INSERT INTO Brewery VALUES ('Great Lakes Brewery', '2516 Market Ave.', 'Cleveland', 'OH', 'USA', '44113', 'Two Irish brothers with limited brewing experience. A city that shuttered its last production brewery in the early 80s. A neighborhood in serious need of a facelift. In 1986 when Patrick and Daniel Conway opened their fledgling operation in Clevelands Ohio City neighborhood, the odds were stacked against them. Fortunately, they surrounded themselves with a staff of passionate, knowledgeable people, and from the start committed themselves to bringing a sophisticated, diverse selection of craft beer to their home state. Two decades, multiple awards, and a whole lot of stories later, Pat and Dan Conway celebrate over two decades of brewing exceptional beer for their adventurous and discerning customers.', '1986', 'https://goo.gl/images/26Anur','https://goo.gl/images/FtYegH', 'https://goo.gl/images/Nxhzin')
+INSERT INTO Beer VALUES (2, 'Dortmunder Gold', NULL, 'A smooth, award-winning (and deceptively unassuming) balance of sweet malt and dry hop flavors. Yes, its known for winning medals worldwide. But locally, its known as "Dort," our flagship lager that humbly maintains its smooth, balanced (and charmingly unpretentious) ways.', 1, 5.8, 30, '1988-01-01', 'https://www.greatlakesbrewing.com/sites/default/files/styles/large/public/dortmunder-fixed_1.png?itok=67hwPAVE')
+
+/******************************************** Great Lakes Brewery Info *************************************************************/
 SELECT * FROM Brewery
+
 SELECT * FROM Beer
