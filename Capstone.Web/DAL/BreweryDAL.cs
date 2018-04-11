@@ -78,7 +78,7 @@ namespace Capstone.Web.DAL
             return null;
         }
 
-        public Dictionary<string, BreweryModel> SearchBreweries(SearchResultModel searchString)
+        public List<BreweryModel> SearchBreweries(SearchStringModel searchString)
         {
             Dictionary<string, BreweryModel> searchResults = new Dictionary<string, BreweryModel>();
 
@@ -88,7 +88,6 @@ namespace Capstone.Web.DAL
 
             try
             {
-
                 for (int i = 0; i < searchParameters.Length; i++)
                 {
 
@@ -126,7 +125,9 @@ namespace Capstone.Web.DAL
                 Console.WriteLine(ex);
             }
 
-            return searchResults;
+            var searchResultsList = searchResults.Values.ToList();
+
+            return searchResultsList;
         }
 
         private BreweryModel BreweryReader(SqlDataReader reader)

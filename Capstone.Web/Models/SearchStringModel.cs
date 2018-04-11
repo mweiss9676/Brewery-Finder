@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Capstone.Web.Models
 {
-    public class SearchResultModel
+    public class SearchStringModel
     {
         public string SearchString { get; set; }
     }
