@@ -169,4 +169,25 @@ a#loginLink {
     text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
 }
 
+
 /***************************************END LIST PAGE***********************************************/
+
+/******************************************BREWERY INFO***************************************/
+
+#brewerProfileImg {
+    width: 30%;
+    height: auto;
+    display: inline;
+}
+
+#breweryInfo {
+    float: right;
+    padding: 75px;
+    display: inline;
+    background-color: rgba(43, 50, 56, 0.9);
+    border-radius: 5px;
+    color: black;
+}
+
+/******************************************END BREWERY INFO***********************************/
+
