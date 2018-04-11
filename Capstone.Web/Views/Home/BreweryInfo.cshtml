@@ -6,18 +6,18 @@
 
 <div class="container">
 
-    <img id="brewerProfileImg" src="@Model.BreweryProfileImg">
+    <img id="brewerProfileImg" src='@Model.BreweryProfileImg'>
 
     <div id="breweryInfo">
 
-        <h1>@Model.BreweryName</h1>
+        <div class="brewInfoTxt">
+            <h1>@Model.BreweryName</h1>
 
-        <h2>Founded in: @Model.YearFounded</h2>
+            <h2>Founded in: @Model.YearFounded</h2>
 
-        <h3>@Model.History</h3>
-
+            <p>@Model.History</p>
+        </div>
     </div>
-
 
 </div>
 

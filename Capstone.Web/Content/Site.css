@@ -189,19 +189,41 @@ a#loginLink {
 /******************************************BREWERY INFO***************************************/
 
 #brewerProfileImg {
+    margin-top: 80px;
+    margin-left: 75px;
+    border-radius: 5px;
     width: 30%;
     height: auto;
-    display: inline;
+    display: inline-block;
+    float: left;
+    box-shadow: black 2px 2px 15px;
 }
 
 #breweryInfo {
+    margin-top: 220px;
+    margin-right: 75px;
     float: right;
-    padding: 75px;
-    display: inline;
-    background-color: rgba(43, 50, 56, 0.9);
+    padding: 10px;
+    width: 50%;
+    display: block;
+    background-color: rgba(220, 220, 220, .8);
+    box-shadow: black 2px 2px 15px;
     border-radius: 5px;
-    color: black;
 }
+
+    #breweryInfo h1, h2 {
+        margin: auto;
+        font-family: var(--headerFont);
+        text-shadow: 2px 2px 2px rgba(30, 30, 30, .8);
+    }
+
+    #breweryInfo .brewInfoTxt {
+        width: 75%;
+        margin: 0 auto;
+        font-family: var(--bodyFont);
+        color: var(--secondaryColor);
+        text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
+    }
 
 /******************************************END BREWERY INFO***********************************/
 
