@@ -1,0 +1,18 @@
+﻿@model Capstone.Web.Models.BreweryModel
+
+    @{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
+
+    <div class="container">
+
+        <img src="@Model.BreweryProfileImg"/>
+
+        <p>@Model.BreweryName</p>
+
+        <p>Founded in: @Model.YearFounded</p>
+
+        <p>@Model.History</p>
+
+    </div>

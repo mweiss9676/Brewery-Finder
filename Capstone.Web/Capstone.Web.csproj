@@ -248,6 +248,7 @@
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\ListPage.cshtml" />
+    <Content Include="Views\Home\BreweryInfo.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -13,7 +13,6 @@ namespace Capstone.Web.DAL
 
         Dictionary<string, BreweryModel> SearchBreweries(SearchResultModel searchstring);
 
-        BreweryModel GetBreweryDetail();
-
+        BreweryModel GetBreweryDetail(int breweryId);
     }
 }

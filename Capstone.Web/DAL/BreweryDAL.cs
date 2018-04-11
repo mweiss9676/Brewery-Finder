@@ -49,7 +49,7 @@ namespace Capstone.Web.DAL
             return breweries;
         }
 
-        public BreweryModel GetBreweryDetail()
+        public BreweryModel GetBreweryDetail(int breweryId)
         {
             // Use SQL REader to get the details of a single brewery
             BreweryModel brewery;
@@ -60,7 +60,8 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand(/*@""*/);
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM Brewery WHERE BreweryId = @breweryId", conn);
+                    cmd.Parameters.AddWithValue("@breweryId", breweryId);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
