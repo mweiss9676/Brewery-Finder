@@ -78,9 +78,9 @@ namespace Capstone.Web.DAL
             return null;
         }
 
-        public HashSet<BreweryModel> SearchBreweries(SearchResultModel searchString)
+        public Dictionary<string, BreweryModel> SearchBreweries(SearchResultModel searchString)
         {
-            HashSet<BreweryModel> searchResults = new HashSet<BreweryModel>();
+            Dictionary<string, BreweryModel> searchResults = new Dictionary<string, BreweryModel>();
 
             Regex reg = new Regex(@"(?:\s)");
 
@@ -113,7 +113,10 @@ namespace Capstone.Web.DAL
                         while (reader.Read())
                         {
                             BreweryModel brewery = BreweryReader(reader);
-                            searchResults.Add(brewery);
+                            if(!searchResults.ContainsKey(brewery.BreweryName))
+                            {
+                                searchResults.Add(brewery.BreweryName, brewery);
+                            }
                         }
                     }                    
                 }

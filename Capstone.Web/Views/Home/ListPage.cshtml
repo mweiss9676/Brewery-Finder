@@ -1,7 +1,4 @@
-﻿@*@model Capstone.Web.Models.SearchResultModel*@
-@model HashSet<Capstone.Web.Models.BreweryModel>
-
-
+﻿@model Dictionary<string, Capstone.Web.Models.BreweryModel>
 
 @{
     ViewBag.Title = "ListPage";
@@ -11,12 +8,10 @@
 <div class="container">
     
     
-    <div class="searchList">
-       @*<p>@Model.SearchString</p>*@
-       
-       @foreach (var brewery in Model)
+    <div class="searchList">       
+       @foreach (var kvp in Model)
        {
-          <p>@brewery.BreweryName</p>
+          <p>@kvp.Value.BreweryName</p>
        }
 
     </div>
