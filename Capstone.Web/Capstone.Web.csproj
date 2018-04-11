@@ -252,10 +252,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\ListPage.cshtml" />
     <Content Include="Views\Home\BreweryInfo.cshtml" />
+    <Content Include="Views\Home\BeerInfo.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

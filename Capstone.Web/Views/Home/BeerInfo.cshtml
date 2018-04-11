@@ -1,0 +1,18 @@
+﻿@model Capstone.Web.Models.BeerModel
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    <img src="@Model.BeerLabelImg" />
+
+    <p>@Model.BeerName</p>
+
+    <p>@Model.DateBrewed</p>
+
+    <p>@Model.BeerDescription</p>
+
+</div>
+
