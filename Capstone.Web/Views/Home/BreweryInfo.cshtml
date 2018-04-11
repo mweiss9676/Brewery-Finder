@@ -1,18 +1,23 @@
 ﻿@model Capstone.Web.Models.BreweryModel
 
-    @{
-        
+@{
 
-    }
+}
 
-    <div class="container">
+<div class="container">
 
-        <img src="@Model.BreweryProfileImg"/>
+    <img id="brewerProfileImg" src="@Model.BreweryProfileImg">
 
-        <p>@Model.BreweryName</p>
+    <div id="breweryInfo">
 
-        <p>Founded in: @Model.YearFounded</p>
+        <h1>@Model.BreweryName</h1>
 
-        <p>@Model.History</p>
+        <h2>Founded in: @Model.YearFounded</h2>
+
+        <h3>@Model.History</h3>
 
     </div>
+
+
+</div>
+

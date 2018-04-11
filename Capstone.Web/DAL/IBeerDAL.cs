@@ -9,7 +9,7 @@ namespace Capstone.Web.DAL
 {
     public interface IBeerDAL
     {
-        List<BeerModel> Beers();
+        List<BeerModel> Beers(SearchStringModel searchString);
         BeerModel GetBeer();
     }
 }

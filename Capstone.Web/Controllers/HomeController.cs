@@ -10,10 +10,12 @@ namespace Capstone.Web.Controllers
 {
     public class HomeController : Controller
     {
-        IBreweryDAL dal;
-        public HomeController(IBreweryDAL dal)
+        IBreweryDAL breweryDAL;
+        IBeerDAL beerDAL;
+        public HomeController(IBreweryDAL breweryDAL, IBeerDAL beerDAL)
         {
-            this.dal = dal;
+            this.breweryDAL = breweryDAL;
+            this.beerDAL = beerDAL;
         }
 
         public ActionResult Index()
@@ -23,14 +25,19 @@ namespace Capstone.Web.Controllers
 
         public ActionResult ListPage(SearchStringModel searchresult)
         {
-            var breweries = dal.SearchBreweries(searchresult);
+            SearchResultsModel searchResults = new SearchResultsModel();
 
-            return View("ListPage", breweries);
+            searchResults.Breweries = breweryDAL.SearchBreweries(searchresult);
+            searchResults.Beers = beerDAL.Beers(searchresult);
+
+
+            return View("ListPage", searchResults);
         }
 
-        public ActionResult BreweryInfo(int breweryId)
+        public ActionResult BreweryInfo()
         {
-            var result = dal.GetBreweryDetail(breweryId);
+
+            var result = breweryDAL.GetBreweryDetail(1);
 
             return View("BreweryInfo", result);
         }

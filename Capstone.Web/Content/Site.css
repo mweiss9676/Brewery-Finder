@@ -121,3 +121,21 @@ a#loginLink {
     transform: translate(-50%,-50%);
 }
 
+/******************************************BREWERY INFO***************************************/
+
+#brewerProfileImg {
+    width: 30%;
+    height: auto;
+    display: inline;
+}
+
+#breweryInfo {
+    float: right;
+    padding: 75px;
+    display: inline;
+    background-color: rgba(43, 50, 56, 0.9);
+    border-radius: 5px;
+    color: black;
+}
+
+/******************************************END BREWERY INFO***********************************/
