@@ -7,6 +7,12 @@
 
 <div class="searchResultsPage">
     <div class="searchResults">
+        @if (Model.Beers == null && Model.Breweries == null)
+        {
+            <div class="results">
+                <p class="notFound">No Results Were Found</p>
+            </div>
+        }
         @foreach (var brewery in Model.Breweries)
         {
         <a href="@Url.Action("BreweryInfo", "Home")">

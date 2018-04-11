@@ -17,5 +17,7 @@
             alert("You must be 21 years old to view this site.");
         }
     });
-
+    $('.searchBar').submit(function () {
+        $(this).addClass('top');
+    });
 });
