@@ -37,7 +37,7 @@ namespace Capstone.Web.Controllers
         public ActionResult BreweryInfo()
         {
 
-            var result = breweryDAL.GetBreweryDetail(1);
+            var result = breweryDAL.GetBreweryDetail(2);
 
             return View("BreweryInfo", result);
         }
