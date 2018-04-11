@@ -63,7 +63,7 @@ CREATE TABLE Brewery
 
 CREATE TABLE BeerTypes
 (
-	BeerTypeId					int identity(1,1) PRIMARY KEY,
+	BeerTypeId					int identity(1,1) NOT NULL PRIMARY KEY,
 	BeerType					varchar (50) NOT NULL,
 	BeerTypeDescription			varchar(max) NULL,
 );
@@ -129,8 +129,8 @@ INSERT INTO Beer VALUES (2, 'Lightkeeper', 3, 'Inspired by Marblehead Lighthouse
 INSERT INTO Beer VALUES (2, 'Conways Irish Ale', 22, 'A pint for Pa Conway! Our co-owners grandfather and policeman who’d likely uphold that an Irish Ale with full-bodied caramel malt flavors is just the ticket.', 1, 6.3, 25, '1988-01-01', 'https://www.greatlakesbrewing.com/sites/default/files/styles/large/public/conway-fixed_1.png?itok=uarextFA')
 INSERT INTO Beer VALUES (2, 'Hop Madness', 13, 'Beware! Our deranged brewers conjured up loads of nefarious nuggets to create this dry-hopped elixir bursting with shockingly juicy aromas and hair-raising bitterness!', 1, 9.0, 100, '1988-01-01', 'https://www.greatlakesbrewing.com/sites/default/files/styles/large/public/hopmadness_combo_0.png?itok=cXvnVz3Z')
 INSERT INTO Beer VALUES (2, 'Cloud Cutter', 27, 'Bursts of juicy citrus zip across friendly, lightly filtered wheat skies in our high-flying tribute to the historic Cleveland Air Races.', 1, 5.1, 40, '1988-01-01', 'https://www.greatlakesbrewing.com/sites/default/files/styles/large/public/cloud-cutter-composite-290x480.png?itok=_A4H66Vf')
-INSERT INTO Beer VALUES (2, 'Chillwave', NULL, 'Inspired by the North Coast’s dedicated (and sometimes chilly) surf community, our Double IPA will melt the ice in your beard and never lose its balance.', 1, 9, 80, '2018-04-01', 'https://www.greatlakesbrewing.com/sites/default/files/styles/large/public/chillwave-fixed.png?itok=cLFlsZ6g')
-INSERT INTO Beer VALUES (2, 'Rally Drum Red Ale', 13, 'With a tip of the cap to Cleveland baseball superfan and bleacher seat percussionist John J. Adams, our Red Ale fields a double header of bitter hop and roasted malt flavors.', 1, 5.8, 45, '2018-04-01', 'https://www.greatlakesbrewing.com/sites/default/files/styles/large/public/rally-drum-all.png?itok=rFGsOSfH')
+INSERT INTO Beer VALUES (2, 'Chillwave', 13, 'Inspired by the North Coast’s dedicated (and sometimes chilly) surf community, our Double IPA will melt the ice in your beard and never lose its balance.', 1, 9, 80, '2018-04-01', 'https://www.greatlakesbrewing.com/sites/default/files/styles/large/public/chillwave-fixed.png?itok=cLFlsZ6g')
+INSERT INTO Beer VALUES (2, 'Rally Drum Red Ale', 22, 'With a tip of the cap to Cleveland baseball superfan and bleacher seat percussionist John J. Adams, our Red Ale fields a double header of bitter hop and roasted malt flavors.', 1, 5.8, 45, '2018-04-01', 'https://www.greatlakesbrewing.com/sites/default/files/styles/large/public/rally-drum-all.png?itok=rFGsOSfH')
 INSERT INTO Beer VALUES (2, 'Holy Moses Raspberry White Ale', 25, 'In the spirit of Moses Cleavelands thirst for discovery, our classic White Ale meets fresh, juicy raspberries to forge a pint worth planting a flag in (or an orange slice!)', 1, 6.2, 20, '2018-05-01', 'https://www.greatlakesbrewing.com/sites/default/files/styles/large/public/holy-moses-raspberry-290x480.png?itok=O5gJsfqI')
 INSERT INTO Beer VALUES (2, 'Lake Erie Monster', 13, 'Issue a small craft advisory: this South Bay Bessie-inspired brew launches an intense hop attack amid torrid tropical fruit flavors.', 1, 9.1, 80, '2018-06-01', 'https://www.greatlakesbrewing.com/sites/default/files/styles/large/public/monster-fixed_1.png?itok=g1hS4uWp')
 INSERT INTO Beer VALUES (2, 'Oktoberfest', 20, 'Prost! Our take on this classic German style is a celebration of maltiness— packed with rustic, autumnal flavors to put a little more oomph into your oom-pah-pah.', 1, 6.5, 20, '1988-01-01', 'https://www.greatlakesbrewing.com/sites/default/files/styles/large/public/oktoberfest-fixed.png?itok=xFr4Zj1_')
