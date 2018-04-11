@@ -67,7 +67,7 @@ a#loginLink {
     width: 35%;
     background-color: black;
     color: white;
-    font-family: 'Comic Sans MS';
+    font-family: '';
     font-size:larger;
     position:absolute;
     left: 50%;
@@ -105,19 +105,19 @@ a#loginLink {
 /******************************************END HOMEPAGE INDEX***************************************/
 
 
-.searchList { 
-    border: 1px solid white;
+.searchResults { 
+    border: 1px solid black;
     padding: 5px 5px 5px 5px;
-    border-width: 2px;
-    height: 50px;
+    border-width: 2px;    
     width: 35%;
-    background-color: black;
-    color: white;
-    font-family: 'Comic Sans MS';
+    background-color: white;
+    color: black;
+    font-family: '';
     font-size: larger;
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 60%;
     transform: translate(-50%,-50%);
+    margin-top: 5px;
 }
 

@@ -6,18 +6,17 @@
 }
 
 <div class="container">
-    
-    
-    <div class="searchList">       
-        @foreach(var brewery in Model.Breweries)
+
+    <div class="searchBar"></div>
+    <div class="searchResults">
+        @foreach (var brewery in Model.Breweries)
         {
-            <p>@brewery.BreweryName</p>
+            <a href="@Url.Action("BreweryInfo", "Home")">@brewery.BreweryName</a>
         }
-        @foreach(var beer in Model.Beers)
+        @foreach (var beer in Model.Beers)
         {
             <p>@beer.BeerName</p>
         }
-
     </div>
 </div>
 
