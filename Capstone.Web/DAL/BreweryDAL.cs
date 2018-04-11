@@ -18,8 +18,6 @@ namespace Capstone.Web.DAL
             this.connectionString = connectionString;
         }
 
-       
-
         public IList<BreweryModel> GetAllBreweries()
         {
             List<BreweryModel> breweries = new List<BreweryModel>();

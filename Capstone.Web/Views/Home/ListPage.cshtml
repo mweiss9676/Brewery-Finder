@@ -5,17 +5,33 @@
 
 }
 
-<div class="container">
-
-    <div class="searchBar"></div>
+<div class="searchResultsPage">
     <div class="searchResults">
+        @if (Model.Beers == null && Model.Breweries == null)
+        {
+            <div class="results">
+                <p class="notFound">No Results Were Found</p>
+            </div>
+        }
         @foreach (var brewery in Model.Breweries)
         {
-            <a href="@Url.Action("BreweryInfo", "Home")">@brewery.BreweryName</a>
+        <a href="@Url.Action("BreweryInfo", "Home")">
+            <div class="breweryResults results">
+                <img class="breweryImage" src="@brewery.BreweryBackgroundImg" />
+                <p class="breweryName">@brewery.BreweryName</p>
+                <p class="breweryHistory">@brewery.History</p>
+            </div>
+        </a>
         }
         @foreach (var beer in Model.Beers)
         {
-            <p>@beer.BeerName</p>
+            <a href="@Url.Action("#", "#")">
+                <div class="beerResults results">
+                    <img class="beerImage" src="@beer.BeerLabelImg" />
+                    <p class="beerName">@beer.BeerName</p>
+                    <p class="beerDescription">@beer.BeerDescription</p>
+                </div>
+            </a>
         }
     </div>
 </div>

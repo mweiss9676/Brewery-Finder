@@ -4,7 +4,13 @@
     box-sizing:border-box;
 }
 
-
+:root {
+    --headerFont: 'Archivo Black', sans-serif;
+    --bodyFont: 'Archivo Narrow', sans-serif;
+    --mainColor: white;
+    --secondaryColor: black;
+    --headerHeight: 50px;
+}
 
 /* Set padding to keep content from hitting the edges */
 
@@ -36,7 +42,7 @@ a#registerLink {
     text-decoration: none;
     color: white;
     text-align: right;
-    font-family: cursive;
+    font-family: '';
     padding-right: 20px;
 }
 
@@ -44,7 +50,7 @@ a#loginLink {
     text-decoration: none;
     color: white;
     text-align: right;
-    font-family: cursive;
+    font-family: '';
 }
 
 .backgroundMain{
@@ -73,6 +79,15 @@ a#loginLink {
     left: 50%;
     top: 50%;
     transform:translate(-50%,-50%);
+}
+
+.searchBar:focus {
+    outline: none;
+}
+
+.searchBar.top {
+    top: 100px;
+    transition-duration: 500ms;
 }
 
 .ageCheckerDiv {
@@ -104,20 +119,89 @@ a#loginLink {
 }
 /******************************************END HOMEPAGE INDEX***************************************/
 
+/*******************************************LIST PAGE***********************************************/
 
-.searchResults { 
-    border: 1px solid black;
-    padding: 5px 5px 5px 5px;
-    border-width: 2px;    
-    width: 35%;
-    background-color: white;
-    color: black;
-    font-family: '';
-    font-size: larger;
-    position: absolute;
-    left: 50%;
-    top: 60%;
-    transform: translate(-50%,-50%);
-    margin-top: 5px;
+.searchResultsPage {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 50px;
 }
+
+.results {
+    position: relative;
+    height: 130px;
+    width: 70vw;
+    background-color: rgba(220, 220, 220, .8);
+    margin-top: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 10px -10px rgba(30, 30, 30, .5);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.searchResults a{
+    text-decoration: none;
+}
+
+.beerImage, .breweryImage {
+    height: 130px;
+    width: auto;
+    object-fit: contain;
+}
+
+.breweryName, .beerName {
+    position: absolute;
+    text-transform: uppercase;
+    font-weight: bold;
+    bottom: 0;
+    left: 1rem;
+    color: rgba(255, 255, 255, .9);
+    font-size: 2rem;
+    font-family: var(--headerFont);
+    text-shadow: 2px 2px 2px rgba(30, 30, 30, .8);
+    width: 50%;
+}
+
+.breweryHistory, .beerDescription {
+    width: 50%;
+    color: var(--secondaryColor);
+    font-family: var(--bodyFont);
+    font-size: 1.2rem;
+    padding: 10px;
+    text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
+}
+
+.notFound {
+    font-size: 2rem;
+    font-family: var(--bodyFont);
+}
+
+
+/***************************************END LIST PAGE***********************************************/
+
+/******************************************BREWERY INFO***************************************/
+
+#brewerProfileImg {
+    width: 30%;
+    height: auto;
+    display: inline;
+}
+
+#breweryInfo {
+    float: right;
+    padding: 75px;
+    display: inline;
+    background-color: rgba(43, 50, 56, 0.9);
+    border-radius: 5px;
+    color: black;
+}
+
+/******************************************END BREWERY INFO***********************************/
 
