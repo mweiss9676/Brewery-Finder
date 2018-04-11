@@ -5,6 +5,9 @@
 
 }
 
+<<<<<<< HEAD
+<div class="searchResultsPage">
+=======
 <div class="container">
     
     
@@ -13,16 +16,32 @@
         
 
     <div class="searchBar"></div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> c2432ba2183e73556dcd030f8a6620bbf8e7b529
+>>>>>>> b2cb2d73f2fe7fd9607f51cb26d147dc236a01ff
     <div class="searchResults">
         @foreach (var brewery in Model.Breweries)
 
         {
-            <a href="@Url.Action("BreweryInfo", "Home")">@brewery.BreweryName</a>
+        <a href="@Url.Action("BreweryInfo", "Home")">
+            <div class="breweryResults results">
+                <img class="breweryImage" src="@brewery.BreweryBackgroundImg" />
+                <p class="breweryName">@brewery.BreweryName</p>
+                <p class="breweryHistory">@brewery.History</p>
+            </div>
+        </a>
         }
         @foreach (var beer in Model.Beers)
         {
-            <p>@beer.BeerName</p>
+            <a href="@Url.Action("#", "#")">
+                <div class="beerResults results">
+                    <img class="beerImage" src="@beer.BeerLabelImg" />
+                    <p class="beerName">@beer.BeerName</p>
+                    <p class="beerDescription">@beer.BeerDescription</p>
+                </div>
+            </a>
         }
     </div>
 </div>

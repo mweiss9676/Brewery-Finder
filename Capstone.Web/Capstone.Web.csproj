@@ -253,9 +253,7 @@
     <Content Include="Views\Home\ListPage.cshtml" />
     <Content Include="Views\Home\BreweryInfo.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
