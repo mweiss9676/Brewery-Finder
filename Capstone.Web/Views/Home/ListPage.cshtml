@@ -1,16 +1,4 @@
-﻿@*@model Capstone.Web.Models.SearchResultModel*@
-@model Capstone.Web.Models.BreweryModel
-
-
-
-
-
-
-
-
-
-
-
+﻿@model Capstone.Web.Models.SearchResultsModel
 
 @{
     ViewBag.Title = "ListPage";
@@ -19,9 +7,16 @@
 
 <div class="container">
     
-    <div class="searchList">
-       @*<p>@Model.SearchString</p>*@
-       <p>@Model.BreweryName</p>
+    
+    <div class="searchList">       
+        @foreach(var brewery in Model.Breweries)
+        {
+            <p>@brewery.BreweryName</p>
+        }
+        @foreach(var beer in Model.Beers)
+        {
+            <p>@beer.BeerName</p>
+        }
 
     </div>
 </div>

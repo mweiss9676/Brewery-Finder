@@ -1,17 +1,15 @@
-﻿
-
-@{
+﻿@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="container">
-    <div class="ageCheckerDiv">
+    @*<div class="ageCheckerDiv">
         <input class="ageCheckerForm" type="date" name="ageCheckerForm" />
         <button id="ageSubmit">Submit</button>
-    </div>
+    </div>*@
     <div class="searchBarDiv">
-        <form method="get" action="@Url.Action("ListPage","Home")">
-            <input style="text-align: center" class="searchBar" type="search" name="SearchString" placeholder="Search for beers or breweries" />
-        </form>
+        <form class="searchBar">
+            <input style="text-align: center" class="hi" type="search" name="SearchString" placeholder="Search for beers or breweries" />
+        </form>     
     </div>
 </div>
