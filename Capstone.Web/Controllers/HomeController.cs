@@ -18,7 +18,6 @@ namespace Capstone.Web.Controllers
 
         public ActionResult Index()
         {
-
             return View();
         }
 

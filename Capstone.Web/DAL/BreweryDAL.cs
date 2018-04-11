@@ -98,10 +98,10 @@ namespace Capstone.Web.DAL
 
                         string searchTerm = searchParameters[i];
                         SqlCommand cmd = new SqlCommand(@"SELECT * FROM Brewery
-                                                      WHERE BreweryName LIKE @brewery
-                                                      OR BreweryDistrict LIKE @district
-                                                      OR BreweryCity LIKE @city
-                                                      OR BreweryPostalCode LIKE @postal", conn);
+                                                          WHERE BreweryName LIKE @brewery
+                                                          OR Brewery.BreweryDistrict LIKE @district
+                                                          OR Brewery.BreweryCity LIKE @city
+                                                          OR Brewery.BreweryPostalCode LIKE @postal", conn);
 
                         cmd.Parameters.AddWithValue("@brewery", $"%{searchTerm}%");
                         cmd.Parameters.AddWithValue("@district", $"%{searchTerm}%");
@@ -133,6 +133,7 @@ namespace Capstone.Web.DAL
         {
             return new BreweryModel()
             {
+                BreweryId = Convert.ToInt32(reader["BreweryId"]),
                 BreweryName = Convert.ToString(reader["BreweryName"]),
                 BreweryAddress = Convert.ToString(reader["BreweryAddress"]),
                 BreweryCity = Convert.ToString(reader["BreweryCity"]),
