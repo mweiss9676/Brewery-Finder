@@ -21,11 +21,11 @@ namespace Capstone.Web.Controllers
             return View();
         }
 
-        public ActionResult ListPage(SearchResultModel searchresult)
+        public ActionResult ListPage(SearchStringModel searchresult)
         {
-            var results = dal.SearchBreweries(searchresult);
+            var breweries = dal.SearchBreweries(searchresult);
 
-            return View("ListPage", results);
+            return View("ListPage", breweries);
         }
 
         public ActionResult BreweryInfo(BreweryModel brewery)

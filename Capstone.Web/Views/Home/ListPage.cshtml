@@ -1,4 +1,4 @@
-﻿@model Dictionary<string, Capstone.Web.Models.BreweryModel>
+﻿@model List<Capstone.Web.Models.BreweryModel>
 
 @{
     ViewBag.Title = "ListPage";
@@ -9,9 +9,9 @@
     
     
     <div class="searchList">       
-       @foreach (var kvp in Model)
+       @foreach (var brewery in Model)
        {
-          <p>@kvp.Value.BreweryName</p>
+          <p>@brewery.BreweryName</p>
        }
 
     </div>
