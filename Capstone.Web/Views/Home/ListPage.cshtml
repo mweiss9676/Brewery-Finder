@@ -5,25 +5,15 @@
 
 }
 
-<<<<<<< HEAD
 <div class="searchResultsPage">
-=======
-<div class="container">
-    
-    
-    <div class="searchList">       
-
-        
-
-    <div class="searchBar"></div>
-<<<<<<< HEAD
-
-=======
->>>>>>> c2432ba2183e73556dcd030f8a6620bbf8e7b529
->>>>>>> b2cb2d73f2fe7fd9607f51cb26d147dc236a01ff
     <div class="searchResults">
+        @if (Model.Beers == null && Model.Breweries == null)
+        {
+            <div class="results">
+                <p class="notFound">No Results Were Found</p>
+            </div>
+        }
         @foreach (var brewery in Model.Breweries)
-
         {
         <a href="@Url.Action("BreweryInfo", "Home")">
             <div class="breweryResults results">
@@ -45,6 +35,5 @@
         }
     </div>
 </div>
-    </div>
 
 
