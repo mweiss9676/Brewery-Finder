@@ -34,9 +34,9 @@ namespace Capstone.Web.Controllers
             return View("ListPage", searchResults);
         }
 
-        public ActionResult BreweryInfo()
+        public ActionResult BreweryInfo(BreweryModel brewery)
         {
-            var result = breweryDAL.GetBreweryDetail(1);
+            var result = breweryDAL.GetBreweryDetail(brewery.BreweryId);
 
             return View("BreweryInfo", result);
         }

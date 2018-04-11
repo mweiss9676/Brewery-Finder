@@ -15,7 +15,7 @@
         }
         @foreach (var brewery in Model.Breweries)
         {
-        <a href="@Url.Action("BreweryInfo", "Home")">
+        <a href="@Url.Action("BreweryInfo", "Home", brewery)">
             <div class="breweryResults results">
                 <img class="breweryImage" src="@brewery.BreweryBackgroundImg" />
                 <p class="breweryName">@brewery.BreweryName</p>
