@@ -18,9 +18,4 @@
         }
     });
 
-    $('.searchBar').submit(function () {
-        $('searchBar').css(function () {
-            zIndex: '-10'
-        });
-    });
 });
