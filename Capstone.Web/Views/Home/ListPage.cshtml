@@ -12,6 +12,8 @@
        @foreach (var brewery in Model)
        {
           <p>@brewery.BreweryName</p>
+          @Html.ActionLink($"{brewery.BreweryName}", "BreweryInfo", "Home", brewery.BreweryId)
+         )
        }
 
     </div>
