@@ -80,6 +80,7 @@ a#loginLink {
     top: 50%;
     transform:translate(-50%,-50%);
     z-index: 10;
+  
 }
 
 .searchBar:focus {
@@ -93,7 +94,7 @@ a#loginLink {
 
 .ageCheckerDiv {
     height: 50vh;
-    width: 100%;
+    width: 50%;
     background-color: black;
     color: white;
     font-size: larger;
@@ -103,6 +104,10 @@ a#loginLink {
     transform: translate(-50%,-50%);
     text-align: center;
     z-index: 100;
+    padding-left: 25%;
+    padding-right: 25%;
+    box-shadow: 10px 10px  rgba(30, 30, 30, .5);
+    border: 1px solid white;
 }
 
 .ageCheck {
@@ -160,7 +165,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     left: -130%;
     height: 130px;
     width: 70vw;
-    background-color: rgba(220, 220, 220, .8);
+    background-color: rgba(220, 220, 220, .9);
     margin-top: 15px;
     overflow: hidden;
     box-shadow: 0 10px 10px -10px rgba(30, 30, 30, .5);
