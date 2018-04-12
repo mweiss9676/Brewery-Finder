@@ -252,7 +252,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     border-radius: 5px;
     position: absolute;
     right: 25%;
-    top: 10%;
+    top: 25%;
 }
 
     #breweryInfo h1, h2 {
