@@ -135,6 +135,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .barVid{
     position: fixed;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
     z-index: -1;
 }
 /******************************************END HOMEPAGE INDEX***************************************/
