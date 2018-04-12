@@ -11,7 +11,7 @@
 
         if (difference >= 21) {
 
-            $('.searchBar').focus();
+            $('.searchBar').focus();a
             $('.ageCheckerDiv').css({
                 zIndex: '-10'
             });
