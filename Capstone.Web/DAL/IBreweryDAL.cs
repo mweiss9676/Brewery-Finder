@@ -11,7 +11,7 @@ namespace Capstone.Web.DAL
     {
         IList<BreweryModel> GetAllBreweries();
 
-        List<BreweryModel> SearchBreweries(SearchStringModel searchstring);
+        List<BreweryModel> SearchBreweries(string searchstring);
 
         BreweryModel GetBreweryDetail(int breweryId);
     }

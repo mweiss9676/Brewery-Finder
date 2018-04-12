@@ -77,13 +77,13 @@ namespace Capstone.Web.DAL
             return null;
         }
 
-        public List<BreweryModel> SearchBreweries(SearchStringModel searchString)
+        public List<BreweryModel> SearchBreweries(string searchString)
         {
             Dictionary<string, BreweryModel> searchResults = new Dictionary<string, BreweryModel>();
 
             Regex reg = new Regex(@"(?:\s)");
 
-            var searchParameters = reg.Split(searchString.SearchString);
+            var searchParameters = reg.Split(searchString);
 
             try
             {

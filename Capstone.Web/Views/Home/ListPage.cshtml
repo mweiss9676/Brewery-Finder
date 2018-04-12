@@ -7,9 +7,9 @@
 
 <div class="searchResultsPage">
     <div class="searchResults">
-        @if (Model.Beers == null && Model.Breweries == null)
+        @if (Model.Beers.Count < 1 && Model.Breweries.Count < 1)
         {
-            <div class="results">
+            <div class="results notFoundResults">
                 <p class="notFound">No Results Were Found</p>
             </div>
         }

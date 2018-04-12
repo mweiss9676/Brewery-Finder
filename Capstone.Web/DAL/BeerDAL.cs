@@ -18,13 +18,13 @@ namespace Capstone.Web.DAL
             this.connectionString = connectionString;
         }
 
-        public List<BeerModel> Beers(SearchStringModel searchString)
+        public List<BeerModel> Beers(string searchString)
         {
             Dictionary<string, BeerModel> searchResults = new Dictionary<string, BeerModel>();
 
             Regex reg = new Regex(@"(?:\s)");
 
-            var searchParameters = reg.Split(searchString.SearchString);
+            var searchParameters = reg.Split(searchString);
 
             try
             {
@@ -37,14 +37,15 @@ namespace Capstone.Web.DAL
 
                         string searchTerm = searchParameters[i];
                         SqlCommand cmd = new SqlCommand(@"SELECT * FROM Beer
-                                                          JOIN BeerTypes ON BeerTypes.BeerTypeId = Beer.BeerTypeId
                                                           WHERE BeerName LIKE @beer
-                                                          OR Beer.BeerDescription LIKE @description
-                                                          OR BeerTypes.BeerType LIKE @beertype", conn);
+                                                          OR Beer.BeerDescription LIKE @description", conn);
+
+                        //OR BeerTypes.BeerType LIKE @beertype <--needs placed back in
+//                        JOIN BeerTypes ON BeerTypes.BeerTypeId = Beer.BeerTypeId <--needs placed back in
 
                         cmd.Parameters.AddWithValue("@beer", $"%{searchTerm}%");
                         cmd.Parameters.AddWithValue("@description", $"%{searchTerm}%");
-                        cmd.Parameters.AddWithValue("@beertype", $"%{searchTerm}%");
+                       // cmd.Parameters.AddWithValue("@beertype", $"%{searchTerm}%");
 
                         SqlDataReader reader = cmd.ExecuteReader();
 
