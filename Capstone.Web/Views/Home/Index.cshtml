@@ -1,6 +1,4 @@
-﻿
-
-@{
+﻿@{
     ViewBag.Title = "Home";
 }
 
@@ -10,8 +8,11 @@
         <button id="ageSubmit">Submit</button>
     </div>*@
     <div class="searchBarDiv">
-        <form method="get" action="@Url.Action("ListPage","Home")">
-            <input style="text-align: center" class="searchBar" type="search" name="SearchString" placeholder="Search for beers or breweries" />
-        </form>
+        <div class="searchBarForm">
+            <input autofocus style="text-align: center" class="searchBar" type="search" name="SearchString" placeholder="Search for beers or breweries" />
+        </div>
+        <div class="searchResultsPage">
+            <div class="searchResults"></div>
+        </div>
     </div>
 </div>

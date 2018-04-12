@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
+
 
 namespace Capstone.Web.Controllers
 {
@@ -23,22 +25,34 @@ namespace Capstone.Web.Controllers
             return View();
         }
 
-        public ActionResult ListPage(SearchStringModel searchresult)
-        {
-            SearchResultsModel searchResults = new SearchResultsModel();
+        //public ActionResult ListPage(SearchStringModel searchresult)
+        //{
+        //    SearchResultsModel searchResults = new SearchResultsModel();
 
-            searchResults.Breweries = breweryDAL.SearchBreweries(searchresult);
-            searchResults.Beers = beerDAL.Beers(searchresult);
+        //    searchResults.Breweries = breweryDAL.SearchBreweries(searchresult);
+        //    searchResults.Beers = beerDAL.Beers(searchresult);
 
 
-            return View("ListPage", searchResults);
-        }
+        //    return View("ListPage", searchResults);
+        //}
 
         public ActionResult BreweryInfo(BreweryModel brewery)
         {
             var result = breweryDAL.GetBreweryDetail(brewery.BreweryId);
 
             return View("BreweryInfo", result);
+        }
+
+        public string GetSearchResultsJson(string searchResult)
+        {
+            SearchResultsModel searchResults = new SearchResultsModel();
+
+            searchResults.Breweries = breweryDAL.SearchBreweries(searchResult);
+            searchResults.Beers = beerDAL.Beers(searchResult);
+
+            var result = JsonConvert.SerializeObject(searchResults);
+
+            return result;
         }
     }
 }

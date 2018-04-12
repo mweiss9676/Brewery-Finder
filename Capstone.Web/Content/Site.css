@@ -79,6 +79,7 @@ a#loginLink {
     left: 50%;
     top: 50%;
     transform:translate(-50%,-50%);
+    z-index: 100;
 }
 
 .searchBar:focus {
@@ -122,17 +123,19 @@ a#loginLink {
 /*******************************************LIST PAGE***********************************************/
 
 .searchResultsPage {
-    height: 100vh;
+    position: absolute;
+    height: 100%;
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    top: 50px;
+    padding-top: 150px;
 }
 
 .results {
     position: relative;
+    left: -130%;
     height: 130px;
     width: 70vw;
     background-color: rgba(220, 220, 220, .8);
@@ -178,9 +181,17 @@ a#loginLink {
     text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
 }
 
+.notFoundResults {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .notFound {
     font-size: 2rem;
     font-family: var(--bodyFont);
+
 }
 
 
