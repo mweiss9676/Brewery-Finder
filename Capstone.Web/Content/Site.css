@@ -139,7 +139,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 /******************************************END HOMEPAGE INDEX***************************************/
 
-/*******************************************LIST PAGE***********************************************/
+/*******************************************RESULTS LIST***********************************************/
 
 .searchResultsPage {
     position: absolute;
@@ -172,7 +172,17 @@ input[type=date]::-webkit-calendar-picker-indicator {
     text-decoration: none;
 }
 
-.beerImage, .breweryImage {
+.breweryResults{
+    height: 200px;
+}
+
+.breweryImage{
+    height: 200px;
+    width: 50%;
+    object-fit: cover;
+}
+
+.beerImage{
     height: 130px;
     width: auto;
     object-fit: contain;
@@ -195,10 +205,12 @@ input[type=date]::-webkit-calendar-picker-indicator {
     width: 50%;
     color: var(--secondaryColor);
     font-family: var(--bodyFont);
-    font-size: 1.2rem;
+    font-size: .85rem;
     padding: 10px;
     text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
 }
+
+
 
 .notFoundResults {
     display: flex;
@@ -214,7 +226,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 
-/***************************************END LIST PAGE***********************************************/
+/***************************************END RESULTS LIST***********************************************/
 
 /******************************************BREWERY INFO***************************************/
 

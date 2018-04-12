@@ -57,7 +57,6 @@
                     for (let i = 0; i < breweries.length; i++) {
 
                         let breweryLink = document.createElement("a");
-                        //let eachLink = 'http://' + window.location.host + '/Home/Index';                        
                         let eachLink = 'http://' + window.location.host + '/Home/BreweryInfo/' + breweries[i].BreweryId;
                         breweryLink.setAttribute('href', eachLink);
 
@@ -69,9 +68,11 @@
                         breweryImg.className = 'breweryImage';
                         breweryImg.src = breweries[i].BreweryProfileImg;
 
+
                         let breweryName = document.createElement("p");
                         breweryName.className = 'breweryName';
                         breweryName.innerText = breweries[i].BreweryName;
+
 
                         let breweryHistory = document.createElement("p");
                         breweryHistory.className = 'breweryHistory';
