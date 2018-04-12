@@ -33,9 +33,17 @@ header {
 }
 
 .headerLinks {
-    text-align: right;
-    padding-right: 20px;
-    padding-top: 10px;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+#logo{
+    box-sizing: content-box;
+    padding: 12px;
+    width: auto;
+    height: 70px;
+
 }
 
 a#registerLink {
