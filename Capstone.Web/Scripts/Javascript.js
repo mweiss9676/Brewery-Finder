@@ -54,8 +54,14 @@
                 } else {
                     for (let i = 0; i < breweries.length; i++) {
 
+                        let breweryLink = document.createElement("a");
+                        //let eachLink = 'http://' + window.location.host + '/Home/Index';                        
+                        let eachLink = 'http://' + window.location.host + '/Home/BreweryInfo/' + breweries[i].BreweryId;
+                        breweryLink.setAttribute('href', eachLink);
+
                         let breweryDiv = document.createElement("div");
                         breweryDiv.className = 'breweryResults results';
+
 
                         let breweryImg = document.createElement("img");
                         breweryImg.className = 'breweryImage';
@@ -69,13 +75,13 @@
                         breweryHistory.className = 'breweryHistory';
                         breweryHistory.innerText = breweries[i].History;
 
+                        breweryLink.appendChild(breweryDiv);
                         breweryDiv.appendChild(breweryImg);
                         breweryDiv.appendChild(breweryName);
                         breweryDiv.appendChild(breweryHistory);
 
-                        $('.searchResults').append($(breweryDiv));
+                        $('.searchResults').append(breweryLink);
                         $('.results').animate({ left: '0' }, 'fast');
-
                     }
 
                     for (let i = 0; i < beers.length; i++) {
@@ -101,7 +107,6 @@
 
                         $('.searchResults').append($(beerDiv));
                         $('.results').animate({ left: '0' }, 'fast');
-
                     }
                 }
             });
