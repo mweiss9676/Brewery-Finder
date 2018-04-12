@@ -25,17 +25,6 @@ namespace Capstone.Web.Controllers
             return View();
         }
 
-        //public ActionResult ListPage(SearchStringModel searchresult)
-        //{
-        //    SearchResultsModel searchResults = new SearchResultsModel();
-
-        //    searchResults.Breweries = breweryDAL.SearchBreweries(searchresult);
-        //    searchResults.Beers = beerDAL.Beers(searchresult);
-
-
-        //    return View("ListPage", searchResults);
-        //}
-
         public ActionResult BreweryInfo(BreweryModel brewery)
         {
             var result = breweryDAL.GetBreweryDetail(brewery.BreweryId);

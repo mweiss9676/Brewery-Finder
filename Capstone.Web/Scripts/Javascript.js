@@ -23,6 +23,7 @@
 
         if (e.which == 13 && searchString != "") {
             $('.searchBar').addClass('top');
+
             var URL = 'http://' + window.location.host + '/Home/GetSearchResultsJson';
 
             $.when(
