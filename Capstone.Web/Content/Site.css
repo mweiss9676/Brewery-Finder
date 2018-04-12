@@ -79,7 +79,7 @@ a#loginLink {
     left: 50%;
     top: 50%;
     transform:translate(-50%,-50%);
-    z-index: 100;
+    z-index: 10;
 }
 
 .searchBar:focus {
@@ -104,6 +104,25 @@ a#loginLink {
     text-align: center;
     z-index: 100;
 }
+
+.ageCheck {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+    -webkit-appearance: none;
+    display: none;
+}
+
 
 .ageWarning {
     position: absolute;
