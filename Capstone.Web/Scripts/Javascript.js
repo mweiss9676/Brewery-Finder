@@ -10,6 +10,8 @@
         let difference = Math.floor((today - birthday) / 31556952000);
 
         if (difference >= 21) {
+
+            $('.searchBar').focus();
             $('.ageCheckerDiv').css({
                 zIndex: '-10'
             });
