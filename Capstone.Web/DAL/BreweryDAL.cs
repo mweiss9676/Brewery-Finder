@@ -50,7 +50,7 @@ namespace Capstone.Web.DAL
         public BreweryModel GetBreweryDetail(int breweryId)
         {
             // Use SQL REader to get the details of a single brewery
-            BreweryModel brewery;
+            
 
             try
             {
@@ -65,7 +65,7 @@ namespace Capstone.Web.DAL
 
                     while (reader.Read())
                     {
-                        brewery = BreweryReader(reader);
+                        BreweryModel brewery = BreweryReader(reader);
                         return brewery;
                     }
                 }
