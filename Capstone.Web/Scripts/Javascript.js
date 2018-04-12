@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
-    $('#ageSubmit').click(function () {
+
+    $('.ageCheckerContainer').keypress(function (e) {
 
         let date = new Date($('.ageCheckerForm').val());
 
@@ -8,16 +9,29 @@
         let today = Date.now();
 
         let difference = Math.floor((today - birthday) / 31556952000);
-
-        if (difference >= 21) {
-
-            $('.searchBar').focus();
-            $('.ageCheckerDiv').css({
-                zIndex: '-10'
-            });
-        } else {
-            alert("You must be 21 years old to view this site.");
+        if (e.which == 13) {
+            if (difference >= 21) {
+                $('.searchBar').focus();
+                $('.ageCheckerDiv').css({
+                    zIndex: '-10'
+                });
+            } else {
+                alert("You must be 21 years old to view this site.");
+            }
         }
+    });
+    $('#ageSubmit').click(function () {
+
+
+
+        //if (difference >= 21) {
+        //    $('.searchBar').focus();
+        //    $('.ageCheckerDiv').css({
+        //        zIndex: '-10'
+        //    });
+        //} else {
+        //    alert("You must be 21 years old to view this site.");
+        //}
     });
     $('.searchBarForm').keypress(function (e) {
 
