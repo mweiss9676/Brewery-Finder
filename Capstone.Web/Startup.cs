@@ -1,4 +1,4 @@
-﻿using Microsoft.Owin.;
+﻿using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(Capstone.Web.Startup))]
@@ -16,7 +16,7 @@ namespace Capstone.Web
 
         private void CreateRolesAndUsers()
         {
-            ApplicationDbContext context = new ApplicationDbContext();
+            //ApplicationDbContext context = new ApplicationDbContext();
         }
     }
 }

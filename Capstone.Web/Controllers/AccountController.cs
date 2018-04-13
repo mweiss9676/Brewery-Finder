@@ -61,7 +61,7 @@ namespace Capstone.Web.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-
+        
         //
         // POST: /Account/Login
         [HttpPost]
@@ -93,6 +93,8 @@ namespace Capstone.Web.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            
+
             return View();
         }
 
