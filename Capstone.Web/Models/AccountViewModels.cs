@@ -3,9 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Capstone.Web.Models
 {
-
-
-
     public class ForgotViewModel
     {
         [Required]

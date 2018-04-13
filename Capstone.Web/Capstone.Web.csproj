@@ -211,7 +211,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\SearchResultsModel.cs" />
     <Compile Include="Models\TypeModel.cs" />
-    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
