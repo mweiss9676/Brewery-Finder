@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<link href="~/Content/Site.css" rel="stylesheet" />
 <h2>Index</h2>
 
 <form class="addBeerForm" method="post" action="@Url.Action("AddBeer", "Brewer")">
@@ -23,5 +23,21 @@
     <input name="ibu" type="text" placeholder="Enter AN IBU" />
     <input name="dateBrewed" type="date" placeholder="Enter A date brewed" />
     <input name="beerLabelImg" type="text" placeholder="Enter A an image url" />
+    <button type="submit">Submit</button>
+</form>
+
+
+<form class="addBreweryForm" method="post" action="@Url.Action("AddBrewery", "Brewer")">
+    <input name="BreweryName" type="text" placeholder="Enter A Brewery Name" />
+    <input name="BreweryAddress" type="text" placeholder="Enter A Brewery Address" />
+    <input name="BreweryCity" type="text" placeholder="Enter A City" />
+    <input name="BreweryPostalCode" type="text" placeholder="Enter A Postal Code" />
+    <input name="BreweryDistrict" type="text" placeholder="Enter A District" />
+    <input name="BreweryCountry" type="text" placeholder="Enter A Country" />
+    <input name="History" type="text" placeholder="Enter A Brief History of Your Brewery" />
+    <input name="YearFounded" type="text" placeholder="What Year was the Brewery Founded" />
+    <input name="BreweryProfileImg" type="text" placeholder="Enter A an Profile Image URL" />
+    <input name="BreweryBackgroundImg" type="text" placeholder="Enter A Background Image url" />
+    <input name="BreweryHeaderImage" type="text" placeholder="Enter A Header Image url" />
     <button type="submit">Submit</button>
 </form>

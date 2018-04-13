@@ -1,10 +1,52 @@
-﻿@model Capstone.Web.Models.RegisterViewModel
-@{
+﻿@model Capstone.Web.Models.UserModel
     ViewBag.Title = "Register";
 }
 
-<h2>@ViewBag.Title.</h2>
 
+<<<<<<< HEAD
+<div class="registerForm">
+    <div class="register">
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <h4>Create a new account.</h4>
+
+            <div class="containterTest">
+                <div style="display: inline-block">
+                    <div>
+                        @Html.TextBoxFor(m => m.UserEmail, new { placeholder = "email" })
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.Username, new { placeholder = "username" })
+                    </div>
+                    <div>
+                        @Html.PasswordFor(m => m.Password, new { placeholder = "password" })
+                    </div>
+                    <div>
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "confirm password" })
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.FirstName, new { placeholder = "first name" })
+                    </div>
+                </div>
+                <div style="display: inline-block">
+                    <div>
+                        @Html.TextBoxFor(m => m.LastName, new { placeholder = "last name" })
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.UserAddress, new { placeholder = "street address" })
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.UserCity, new { placeholder = "city" })
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.UserDistrict, new { placeholder = "state" })
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.UserCountry, new { placeholder = "country" })
+                    </div>
+                </div>
+=======
 <div class="container" style="text-align: center;">
 
     @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
@@ -26,7 +68,24 @@
     }
 
 </div>
+>>>>>>> 7381c49a9d086cb810787e657637279157c5ac5e
 
+            </div>
+            <div class="roleChoice">
+                <div style="display:inline-block">
+                    <label>@Html.RadioButtonFor(m => m.Role, "Brewer")Brewer</label>
+                </div>
+                <div style="display:inline-block">
+                    <label>@Html.RadioButtonFor(m => m.Role, "Beer Enthusiast")Beer Enthusiast</label>
+                </div>
+                <div>
+                    <input type="submit" value="Register" />
+                </div>
+            </div>
+           
+        }
+    </div>
+</div>
 @section Scripts {
 
 }

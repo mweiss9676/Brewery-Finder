@@ -202,6 +202,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddBeerModel.cs" />
+    <Compile Include="Models\AddBreweryModel.cs" />
     <Compile Include="Models\BeerModel.cs" />
     <Compile Include="Models\BeerRatingModel.cs" />
     <Compile Include="Models\BreweryModel.cs" />

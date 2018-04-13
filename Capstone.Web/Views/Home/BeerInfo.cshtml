@@ -15,16 +15,21 @@
             <h1>@Model.BeerName</h1>
             <table border="1" ; style="border-style:solid; border-color: black">
                 <tr>
-                    <td>ABV: @Model.ABV</td>
-                    @if (Model.IBU == null)
+                    @if (Model.ABV == 0)
                     {
-                        <td>IBU: N/A</td>
+                        <td>N/A</td>;
                     }
                     else
                     {
-                        <td>
-                            IBU: @Model.IBU
-                        </td>
+                        <td>ABV: @Model.ABV</td>
+                    }
+                    @if (Model.IBU == 0)
+                    {
+                        <td>N/A</td>
+                    }
+                    else
+                    {
+                        <td>IBU: @Model.IBU</td>
                     }
                     <td>Brew date: @Model.DateBrewed</td>
                 </tr>

@@ -197,9 +197,9 @@ namespace Capstone.Web.DAL
                 BeerName = Convert.ToString(reader["BeerName"]),
                 BeerDescription = Convert.ToString(reader["BeerDescription"]),
                 BeerLabelImg = Convert.ToString(reader["BeerLabelImg"]),
-                ABV = Convert.ToDecimal(reader["ABV"]),
-                IBU = Convert.ToInt32(reader["IBU"]),
-                DateBrewed = Convert.ToDateTime(reader["DateBrewed"])                
+                ABV = Convert.ToDecimal(reader["ABV"] as decimal ?),
+                IBU = Convert.ToInt32(reader["IBU"] as int ?),
+                DateBrewed = Convert.ToString(reader["DateBrewed"])
             };
         }
     }

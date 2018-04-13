@@ -16,5 +16,7 @@ namespace Capstone.Web.DAL
         BreweryModel GetBreweryDetail(int breweryId);
 
         List<string> GetAllBreweryNames();
+
+        void AddBrewery(AddBreweryModel brewery);
     }
 }
