@@ -342,12 +342,57 @@ input {
 
 /******************************************BREWERY OWNER***************************************/
 
-.addBreweryForm{
-    position: absolute;
-    top: 50%;
-    margin-top: 200px;
+.userViewContainer {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
+.userActionsContainer {
+    width: 80vw;
+    height: 80vh;
+    background-color: rgba(255, 255, 255, .9);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.brewerInfo {
+    width: 80%;
+    height: 94%;
+    background-color: white;
+    margin: 1rem 1rem 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.brewerOptions {
+    margin-top: 1rem;
+    list-style: none;
+    width: 20%;
+}
+
+.brewerOptions > li {
+    background-color: white;
+    padding: 1rem 0;
+    margin-bottom: .5rem;
+}
+
+.userInformation {
+    list-style: none;
+}
+
+#userImage {
+    width: 150px;
+    height: 150px;
+    background-color: gray;
+}
 
 /**************************************END BREWERY OWNER***************************************/
 
@@ -397,12 +442,6 @@ input {
 
 /******************************************END BEER INFO***********************************/
 
-/**************************************END BREWERY OWNER***************************************/
-
-
-
-
-/**************************************END BREWERY OWNER***************************************/
 
 
 .addBreweryForm {

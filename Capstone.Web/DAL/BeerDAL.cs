@@ -225,5 +225,10 @@ namespace Capstone.Web.DAL
                 Console.WriteLine(ex); ;
             }
         }
+
+        public BeerModel GetBeer()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
