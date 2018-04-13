@@ -152,6 +152,20 @@
             window.history.pushState(null, '', `?q=${searchString}`);
         }
 
-    }
-
+    };
 });
+function BrewerInfo() {
+    $('.userInformationContainer').removeClass('hidden');
+    $('.addBeerForm').addClass('hidden');
+    $('.addBreweryForm').addClass('hidden');
+}
+function AddBeer() {
+    $('.addBeerForm').removeClass('hidden');
+    $('.addBreweryForm').addClass('hidden');
+    $('.userInformationContainer').addClass('hidden');
+}
+function UpdateBrewery() {
+    $('.addBreweryForm').removeClass('hidden');
+    $('.addBeerForm').addClass('hidden');
+    $('.userInformationContainer').addClass('hidden');
+}
