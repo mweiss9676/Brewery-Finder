@@ -342,6 +342,10 @@ input {
 
 /******************************************BREWERY OWNER***************************************/
 
+.hidden {
+    display: none;
+}
+
 .userViewContainer {
     height: 100vh;
     width: 100vw;
@@ -361,7 +365,7 @@ input {
     align-items: flex-start;
 }
 
-.brewerInfo {
+.userActions {
     width: 80%;
     height: 94%;
     background-color: white;
@@ -384,6 +388,10 @@ input {
     margin-bottom: .5rem;
 }
 
+.brewerOptions li:hover {
+    cursor: pointer;
+}
+
 .userInformation {
     list-style: none;
 }
@@ -393,6 +401,7 @@ input {
     height: 150px;
     background-color: gray;
 }
+
 
 /**************************************END BREWERY OWNER***************************************/
 
