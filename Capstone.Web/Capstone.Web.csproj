@@ -202,14 +202,15 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddBeerModel.cs" />
+    <Compile Include="Models\AddBreweryModel.cs" />
     <Compile Include="Models\BeerModel.cs" />
     <Compile Include="Models\BeerRatingModel.cs" />
     <Compile Include="Models\BreweryModel.cs" />
     <Compile Include="Models\BreweryRatingModel.cs" />
+    <Compile Include="Models\ListOfBreweryNamesAndBeerTypesModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\SearchResultsModel.cs" />
     <Compile Include="Models\TypeModel.cs" />
-    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -254,7 +255,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\BreweryInfo.cshtml" />
     <Content Include="Views\Home\BeerInfo.cshtml" />
-    <Content Include="Views\Manage\BreweryOwner.cshtml" />
     <Content Include="Views\Brewer\Index.cshtml" />
     <Content Include="Views\Brewer\GreatSuccess.cshtml" />
   </ItemGroup>

@@ -18,6 +18,38 @@ namespace Capstone.Web.DAL
             this.connectionString = connectionString;
         }
 
+        public void AddBrewery(AddBreweryModel brewery)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"INSERT INTO Brewery (BreweryName, BreweryAddress, BreweryCity, BreweryDistrict, BreweryCountry, BreweryPostalCode, History, YearFounded, BreweryProfileImg, BreweryBackgroundImg, BreweryHeaderImg)
+                                                      VALUES (@breweryName, @breweryAddress, @breweryCity, @breweryDistrict, @breweryCountry, @breweryPostalCode, @history, @yearFounded, @breweryProfileImg, @breweryBackgroundImg, @breweryHeaderImg)", conn);
+
+                    cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
+                    cmd.Parameters.AddWithValue("@breweryAddress", brewery.BreweryAddress);
+                    cmd.Parameters.AddWithValue("@breweryCity", brewery.BreweryCity);
+                    cmd.Parameters.AddWithValue("@breweryDistrict", brewery.BreweryDistrict);
+                    cmd.Parameters.AddWithValue("@breweryCountry", brewery.BreweryCountry);
+                    cmd.Parameters.AddWithValue("@breweryPostalCode", brewery.BreweryPostalCode);
+                    cmd.Parameters.AddWithValue("@history", brewery.History);
+                    cmd.Parameters.AddWithValue("@yearFounded", brewery.YearFounded);
+                    cmd.Parameters.AddWithValue("@breweryProfileImg", brewery.BreweryProfileImg);
+                    cmd.Parameters.AddWithValue("@breweryBackgroundImg", brewery.BreweryBackgroundImg);
+                    cmd.Parameters.AddWithValue("@breweryHeaderImg", brewery.BreweryHeaderImage);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
         public IList<BreweryModel> GetAllBreweries()
         {
             List<BreweryModel> breweries = new List<BreweryModel>();
@@ -47,6 +79,35 @@ namespace Capstone.Web.DAL
             return breweries;
         }
 
+        public List<string> GetAllBreweryNames()
+        {
+            try
+            {
+                List<string> breweryNames = new List<string>();
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"SELECT Brewery.BreweryName FROM Brewery", conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        breweryNames.Add(Convert.ToString(reader["BreweryName"]));
+                    }
+                    return breweryNames;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+
         public BreweryModel GetBreweryDetail(int breweryId)
         {
             // Use SQL REader to get the details of a single brewery
@@ -75,6 +136,29 @@ namespace Capstone.Web.DAL
                 throw ex;
             }
             return null;
+        }
+
+        //DID NOT TEST THIS. 
+        public void RemoveBrewery(int breweryId)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"DELETE FROM Brewery
+                                                      WHERE Brewery.BreweryId = @breweryId", conn);
+
+                    cmd.Parameters.AddWithValue("@breweryId", breweryId);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex); ;
+            }
         }
 
         public List<BreweryModel> SearchBreweries(string searchString)

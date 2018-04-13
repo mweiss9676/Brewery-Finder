@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using Capstone.Web.Models;
+using System.Configuration;
 
 namespace Capstone.Web.DAL
 {
@@ -70,9 +71,31 @@ namespace Capstone.Web.DAL
             return searchResultsList;
         }
 
-        public BeerModel GetBeer()
+        public BeerModel GetBeerDetail(int beerId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM Beer WHERE BeerId = @beerId", conn);
+                    cmd.Parameters.AddWithValue("@beerId", beerId);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        BeerModel beer = BeerReader(reader);
+                        return beer;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return null;
         }
 
         public void AddNewBeer(AddBeerModel beer)
@@ -108,6 +131,64 @@ namespace Capstone.Web.DAL
             }
         }
 
+        public List<string> GetListOfBeerTypes()
+        {
+            try
+            {
+                List<string> beerTypes = new List<string>();
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"SELECT BeerTypes.BeerType FROM BeerTypes", conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        beerTypes.Add(Convert.ToString(reader["BeerType"]));
+                    }
+
+                    return beerTypes;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public IList<BeerModel> GetAllBeers()
+        {
+            List<BeerModel> beers = new List<BeerModel>();
+            // Use SQL Reader to get a list of all brewery models
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM Beer", conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        BeerModel beer = BeerReader(reader);
+                        beers.Add(beer);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+
+            return beers;
+        }
+
         private BeerModel BeerReader(SqlDataReader reader)
         {
             return new BeerModel()
@@ -116,8 +197,33 @@ namespace Capstone.Web.DAL
                 BeerName = Convert.ToString(reader["BeerName"]),
                 BeerDescription = Convert.ToString(reader["BeerDescription"]),
                 BeerLabelImg = Convert.ToString(reader["BeerLabelImg"]),
-
+                ABV = Convert.ToDecimal(reader["ABV"] as decimal ?),
+                IBU = Convert.ToInt32(reader["IBU"] as int ?),
+                DateBrewed = Convert.ToString(reader["DateBrewed"])
             };
+        }
+
+        //DID NOT TEST THIS. 
+        public void RemoveBeer(int beerId)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"DELETE FROM Beer
+                                                      WHERE Beer.BeerID = @beerId", conn);
+
+                    cmd.Parameters.AddWithValue("@beerId", beerId);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex); ;
+            }
         }
     }
 }

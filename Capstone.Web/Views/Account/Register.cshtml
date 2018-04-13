@@ -1,32 +1,32 @@
 ﻿@model Capstone.Web.Models.RegisterViewModel
-@{
     ViewBag.Title = "Register";
 }
 
-<h2>@ViewBag.Title.</h2>
+<div class="registerForm">
+    <div class="register">
 
-<div class="container" style="text-align: center;">
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <h4>Create a new account.</h4>
+            <div class="registerFields">
+                <div>
+                    @Html.TextBoxFor(m => m.Email, new { placeholder = "email" })
+                </div>
+                <div>
+                    @Html.PasswordFor(m => m.Password, new { placeholder = "password" })
+                </div>
+                <div>
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "confirm password" })
+                </div>
+            </div>
+            <div>
+                <input class="submitter" type="submit" value="Register" />
 
-    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
-    {
-        @Html.AntiForgeryToken()
-        <h4>Create a new account.</h4>
-        <div>
-            @Html.TextBoxFor(m => m.Email, new { placeholder = "email" })
-        </div>
-        <div>
-            @Html.PasswordFor(m => m.Password, new { placeholder = "password" })
-        </div>
-        <div>
-            @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "confirm password" })
-        </div>
-        <div>
-            <input type="submit" value="Register" />
-        </div>
-    }
-
+            </div>
+        }
+    </div>
 </div>
-
 @section Scripts {
 
 }

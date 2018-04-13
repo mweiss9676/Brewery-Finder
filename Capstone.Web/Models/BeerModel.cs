@@ -11,9 +11,11 @@ namespace Capstone.Web.Models
         public string BeerName { get; set; }
         public string BeerDescription { get; set; }
         public bool IsBestSeller { get; set; }
-        public int ABV { get; set; }
+        public decimal ABV { get; set; }
         public int IBU { get; set; }
-        public DateTime DateBrewed { get; set; }
+        public string DateBrewed { get; set; }
         public string BeerLabelImg { get; set; }
+
+        
     }
 }

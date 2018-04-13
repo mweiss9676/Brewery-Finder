@@ -1,5 +1,20 @@
 ﻿$(document).ready(function () {
 
+    $(window).bind("pageshow", function () {
+
+        // Get search from querystring
+        let params = (new URL(document.location)).searchParams;
+
+        if (params.has("q")) {
+            let query = params.get("q");            
+            performSearch(query);
+        }
+
+        // Re-run search bar form
+        
+    });
+
+
     $('.ageCheckerContainer').keypress(function (e) {
 
         let date = new Date($('.ageCheckerForm').val());
@@ -16,6 +31,7 @@
                 $('.ageCheckerDiv').css({
                     zIndex: '-10'
                 });
+                document.cookie = "Over21=true";
             } else {
                 alert("You must be 21 years old to view this site.");
             }
@@ -23,9 +39,18 @@
     });
     $('.searchBarForm').keypress(function (e) {
 
-        let searchString = $('.searchBar').val();
+
+        let searchString = $('.searchBar').val();     
 
         if (e.which == 13 && searchString != "") {
+            performSearch(searchString);
+        }
+
+    });
+
+
+    function performSearch(searchString) {
+        if (searchString != "") {
             $('.searchBar').addClass('top');
             $('.searchBar').val('');
 
@@ -93,6 +118,10 @@
 
                     for (let i = 0; i < beers.length; i++) {
 
+                        let beerLink = document.createElement("a");
+                        let eachLink = 'http://' + window.location.host + '/Home/BeerInfo/' + beers[i].BeerId;
+                        beerLink.setAttribute('href', eachLink);
+
                         let beerDiv = document.createElement("div");
                         beerDiv.className = 'beerResults results';
 
@@ -108,16 +137,21 @@
                         beerDescription.className = 'beerDescription';
                         beerDescription.innerText = beers[i].BeerDescription;
 
+                        beerLink.appendChild(beerDiv)
                         beerDiv.appendChild(beerImg);
                         beerDiv.appendChild(beerName);
                         beerDiv.appendChild(beerDescription);
 
-                        $('.searchResults').append($(beerDiv));
+                        $('.searchResults').append($(beerLink));
                         $('.results').animate({ left: '0' }, 'fast');
                     }
                 }
+
             });
+
+            window.history.pushState(null, '', `?q=${searchString}`);
         }
-        
-    });
+
+    }
+
 });
