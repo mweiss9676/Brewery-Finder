@@ -3,6 +3,7 @@
 }
 
 
+<<<<<<< HEAD
 <div class="registerForm">
     <div class="register">
         @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
@@ -45,6 +46,29 @@
                         @Html.TextBoxFor(m => m.UserCountry, new { placeholder = "country" })
                     </div>
                 </div>
+=======
+<div class="container" style="text-align: center;">
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>Create a new account.</h4>
+        <div>
+            @Html.TextBoxFor(m => m.Email, new { placeholder = "email" })
+        </div>
+        <div>
+            @Html.PasswordFor(m => m.Password, new { placeholder = "password" })
+        </div>
+        <div>
+            @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "confirm password" })
+        </div>
+        <div>
+            <input type="submit" value="Register" />
+        </div>
+    }
+
+</div>
+>>>>>>> 7381c49a9d086cb810787e657637279157c5ac5e
 
             </div>
             <div class="roleChoice">

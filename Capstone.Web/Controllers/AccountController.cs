@@ -88,9 +88,6 @@ namespace Capstone.Web.Controllers
             }
         }
 
-
-
-
         //
         // GET: /Account/Register
         [AllowAnonymous]
@@ -114,7 +111,6 @@ namespace Capstone.Web.Controllers
                 //user.Roles.Add("Administrator");
                 user.Roles.Add("Beer Enthusiast");
                 //....
-
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

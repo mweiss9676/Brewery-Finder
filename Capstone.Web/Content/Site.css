@@ -332,10 +332,22 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 /******************************************BREWERY OWNER***************************************/
 
-.addBeerForm{
+.addBreweryForm{
     position: absolute;
     top: 50%;
     margin-top: 200px;
 }
+<<<<<<< HEAD
 /**************************************END BREWERY OWNER***************************************/
 
+=======
+
+/*.addBreweryForm {
+    position: relative;
+    top: 600px;
+    height: 500px;
+    top: 300px;
+    z-index: 200 !important;
+}*/
+/**************************************END BREWERY OWNER***************************************/
+>>>>>>> 7381c49a9d086cb810787e657637279157c5ac5e
