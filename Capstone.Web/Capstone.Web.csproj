@@ -190,6 +190,7 @@
     <Compile Include="Authentication\User.cs" />
     <Compile Include="Authentication\UserStore.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BrewerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DAL\BeerDAL.cs" />
@@ -200,6 +201,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AddBeerModel.cs" />
     <Compile Include="Models\BeerModel.cs" />
     <Compile Include="Models\BeerRatingModel.cs" />
     <Compile Include="Models\BreweryModel.cs" />
@@ -252,6 +254,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\BreweryInfo.cshtml" />
     <Content Include="Views\Home\BeerInfo.cshtml" />
+    <Content Include="Views\Manage\BreweryOwner.cshtml" />
+    <Content Include="Views\Brewer\Index.cshtml" />
+    <Content Include="Views\Brewer\GreatSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

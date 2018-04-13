@@ -98,6 +98,39 @@ namespace Capstone.Web.DAL
             return null;
         }
 
+        public void AddNewBeer(AddBeerModel beer)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"INSERT INTO Beer (BreweryId, BeerName, BeerTypeId, BeerDescription, ABV, IBU, DateBrewed, BeerLabelImg)
+                                                      VALUES ((SELECT Brewery.BreweryId FROM Brewery
+                                                              WHERE Brewery.BreweryName = @breweryName),
+                                                              @beerName,
+                                                              (SELECT BeerTypes.BeerTypeId FROM BeerTypes
+                                                              WHERE BeerTypes.BeerType = @beerTypeName), @beerDescription, @abv, @ibu, @dateBrewed, @beerLabelImg)", conn);
+
+                    cmd.Parameters.AddWithValue("@breweryName", beer.BreweryName);
+                    cmd.Parameters.AddWithValue("@beerName", beer.BeerName);
+                    cmd.Parameters.AddWithValue("@beerTypeName", beer.BeerTypeName);
+                    cmd.Parameters.AddWithValue("@beerDescription", beer.BeerDescription);
+                    cmd.Parameters.AddWithValue("@abv", beer.ABV);
+                    cmd.Parameters.AddWithValue("@ibu", beer.IBU);
+                    cmd.Parameters.AddWithValue("@dateBrewed", beer.DateBrewed);
+                    cmd.Parameters.AddWithValue("@beerLabelImg", beer.BeerLabelImg);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch(SqlException ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
         private BeerModel BeerReader(SqlDataReader reader)
         {
             return new BeerModel()
