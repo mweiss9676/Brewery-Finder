@@ -101,11 +101,11 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(UserModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.UserEmail };
+                var user = new User { UserName = model.Email };
 
                 // Add the roles here to the user
                 //user.Roles.Add("Administrator");
