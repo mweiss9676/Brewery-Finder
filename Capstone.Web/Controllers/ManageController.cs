@@ -20,6 +20,9 @@ namespace Capstone.Web.Controllers
         {
         }
 
+
+        
+
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
@@ -65,6 +68,11 @@ namespace Capstone.Web.Controllers
 
             };
             return View(model);
+        }
+
+        public ActionResult BreweryOwner()
+        {
+            return View("BreweryOwner");
         }
 
 

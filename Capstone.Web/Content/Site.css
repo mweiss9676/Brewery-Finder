@@ -295,6 +295,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 /******************************************END BREWERY INFO***********************************/
 
+
 /****************************************** REGISTRATION PAGE ********************************/
 
 .registerForm {
@@ -328,3 +329,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 
 /****************************************** REGISTRATION PAGE ********************************/
+
+/******************************************BREWERY OWNER***************************************/
+
+.addBeerForm{
+    position: absolute;
+    top: 50%;
+    margin-top: 200px;
+}
+/**************************************END BREWERY OWNER***************************************/
+
