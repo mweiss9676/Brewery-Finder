@@ -11,6 +11,7 @@ namespace Capstone.Web.DAL
     {
         List<BeerModel> Beers(string searchString);
         BeerModel GetBeer();
+        List<string> GetListOfBeerTypes();
         void AddNewBeer(AddBeerModel beer);
     }
 }

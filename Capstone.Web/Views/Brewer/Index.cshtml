@@ -1,4 +1,4 @@
-﻿
+﻿@model List<string>
 @{
     ViewBag.Title = "Index";
 }
@@ -8,7 +8,12 @@
 <form class="addBeerForm" method="post" action="@Url.Action("AddBeer", "Brewer")">
     <input name="breweryName" type="text" placeholder="Enter A Brewery" />
     <input name="beerName" type="text" placeholder="Enter A Beer Name" />
-    <input name="beerTypeName" type="text" placeholder="Enter A Beer Type Name" />
+    <select>
+        @foreach (var beerType in Model)
+        {
+            <option>@beerType</option>
+        }
+    </select>
     <input name="beerDescription" type="text" placeholder="Enter A Beer Description" />
     <input name="abv" type="text" placeholder="Enter AN ABV" />
     <input name="ibu" type="text" placeholder="Enter AN IBU" />

@@ -108,6 +108,35 @@ namespace Capstone.Web.DAL
             }
         }
 
+        public List<string> GetListOfBeerTypes()
+        {
+            try
+            {
+                List<string> beerTypes = new List<string>();
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"SELECT BeerTypes.BeerType FROM BeerTypes", conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        beerTypes.Add(Convert.ToString(reader["BeerType"]));
+                    }
+
+                    return beerTypes;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
         private BeerModel BeerReader(SqlDataReader reader)
         {
             return new BeerModel()

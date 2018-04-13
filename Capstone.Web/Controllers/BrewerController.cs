@@ -21,7 +21,8 @@ namespace Capstone.Web.Controllers
         // GET: Brewer
         public ActionResult Index()
         {
-            return View("Index");
+            var beerTypes = beerDAL.GetListOfBeerTypes();
+            return View("Index", beerTypes);
         }
 
         [HttpPost]
