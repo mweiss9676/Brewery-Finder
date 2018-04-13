@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using Capstone.Web.Models;
+using System.Configuration;
 
 namespace Capstone.Web.DAL
 {
@@ -70,9 +71,31 @@ namespace Capstone.Web.DAL
             return searchResultsList;
         }
 
-        public BeerModel GetBeer()
+        public BeerModel GetBeerDetail(int beerId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM Beer WHERE BeerId = @beerId", conn);
+                    cmd.Parameters.AddWithValue("@beerId", beerId);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        BeerModel beer = BeerReader(reader);
+                        return beer;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return null;
         }
 
         private BeerModel BeerReader(SqlDataReader reader)
