@@ -31,6 +31,13 @@ namespace Capstone.Web.Controllers
         }
 
         [HttpPost]
+        public ActionResult AddBrewery(AddBreweryModel brewery)
+        {
+            breweryDAL.AddBrewery(brewery);
+            return RedirectToAction("GreatSuccess");
+        }
+
+        [HttpPost]
         public ActionResult AddBeer(AddBeerModel beer)
         {
             beerDAL.AddNewBeer(beer);
