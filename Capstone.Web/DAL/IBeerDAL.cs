@@ -13,8 +13,6 @@ namespace Capstone.Web.DAL
 
         BeerModel GetBeerDetail(int beerId);
 
-        BeerModel GetBeer();
-
         List<string> GetListOfBeerTypes();
 
         void AddNewBeer(AddBeerModel beer);
@@ -22,5 +20,6 @@ namespace Capstone.Web.DAL
         IList<BeerModel> GetAllBeers();
 
         void RemoveBeer(int beerId);
+
     }
 }
