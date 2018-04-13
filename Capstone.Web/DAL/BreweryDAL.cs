@@ -47,6 +47,35 @@ namespace Capstone.Web.DAL
             return breweries;
         }
 
+        public List<string> GetAllBreweryNames()
+        {
+            try
+            {
+                List<string> breweryNames = new List<string>();
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"SELECT Brewery.BreweryName FROM Brewery", conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        breweryNames.Add(Convert.ToString(reader["BreweryName"]));
+                    }
+                    return breweryNames;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+
         public BreweryModel GetBreweryDetail(int breweryId)
         {
             // Use SQL REader to get the details of a single brewery

@@ -131,6 +131,64 @@ namespace Capstone.Web.DAL
             }
         }
 
+        public List<string> GetListOfBeerTypes()
+        {
+            try
+            {
+                List<string> beerTypes = new List<string>();
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"SELECT BeerTypes.BeerType FROM BeerTypes", conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        beerTypes.Add(Convert.ToString(reader["BeerType"]));
+                    }
+
+                    return beerTypes;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public IList<BeerModel> GetAllBeers()
+        {
+            List<BeerModel> beers = new List<BeerModel>();
+            // Use SQL Reader to get a list of all brewery models
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM Beer", conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        BeerModel beer = BeerReader(reader);
+                        beers.Add(beer);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+
+            return beers;
+        }
+
         private BeerModel BeerReader(SqlDataReader reader)
         {
             return new BeerModel()
@@ -139,7 +197,9 @@ namespace Capstone.Web.DAL
                 BeerName = Convert.ToString(reader["BeerName"]),
                 BeerDescription = Convert.ToString(reader["BeerDescription"]),
                 BeerLabelImg = Convert.ToString(reader["BeerLabelImg"]),
-
+                ABV = Convert.ToDecimal(reader["ABV"]),
+                IBU = Convert.ToInt32(reader["IBU"]),
+                DateBrewed = Convert.ToDateTime(reader["DateBrewed"])                
             };
         }
     }

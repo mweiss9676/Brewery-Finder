@@ -142,7 +142,7 @@
                         beerDiv.appendChild(beerName);
                         beerDiv.appendChild(beerDescription);
 
-                        $('.searchResults').append($(beerDiv));
+                        $('.searchResults').append($(beerLink));
                         $('.results').animate({ left: '0' }, 'fast');
                     }
                 }
