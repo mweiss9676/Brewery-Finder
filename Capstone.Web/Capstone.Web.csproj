@@ -256,7 +256,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\BreweryInfo.cshtml" />
     <Content Include="Views\Home\BeerInfo.cshtml" />
-    <Content Include="Views\Manage\BreweryOwner.cshtml" />
     <Content Include="Views\Brewer\Index.cshtml" />
     <Content Include="Views\Brewer\GreatSuccess.cshtml" />
   </ItemGroup>

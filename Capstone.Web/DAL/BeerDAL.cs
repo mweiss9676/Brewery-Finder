@@ -148,5 +148,28 @@ namespace Capstone.Web.DAL
 
             };
         }
+
+        //DID NOT TEST THIS. 
+        public void RemoveBeer(int beerId)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"DELETE FROM Beer
+                                                      WHERE Beer.BeerID = @beerId", conn);
+
+                    cmd.Parameters.AddWithValue("@beerId", beerId);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex); ;
+            }
+        }
     }
 }
