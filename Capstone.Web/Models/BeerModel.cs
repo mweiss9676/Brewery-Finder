@@ -13,7 +13,7 @@ namespace Capstone.Web.Models
         public bool IsBestSeller { get; set; }
         public decimal ABV { get; set; }
         public int IBU { get; set; }
-        public string DateBrewed { get; set; }
+        public DateTime DateBrewed { get; set; }
         public string BeerLabelImg { get; set; }
 
         
