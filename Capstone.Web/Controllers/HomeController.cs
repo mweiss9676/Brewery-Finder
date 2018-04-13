@@ -43,5 +43,12 @@ namespace Capstone.Web.Controllers
 
             return result;
         }
+
+        public ActionResult BeerInfo(int id)
+        {
+            var result = beerDAL.GetBeerDetail(id);
+
+            return View("BeerInfo", result);
+        }
     }
 }

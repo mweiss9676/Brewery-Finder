@@ -65,11 +65,11 @@ CREATE TABLE Beer
 	BeerID						INT IDENTITY(1,1) PRIMARY KEY,
 	BreweryId					INT NOT NULL FOREIGN KEY REFERENCES Brewery(BreweryId),
 	BeerName					VARCHAR(100) NOT NULL,
-	BeerTypeId					INT NULL FOREIGN KEY REFERENCES BeerTypes(BeerTypeId),
+	BeerTypeId					INT NOT NULL FOREIGN KEY REFERENCES BeerTypes(BeerTypeId),
 	BeerDescription				varchar(max) NULL,
 	IsBestSeller				bit NULL,
-	ABV							DECIMAL NULL,
-	IBU							DECIMAL NULL,
+	ABV							DECIMAL (10,1) NULL,
+	IBU							INT NULL,
 	DateBrewed					date NULL,
 	BeerLabelImg				varchar(200) NULL,
 );
@@ -183,4 +183,3 @@ INSERT INTO Beer VALUES (3, 'Washington''s Reserve', 21, 'We set a portion of ev
 INSERT INTO Beer VALUES (3, 'Pour House Hoppy White Ale', 27, 'By Yards Brewing', 0, Null, Null, '2017-04-28', NULL)
 
 /******************************************** Yards Brewing Info *******************************************************************/
-

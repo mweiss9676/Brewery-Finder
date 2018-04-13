@@ -4,15 +4,39 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+
 <div class="container">
+    <div id="beerInfo">
 
-    <img src="@Model.BeerLabelImg" />
+        <img class="beerLabelImg" src="@Model.BeerLabelImg" />
 
-    <p>@Model.BeerName</p>
+        <div class="beerInfoTxt">
+            <h1>@Model.BeerName</h1>
+            <table border="1" ; style="border-style:solid; border-color: black">
+                <tr>
+                    @if (Model.ABV == 0)
+                    {
+                        <td>N/A</td>;
+                    }
+                    else
+                    {
+                        <td>ABV: @Model.ABV</td>
+                    }
+                    @if (Model.IBU == 0)
+                    {
+                        <td>N/A</td>
+                    }
+                    else
+                    {
+                        <td>IBU: @Model.IBU</td>
+                    }
+                    <td>Brew date: @Model.DateBrewed</td>
+                </tr>
+            </table>
 
-    <p>@Model.DateBrewed</p>
-
-    <p>@Model.BeerDescription</p>
-
+            <p>@Model.BeerDescription</p>
+        </div>
+    </div>
 </div>
 
