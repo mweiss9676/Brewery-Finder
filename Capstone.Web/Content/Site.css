@@ -106,8 +106,8 @@ a#loginLink {
 }
 
 .ageCheckerDiv {
-    height: 50vh;
-    width: 50%;
+    height: 15vh;
+    width: 20%;
     background-color: black;
     color: white;
     font-size: larger;
@@ -117,8 +117,8 @@ a#loginLink {
     transform: translate(-50%,-50%);
     text-align: center;
     z-index: 100;
-    padding-left: 25%;
-    padding-right: 25%;
+    padding-left:inherit 40%;
+    padding-right: 40%;
     border: 1px solid white;
     border-radius: 5px;
 }
@@ -317,6 +317,26 @@ input[type=date]::-webkit-calendar-picker-indicator {
     top: 50%;
     transform: translate(-50%,-50%);
 }
+
+.registerFields{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.submitter{
+    background-color: rgb(124,33,17);
+    height: 30px;
+    width: 60px;
+    border: 0px solid;
+}
+
+input {
+    /*background-color: rgb(124,33,17);
+    border: 0px solid;*/
+    color: black;
+    text-align: center;
+}
+
 
 /****************************************** REGISTRATION PAGE ********************************/
 
