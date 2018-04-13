@@ -10,23 +10,15 @@ BEGIN TRANSACTION
 
 CREATE TABLE [dbo].[Users]
 (
-    [UserId]					INT IDENTITY(1,1) NOT NULL PRIMARY KEY, 
+    [UserId]					UNIQUEIDENTIFIER  NOT NULL PRIMARY KEY, 
     [UserName]		            VARCHAR(MAX) NOT NULL, 
     [PasswordHash]              VARCHAR(MAX) NULL,
 	[PasswordSalt]              VARCHAR(MAX) NULL, 
     [SecurityStamp]             VARCHAR(MAX) NULL,
 	Role						VARCHAR(100) NOT NULL,
-	UserEmail					VARCHAR(50) NOT NULL,
-	FirstName					VARCHAR(100) NOT NULL, 
-	LastName					VARCHAR(100) NOT NULL,
-	UserAddress					VARCHAR(50) NOT NULL,
-	UserCity					VARCHAR(50) NOT NULL,
-	UserDistrict				VARCHAR(50) NOT NULL,
-	UserCountry					VARCHAR(50) NOT NULL,
-	UserPostalCode				VARCHAR(50) NOT NULL,
-	NumberOfAttempts			INT NOT NULL,
-	ProfilePic					VARCHAR(200) NULL,
+	Email					    VARCHAR(50) NOT NULL,	
 	Password1stAttempt			DATE NULL,
+    NumberOfAttempts			INT NOT NULL,
 );
 
 CREATE TABLE Role
@@ -80,8 +72,6 @@ CREATE TABLE Beer
 	IBU							INT NULL,
 	DateBrewed					date NULL,
 	BeerLabelImg				varchar(200) NULL,
-	--Beer_Img_Name_2		varchar(50) NULL,
-	--Beer_Img_Name_3		varchar(50) NULL	
 );
 
 CREATE TABLE BeerRating 
