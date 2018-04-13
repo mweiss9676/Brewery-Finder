@@ -9,13 +9,13 @@
         @if (!User.IsInRole("Brewer"))
         {
             <ul class="brewerOptions">
-                <li>Brewer Information</li>
-                <li>Add Beer</li>
-                <li>Edit / Remove Beer</li>
-                <li>Update Brewery Info</li>
+                <li onclick="BrewerInfo()">Brewer Information</li>
+                <li onclick="AddBeer()">Add Beer</li>
+                <li onclick="EditBeer()">Edit / Remove Beer</li>
+                <li onclick="UpdateBrewery()">Update Brewery Info</li>
             </ul>
         }
-        <div class="userActions">
+        <div class="brewerInfo">
             <ul class="userInformation">
                 <li>Permissions</li>
                 <li>Name of Brewery</li>
