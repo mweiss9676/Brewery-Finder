@@ -12,17 +12,22 @@ namespace Capstone.Web.Controllers
     {
 
         private IBeerDAL beerDAL;
+        private IBreweryDAL breweryDAL;
 
-        public BrewerController(IBeerDAL beerDAL)
+        public BrewerController(IBeerDAL beerDAL, IBreweryDAL breweryDAL)
         {
             this.beerDAL = beerDAL;
+            this.breweryDAL = breweryDAL;
         }
 
         // GET: Brewer
         public ActionResult Index()
         {
-            var beerTypes = beerDAL.GetListOfBeerTypes();
-            return View("Index", beerTypes);
+            ListOfBreweryNamesAndBeerTypesModel breweriesAndBeers = new ListOfBreweryNamesAndBeerTypesModel();
+            breweriesAndBeers.BreweryNames = breweryDAL.GetAllBreweryNames();
+            breweriesAndBeers.BeerTypes = beerDAL.GetListOfBeerTypes();
+
+            return View("Index", breweriesAndBeers);
         }
 
         [HttpPost]

@@ -1,4 +1,4 @@
-﻿@model List<string>
+﻿@model Capstone.Web.Models.ListOfBreweryNamesAndBeerTypesModel
 @{
     ViewBag.Title = "Index";
 }
@@ -6,10 +6,14 @@
 <h2>Index</h2>
 
 <form class="addBeerForm" method="post" action="@Url.Action("AddBeer", "Brewer")">
-    <input name="breweryName" type="text" placeholder="Enter A Brewery" />
-    <input name="beerName" type="text" placeholder="Enter A Beer Name" />
     <select>
-        @foreach (var beerType in Model)
+        @foreach (var breweryName in Model.BreweryNames)
+        {
+            <option>@breweryName</option>
+        }
+    </select>    <input name="beerName" type="text" placeholder="Enter A Beer Name" />
+    <select>
+        @foreach (var beerType in Model.BeerTypes)
         {
             <option>@beerType</option>
         }
