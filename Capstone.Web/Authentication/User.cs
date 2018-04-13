@@ -11,17 +11,14 @@ namespace Capstone.Web.Authentication
     public class User : IUser
     {
         public Guid UserId { get; set; }
+        public string Id => UserId.ToString();
         public string UserName { get; set; }
         public string PasswordHash { get; set; }
         public string SecurityStamp { get; set; }
-        public IList<string> Roles { get; set; } = new List<string>();
-        public string Email { get; set; }
+        public IList<string> Roles { get; set; } = new List<string>();        
         public DateTime Password1stAttempt { get; set; }
         public int NumberOfAttempts { get; set; }
-        public string Id => UserId.ToString();
         
-        
-
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
