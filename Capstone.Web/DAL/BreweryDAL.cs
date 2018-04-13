@@ -138,6 +138,29 @@ namespace Capstone.Web.DAL
             return null;
         }
 
+        //DID NOT TEST THIS. 
+        public void RemoveBrewery(int breweryId)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"DELETE FROM Brewery
+                                                      WHERE Brewery.BreweryId = @breweryId", conn);
+
+                    cmd.Parameters.AddWithValue("@breweryId", breweryId);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex); ;
+            }
+        }
+
         public List<BreweryModel> SearchBreweries(string searchString)
         {
             Dictionary<string, BreweryModel> searchResults = new Dictionary<string, BreweryModel>();
