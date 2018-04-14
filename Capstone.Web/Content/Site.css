@@ -1,7 +1,7 @@
-﻿*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
@@ -44,12 +44,11 @@ header {
     top: 10px;
 }
 
-#logo{
+#logo {
     box-sizing: content-box;
     padding: 12px;
     width: auto;
     height: 70px;
-
 }
 
 a#registerLink {
@@ -67,14 +66,14 @@ a#loginLink {
     font-family: '';
 }
 
-.backgroundMain{
-    /*background-image: url('IMGS/TestBackground.jpeg');*/   
+.backgroundMain {
+    /*background-image: url('IMGS/TestBackground.jpeg');*/
     height: 100vh;
     width: 100%;
     background-size: cover;
 }
 
-.searchBarDiv{
+.searchBarDiv {
     height: 100vh;
 }
 
@@ -88,26 +87,26 @@ a#loginLink {
     background-color: black;
     color: white;
     font-family: '';
-    font-size:larger;
-    position:absolute;
+    font-size: larger;
+    position: absolute;
     left: 50%;
     top: 50%;
-    transform:translate(-50%,-50%);
-    z-index: 10;  
+    transform: translate(-50%,-50%);
+    z-index: 10;
 }
 
-.searchBar:focus {
-    outline: none;
-}
+    .searchBar:focus {
+        outline: none;
+    }
 
-.searchBar.top {
-    top: 100px;
-    transition-duration: 500ms;
-}
+    .searchBar.top {
+        top: 100px;
+        transition-duration: 500ms;
+    }
 
 .ageCheckerDiv {
-    height: 15vh;
-    width: 20%;
+    height: 50vh;
+    width: 50%;
     background-color: black;
     color: white;
     font-size: larger;
@@ -117,8 +116,8 @@ a#loginLink {
     transform: translate(-50%,-50%);
     text-align: center;
     z-index: 100;
-    padding-left:inherit 40%;
-    padding-right: 40%;
+    padding-left: 25%;
+    padding-right: 25%;
     border: 1px solid white;
     border-radius: 5px;
 }
@@ -151,7 +150,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 
 
-.barVid{
+.barVid {
     position: fixed;
     height: 100vh;
     width: 100vw;
@@ -182,28 +181,26 @@ input[type=date]::-webkit-calendar-picker-indicator {
     margin-top: 15px;
     overflow: hidden;
     box-shadow: 0 10px 10px -10px rgba(30, 30, 30, .5);
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
 }
 
-.searchResults a{
+.searchResults a {
     text-decoration: none;
 }
 
-.breweryResults{
+.breweryResults {
     height: 200px;
 }
 
-.breweryImage{
+.breweryImage {
     height: 200px;
     width: 50%;
     object-fit: cover;
 }
 
-.beerImage{
+.beerImage {
     height: 130px;
     width: auto;
     object-fit: contain;
@@ -243,7 +240,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .notFound {
     font-size: 2rem;
     font-family: var(--bodyFont);
-
 }
 
 
@@ -318,137 +314,15 @@ input[type=date]::-webkit-calendar-picker-indicator {
     transform: translate(-50%,-50%);
 }
 
-.registerFields{
-    margin-bottom: 10px;
-    margin-top: 10px;
-}
-
-.submitter{
-    background-color: rgb(124,33,17);
-    height: 30px;
-    width: 60px;
-    border: 0px solid;
-}
-
-input {
-    /*background-color: rgb(124,33,17);
-    border: 0px solid;*/
-    color: black;
-    text-align: center;
-}
-
-
 /****************************************** REGISTRATION PAGE ********************************/
-
-
-/********************************************* LOGIN PAGE ************************************/
-
-
-
-
-
-
-
-/********************************************* LOGIN PAGE ************************************/
-
-
-
 
 /******************************************BREWERY OWNER***************************************/
 
-.addBreweryForm.hidden, .addBeerForm.hidden, .userInformation.hidden {
-    display: none;
+.addBreweryForm {
+    position: absolute;
+    top: 50%;
+    margin-top: 200px;
 }
-
-.userViewContainer {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.userActionsContainer {
-    width: 60vw;
-    height: 60vh;
-    background-color: black;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    border: 1px solid white;
-}
-
-.userActions {
-    width: 98%;
-    height: 92%;
-    background-color: black;
-    border: 1px solid white;
-    border-left: none;
-    margin: 1rem 1rem 0 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    overflow: hidden;
-}
-
-.brewerOptions {
-    list-style: none;
-    color: white;
-    height: 92%;
-    width: 140px;
-}
-
-.brewerOptions > li {
-    background-color: black;
-    padding: 1rem 0;
-    display: table;
-    border: 1px solid white;
-    border-left: none;
-    border-collapse: collapse;
-    height: 60px;
-    width: 100%;
-}
-
-li#spaceFiller {
-    height: 100%;
-    color: transparent;
-}
-
-.brewerOptions li:hover {
-    cursor: pointer;
-}
-
-#brewerInformation.focus, #addBeer.focus, #removeBeer.focus, #updateBreweryInfo.focus {
-    border-right: none;
-}
-
-.userInformation {
-    list-style: none;
-}
-
-#userImage {
-    width: 150px;
-    height: 150px;
-    background-color: gray;
-}
-
-
-.addBreweryForm, .addBeerForm {
-    align-self: center;
-    background-color: red;
-    color: white;
-    text-align: center;
-    height: 50%;
-    width: 50%;
-}
-
-.addBreweryForm > input, .addBeerForm > * {
-    width: 50%;
-}
-   
 
 
 /**************************************END BREWERY OWNER***************************************/
@@ -497,8 +371,43 @@ li#spaceFiller {
         position: relative;
     }
 
+table   {
+        border-spacing: 0px;
+}
+
+td  {
+        padding: 5px 15px 5px 15px;
+        border-bottom: 1px solid black;
+}
+#genericLabelImg {
+    margin: 10px;
+    border-radius: 5px;
+    width: 50%;
+    height: 94%;
+    object-fit: cover;
+    display: inline-block;
+    box-shadow: 0px 2px 2px rgba(30, 30, 30, .5);
+}
+
+
 /******************************************END BEER INFO***********************************/
 
+
+
+
+
+
+/**************************************END BREWERY OWNER***************************************/
+
+
+/*.addBreweryForm {
+    position: relative;
+    top: 600px;
+    height: 500px;
+    top: 300px;
+    z-index: 200 !important;
+}*/
+/**************************************END BREWERY OWNER***************************************/
 
 
 
