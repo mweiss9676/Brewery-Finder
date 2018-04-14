@@ -371,11 +371,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
         position: relative;
     }
 
-table   {
-        border-spacing: 0px;
+.beerTable {
+    border-spacing: 0px;
 }
-
-td  {
+.beerTd{
         padding: 5px 15px 5px 15px;
         border-bottom: 1px solid black;
 }
