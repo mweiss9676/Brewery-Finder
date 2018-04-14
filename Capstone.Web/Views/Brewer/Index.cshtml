@@ -19,12 +19,14 @@
             </ul>
             }
             <div class="userInformationContainer">
-                <ul class="userInformation">
-                    <li>Permissions</li>
-                    <li>Name of Brewery</li>
-                    <li>Name</li>
-                </ul>
-                <div id="userImage"></div>
+                <div class="userInfo">
+                    <ul class="userInfoList">
+                        <li>Brewery Owner</li>
+                        <li>Name of Brewery</li>
+                        <li>Name</li>
+                    </ul>
+                    <div id="userImage"></div>
+                </div><!--END USER INFO-->
 
                 <form class="addBeerForm hidden" method="post" action="@Url.Action("AddBeer", "Brewer")">
                     <select>
@@ -47,7 +49,7 @@
                     <input name="ibu" type="text" placeholder="Enter AN IBU" />
                     <input name="dateBrewed" type="date" placeholder="Enter A date brewed" />
                     <input name="beerLabelImg" type="text" placeholder="Enter A an image url" />
-                    <button type="submit">Submit</button>
+                    <button class="submitter" type="submit">Submit</button>
                 </form><!--END addBeerForm-->
 
                 <form class="addBreweryForm hidden" method="post" action="@Url.Action("AddBrewery", "Brewer")">
@@ -62,7 +64,7 @@
                     <input name="BreweryProfileImg" type="text" placeholder="Enter A an Profile Image URL" />
                     <input name="BreweryBackgroundImg" type="text" placeholder="Enter A Background Image url" />
                     <input name="BreweryHeaderImage" type="text" placeholder="Enter A Header Image url" />
-                    <button type="submit">Submit</button>
+                    <button class="submitter" type="submit">Submit</button>
                 </form><!--End addBreweryForm-->
 
             </div><!--END userInformationContainer-->
