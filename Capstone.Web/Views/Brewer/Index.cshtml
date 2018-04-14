@@ -6,58 +6,66 @@
 
 <div class="userViewContainer">
     <div class="userActionsContainer">
-        @if (!User.IsInRole("Brewer"))
-        {
+
+        <div class="userActions">
+            @if (!User.IsInRole("Brewer"))
+            {
             <ul class="brewerOptions">
-                <li onclick="BrewerInfo()">Brewer Information</li>
-                <li onclick="AddBeer()">Add Beer</li>
-                <li onclick="EditBeer()">Edit / Remove Beer</li>
-                <li onclick="UpdateBrewery()">Update Brewery Info</li>
+                <li id="brewerInformation" class="focus" onclick="BrewerInfo()">Owner Information</li>
+                <li id="addBeer" onclick="AddBeer()">Add Beer</li>
+                <li id="removeBeer" onclick="RemoveBeer()">Edit / Remove Beer</li>
+                <li id="updateBreweryInfo" onclick="UpdateBrewery()">Update Brewery Info</li>
+                <li id="spaceFiller">s</li>
             </ul>
-        }
-        <div class="brewerInfo">
-            <ul class="userInformation">
-                <li>Permissions</li>
-                <li>Name of Brewery</li>
-                <li>Name</li>
-            </ul>
-            <div id="userImage"></div>
-        </div>
-    </div>
-    @*<form class="addBeerForm" method="post" action="@Url.Action("AddBeer", "Brewer")">
-            <select>
-                @foreach (var breweryName in Model.BreweryNames)
-                {
-                    <option>@breweryName</option>
-                }
-            </select>    <input name="beerName" type="text" placeholder="Enter A Beer Name" />
-            <select>
-                @foreach (var beerType in Model.BeerTypes)
-                {
-                    <option>@beerType</option>
-                }
-            </select>
-            <input name="beerDescription" type="text" placeholder="Enter A Beer Description" />
-            <input name="abv" type="text" placeholder="Enter AN ABV" />
-            <input name="ibu" type="text" placeholder="Enter AN IBU" />
-            <input name="dateBrewed" type="date" placeholder="Enter A date brewed" />
-            <input name="beerLabelImg" type="text" placeholder="Enter A an image url" />
-            <button type="submit">Submit</button>
-        </form>
+            }
+            <div class="userInformationContainer">
+                <ul class="userInformation">
+                    <li>Permissions</li>
+                    <li>Name of Brewery</li>
+                    <li>Name</li>
+                </ul>
+                <div id="userImage"></div>
 
+                <form class="addBeerForm hidden" method="post" action="@Url.Action("AddBeer", "Brewer")">
+                    <select>
+                        @foreach (var breweryName in Model.BreweryNames)
+                        {
+                        <option>@breweryName</option>
+                        }
+                    </select>    
 
-        <form class="addBreweryForm" method="post" action="@Url.Action("AddBrewery", "Brewer")">
-            <input name="BreweryName" type="text" placeholder="Enter A Brewery Name" />
-            <input name="BreweryAddress" type="text" placeholder="Enter A Brewery Address" />
-            <input name="BreweryCity" type="text" placeholder="Enter A City" />
-            <input name="BreweryPostalCode" type="text" placeholder="Enter A Postal Code" />
-            <input name="BreweryDistrict" type="text" placeholder="Enter A District" />
-            <input name="BreweryCountry" type="text" placeholder="Enter A Country" />
-            <input name="History" type="text" placeholder="Enter A Brief History of Your Brewery" />
-            <input name="YearFounded" type="text" placeholder="What Year was the Brewery Founded" />
-            <input name="BreweryProfileImg" type="text" placeholder="Enter A an Profile Image URL" />
-            <input name="BreweryBackgroundImg" type="text" placeholder="Enter A Background Image url" />
-            <input name="BreweryHeaderImage" type="text" placeholder="Enter A Header Image url" />
-            <button type="submit">Submit</button>
-        </form>*@
+                        <input name="beerName" type="text" placeholder="Enter A Beer Name" />
+
+                    <select>
+                        @foreach (var beerType in Model.BeerTypes)
+                        {
+                        <option>@beerType</option>
+                        }
+                    </select>
+                    <input name="beerDescription" type="text" placeholder="Enter A Beer Description" />
+                    <input name="abv" type="text" placeholder="Enter AN ABV" />
+                    <input name="ibu" type="text" placeholder="Enter AN IBU" />
+                    <input name="dateBrewed" type="date" placeholder="Enter A date brewed" />
+                    <input name="beerLabelImg" type="text" placeholder="Enter A an image url" />
+                    <button type="submit">Submit</button>
+                </form><!--END addBeerForm-->
+
+                <form class="addBreweryForm hidden" method="post" action="@Url.Action("AddBrewery", "Brewer")">
+                    <input name="BreweryName" type="text" placeholder="Enter A Brewery Name" />
+                    <input name="BreweryAddress" type="text" placeholder="Enter A Brewery Address" />
+                    <input name="BreweryCity" type="text" placeholder="Enter A City" />
+                    <input name="BreweryPostalCode" type="text" placeholder="Enter A Postal Code" />
+                    <input name="BreweryDistrict" type="text" placeholder="Enter A District" />
+                    <input name="BreweryCountry" type="text" placeholder="Enter A Country" />
+                    <input name="History" type="text" placeholder="Enter A Brief History of Your Brewery" />
+                    <input name="YearFounded" type="text" placeholder="What Year was the Brewery Founded" />
+                    <input name="BreweryProfileImg" type="text" placeholder="Enter A an Profile Image URL" />
+                    <input name="BreweryBackgroundImg" type="text" placeholder="Enter A Background Image url" />
+                    <input name="BreweryHeaderImage" type="text" placeholder="Enter A Header Image url" />
+                    <button type="submit">Submit</button>
+                </form><!--End addBreweryForm-->
+
+            </div><!--END userInformationContainer-->
+        </div><!--END USER ACTIONS-->
+    </div><!--END UserActionsContainer-->
 </div>
