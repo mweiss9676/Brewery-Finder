@@ -14,26 +14,15 @@ CREATE TABLE [dbo].[Users]
     [UserName]		            VARCHAR(MAX) NOT NULL, 
     [PasswordHash]              VARCHAR(MAX) NULL,
 	[PasswordSalt]              VARCHAR(MAX) NULL, 
-    [SecurityStamp]             VARCHAR(MAX) NULL,
-	Role						VARCHAR(100) NOT NULL,		
+    [SecurityStamp]             VARCHAR(MAX) NULL,	
 	Password1stAttempt			DATE NULL,
-    NumberOfAttempts			INT NOT NULL,
-);
-
-CREATE TABLE Role
-(
-	RoleId						INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Role						VARCHAR(100)          NOT NULL
+    NumberOfAttempts			INT NULL,
 );
 
 CREATE TABLE [dbo].[UserRoles]
 (
-	[UserId]					UNIQUEIDENTIFIER,         
-	[Role]						INT,        
-
-	CONSTRAINT pk_UserRoles        PRIMARY KEY (UserId, Role),
-	CONSTRAINT fk_UserRoles_UserId FOREIGN KEY (UserId) REFERENCES Users(UserId),
-	CONSTRAINT fk_UserRoles_Role   FOREIGN KEY (Role)   REFERENCES Role(RoleId)
+	[UserId]					UNIQUEIDENTIFIER NOT NULL FOREIGN KEY REFERENCES Users(UserId), 
+	[Role]						VARCHAR(100)		NOT NULL,        
 );
 
 CREATE TABLE Brewery 
@@ -182,3 +171,7 @@ INSERT INTO Beer VALUES (3, 'Washington''s Reserve', 21, 'We set a portion of ev
 INSERT INTO Beer VALUES (3, 'Pour House Hoppy White Ale', 27, 'By Yards Brewing', 0, Null, Null, '2017-04-28', NULL)
 
 /******************************************** Yards Brewing Info *******************************************************************/
+
+INSERT INTO Role VALUES ('Beer Enthusiast')
+INSERT INTO Role VALUES ('Brewer')
+INSERT INTO Role VALUES ('Administrator')
