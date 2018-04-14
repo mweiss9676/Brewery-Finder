@@ -204,7 +204,7 @@ namespace Capstone.Web.DAL
         }
 
         //DID NOT TEST THIS. 
-        public void RemoveBeer(int beerId)
+        public void RemoveBeer(string beerName)
         {
             try
             {
@@ -213,9 +213,9 @@ namespace Capstone.Web.DAL
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(@"DELETE FROM Beer
-                                                      WHERE Beer.BeerID = @beerId", conn);
+                                                      WHERE Beer.BeerName = @beerName", conn);
 
-                    cmd.Parameters.AddWithValue("@beerId", beerId);
+                    cmd.Parameters.AddWithValue("@beerName", beerName);
 
                     cmd.ExecuteNonQuery();
                 }

@@ -19,7 +19,7 @@ namespace Capstone.Web.DAL
 
         IList<BeerModel> GetAllBeers();
 
-        void RemoveBeer(int beerId);
+        void RemoveBeer(string beerName);
 
     }
 }

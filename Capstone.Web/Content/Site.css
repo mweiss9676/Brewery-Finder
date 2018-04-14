@@ -401,14 +401,14 @@ input {
     overflow: hidden;
 }
 
-.brewerOptions {
+.listActions {
     list-style: none;
     color: white;
     height: 92%;
     width: 140px;
 }
 
-.brewerOptions > li {
+.listActions > li {
     background-color: black;
     padding: 1rem 0;
     display: table;
@@ -425,11 +425,11 @@ li#spaceFiller {
     color: transparent;
 }
 
-.brewerOptions li:hover {
+.listActions li:hover {
     cursor: pointer;
 }
 
-#brewerInformation.focus, #addBeer.focus, #removeBeer.focus, #updateBreweryInfo.focus {
+#listActionOne.focus, #listActionTwo.focus, #listActionThree.focus, #listActionFour.focus {
     border-right: none;
 }
 

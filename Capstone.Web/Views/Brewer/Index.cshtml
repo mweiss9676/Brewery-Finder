@@ -8,16 +8,31 @@
     <div class="userActionsContainer">
 
         <div class="userActions">
-            @if (!User.IsInRole("Brewer"))
+
+            <ul class="listActions">
+            @if (User.IsInRole("Admin"))
             {
-            <ul class="brewerOptions">
-                <li id="brewerInformation" class="focus" onclick="BrewerInfo()">Owner Information</li>
-                <li id="addBeer" onclick="AddBeer()">Add Beer</li>
-                <li id="removeBeer" onclick="RemoveBeer()">Edit / Remove Beer</li>
-                <li id="updateBreweryInfo" onclick="UpdateBrewery()">Update Brewery Info</li>
+                <li id="listActionOne" class="focus" onclick="ActionOne()">Admin Information</li>
+                <li id="listActionTwo" onclick="ActionTwo()">Add Beer</li>
+                <li id="listActionThree" onclick="ActionThree()">Edit / Remove Beer</li>
+                <li id="listActionFour" onclick="ActionFour()">Update Brewery Info</li>
                 <li id="spaceFiller">s</li>
-            </ul>
             }
+            @if (User.IsInRole("Owner"))
+            {
+                <li id="listActionOne" class="focus" onclick="ActionOne()">Owner Information</li>
+                <li id="listActionTwo" onclick="ActionTwo()">Add Beer</li>
+                <li id="listActionThree" onclick="ActionThree()">Edit / Remove Beer</li>
+                <li id="listActionFour" onclick="ActionFour()">Update Brewery Info</li>
+                <li id="spaceFiller">s</li>
+            }
+            @if (User.IsInRole("Enthusiast"))
+            {
+                <li id="listActionOne" class="focus" onclick="ActionOne()">User Information</li>
+                <li id="listActionTwo" onclick="ActionTwo()">Favorite Beers</li>
+                <li id="spaceFiller">s</li>
+            }
+            </ul>
             <div class="userInformationContainer">
                 <div class="userInfo">
                     <ul class="userInfoList">
