@@ -155,16 +155,41 @@
     };
 });
 function BrewerInfo() {
+    $('#brewerInformation').addClass('focus');
+    $('#addBeer').removeClass('focus');
+    $('#removeBeer').removeClass('focus');
+    $('#updateBreweryInfo').removeClass('focus');
+
     $('.userInformationContainer').removeClass('hidden');
     $('.addBeerForm').addClass('hidden');
     $('.addBreweryForm').addClass('hidden');
 }
 function AddBeer() {
+    $('#brewerInformation').removeClass('focus');
+    $('#addBeer').addClass('focus');
+    $('#removeBeer').removeClass('focus');
+    $('#updateBreweryInfo').removeClass('focus');
+
+    $('.addBeerForm').removeClass('hidden');
+    $('.addBreweryForm').addClass('hidden');
+    $('.userInformationContainer').addClass('hidden');
+}
+function RemoveBeer() {
+    $('#brewerInformation').removeClass('focus');
+    $('#addBeer').removeClass('focus');
+    $('#removeBeer').addClass('focus');
+    $('#updateBreweryInfo').removeClass('focus');
+
     $('.addBeerForm').removeClass('hidden');
     $('.addBreweryForm').addClass('hidden');
     $('.userInformationContainer').addClass('hidden');
 }
 function UpdateBrewery() {
+    $('#brewerInformation').removeClass('focus');
+    $('#addBeer').removeClass('focus');
+    $('#removeBeer').removeClass('focus');
+    $('#updateBreweryInfo').addClass('focus');
+
     $('.addBreweryForm').removeClass('hidden');
     $('.addBeerForm').addClass('hidden');
     $('.userInformationContainer').addClass('hidden');

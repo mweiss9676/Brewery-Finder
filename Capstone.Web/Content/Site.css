@@ -356,7 +356,7 @@ input {
 
 /******************************************BREWERY OWNER***************************************/
 
-.hidden {
+.addBreweryForm.hidden, .addBeerForm.hidden, .userInformation.hidden {
     display: none;
 }
 
@@ -370,40 +370,59 @@ input {
 }
 
 .userActionsContainer {
-    width: 80vw;
-    height: 80vh;
-    background-color: rgba(255, 255, 255, .9);
+    width: 60vw;
+    height: 60vh;
+    background-color: black;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: flex-start;
+    border: 1px solid white;
 }
 
 .userActions {
-    width: 80%;
-    height: 94%;
-    background-color: white;
+    width: 98%;
+    height: 92%;
+    background-color: black;
+    border: 1px solid white;
+    border-left: none;
     margin: 1rem 1rem 0 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+    overflow: hidden;
 }
 
 .brewerOptions {
-    margin-top: 1rem;
     list-style: none;
-    width: 20%;
+    color: white;
+    height: 92%;
+    width: 140px;
 }
 
 .brewerOptions > li {
-    background-color: white;
+    background-color: black;
     padding: 1rem 0;
-    margin-bottom: .5rem;
+    display: table;
+    border: 1px solid white;
+    border-left: none;
+    border-collapse: collapse;
+    height: 60px;
+    width: 100%;
+}
+
+li#spaceFiller {
+    height: 100%;
+    color: transparent;
 }
 
 .brewerOptions li:hover {
     cursor: pointer;
+}
+
+#brewerInformation.focus, #addBeer.focus, #removeBeer.focus, #updateBreweryInfo.focus {
+    border-right: none;
 }
 
 .userInformation {
@@ -415,6 +434,21 @@ input {
     height: 150px;
     background-color: gray;
 }
+
+
+.addBreweryForm, .addBeerForm {
+    align-self: center;
+    background-color: red;
+    color: white;
+    text-align: center;
+    height: 50%;
+    width: 50%;
+}
+
+.addBreweryForm > input, .addBeerForm > * {
+    width: 50%;
+}
+   
 
 
 /**************************************END BREWERY OWNER***************************************/
@@ -467,17 +501,6 @@ input {
 
 
 
-.addBreweryForm {
-    position: relative;
-    top: 600px;
-    height: 500px;
-    top: 300px;
-    z-index: 200 !important;
-}
-/**************************************END BREWERY OWNER***************************************/
-
-
-/**************************************END BREWERY OWNER***************************************/
 
 
 
