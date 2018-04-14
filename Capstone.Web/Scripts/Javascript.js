@@ -160,7 +160,7 @@ function BrewerInfo() {
     $('#removeBeer').removeClass('focus');
     $('#updateBreweryInfo').removeClass('focus');
 
-    $('.userInformationContainer').removeClass('hidden');
+    $('.userInfo').removeClass('hidden');
     $('.addBeerForm').addClass('hidden');
     $('.addBreweryForm').addClass('hidden');
 }
@@ -172,7 +172,7 @@ function AddBeer() {
 
     $('.addBeerForm').removeClass('hidden');
     $('.addBreweryForm').addClass('hidden');
-    $('.userInformationContainer').addClass('hidden');
+    $('.userInfo').addClass('hidden');
 }
 function RemoveBeer() {
     $('#brewerInformation').removeClass('focus');
@@ -182,7 +182,7 @@ function RemoveBeer() {
 
     $('.addBeerForm').removeClass('hidden');
     $('.addBreweryForm').addClass('hidden');
-    $('.userInformationContainer').addClass('hidden');
+    $('.userInfo').addClass('hidden');
 }
 function UpdateBrewery() {
     $('#brewerInformation').removeClass('focus');
@@ -192,5 +192,5 @@ function UpdateBrewery() {
 
     $('.addBreweryForm').removeClass('hidden');
     $('.addBeerForm').addClass('hidden');
-    $('.userInformationContainer').addClass('hidden');
+    $('.userInfo').addClass('hidden');
 }
