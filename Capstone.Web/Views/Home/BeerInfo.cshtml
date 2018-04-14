@@ -9,34 +9,36 @@
 <div class="container">
     <div id="beerInfo">
 
-        @if (Model.BeerLabelImg == "NA") {
-             <img style="width: 50%; height: 94%; border-radius: 5px;" src="~/Content/IMGS/genericbottle.jpeg"/>
+        @if (Model.BeerLabelImg == "NA")
+        {
+            <img style="width: 30%; border-radius: 5px;" src="~/Content/IMGS/genericbottle.jpeg" />
         }
-        else {
-             <img class="beerLabelImg" src="@Model.BeerLabelImg" />
-        }      
+        else
+        {
+            <img class="beerLabelImg" src="@Model.BeerLabelImg" />
+        }
 
         <div class="beerInfoTxt">
             <h1>@Model.BeerName</h1>
-            <table>
+            <table class="beerTable">
                 <tr>
                     @if (Model.ABV == 0)
-                {
-                    <td>N/A</td>
-            }
-            else
-            {
-                <td>ABV: @Model.ABV</td>
-        }
+                    {
+                        <td class="beerTd">ABV: N/A</td>
+                    }
+                    else
+                    {
+                        <td class="beerTd">ABV: @Model.ABV</td>
+                    }
                     @if (Model.IBU == 0)
-                {
-                    <td>N/A</td>
-            }
-            else
-            {
-                <td>IBU: @Model.IBU</td>
-        }
-                    <td>First Brewed: @Model.DateBrewed.Year</td>
+                    {
+                        <td class="beerTd">IBU: N/A</td>
+                    }
+                    else
+                    {
+                        <td class="beerTd">IBU: @Model.IBU</td>
+                    }
+                    <td class="beerTd">First Brewed: @Model.DateBrewed.Year</td>
                 </tr>
             </table>
 

@@ -36,6 +36,9 @@ CREATE TABLE Brewery
 	BreweryPostalCode			VARCHAR(50) NOT NULL,
 	History						VARCHAR(MAX) NOT NULL,
 	YearFounded					INT NOT NULL,
+	HoursOfOperation			VARCHAR(MAX) NOT NULL,
+	Email						VARCHAR(200) NOT NULL,
+	Phone						VARCHAR(20) NOT NULL,
 	BreweryProfileImg			VARCHAR(200) NULL,
 	BreweryBackgroundImg		VARCHAR(200) NULL,
 	BreweryHeaderImg			VARCHAR(200) NULL
@@ -114,7 +117,12 @@ INSERT INTO BeerTypes VALUES ('Scotch Ale','Scotch Ale was first used as a desig
 
 /******************************************** GoldHorn Brewery Info ****************************************************************/
 
-INSERT INTO Brewery VALUES ('Goldhorn', '1361 E 55th St.', 'Cleveland', 'OH', 'USA', '44103', 'Located on Cleveland’s East Side, in the St. Clair neighborhood, featuring classic European and American style beers. We believe beer is more than just a beverage; it''s a shared experience between brewer, buyer and community.', 2010, 'http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header2-1.jpg','http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header1.jpg', 'http://www.ohiocraftbeer.org/wp-content/uploads/2015/12/OCBA_simplified_color.png')
+INSERT INTO Brewery VALUES ('Goldhorn', '1361 E 55th St.', 'Cleveland', 'OH', 'USA', '44103', 'Located on Cleveland’s East Side, in the St. Clair neighborhood, featuring classic European and American style beers. We believe beer is more than just a beverage; it''s a shared experience between brewer, buyer and community.', 2010, 'Tuesday 3:00 pm – 9:00 pm
+Wednesday 3:00 pm – 9:00 pm
+Thursday 3:00 pm – 9:00 pm
+Friday 3:00 pm – 10:00 pm, Saturday 12:00 pm – 10:00 pm
+Sunday 11:00 am – 6:00 pm
+Closed: Mondays', 'info@goldhorn.com', '216-465-1352', 'http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header2-1.jpg','http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header1.jpg', 'http://www.ohiocraftbeer.org/wp-content/uploads/2015/12/OCBA_simplified_color.png')
 INSERT INTO Beer VALUES (1, 'Lagunitas IPA', 13, 'Piney and resinous with classic West Coast citrus zing. By Lagunitas Brewing Company.', 0, 6.2, 51.5, '2017-01-18', 'https://lagunitas.com/uploads/beers_landing/beer-landing-hitting-selves-waldos.png')
 INSERT INTO Beer VALUES (1, 'Back In Black', 13, 'Brewed like an American IPA but with the addition of rich, dark malts, this beer has all the flavor and hop character you expect with a smooth, mellow finish. By 21st Amendment Brewery.', 0, 6.8, 65, '2017-11-18', 'http://21st-amendment.com/assets/backinblack_can_022113-230x409.png')
 INSERT INTO Beer VALUES (1, 'Wanderlust IPA', 13, 'Golden IPA made with five different hops. Intense grapefruit and dank notes with a crisp finish. By Breakside Brewery.', 0, 6.2, 64, '2017-01-19', 'https://res.cloudinary.com/ratebeer/image/upload/w_120,c_limit/beer_139634.jpg')
@@ -127,7 +135,10 @@ INSERT INTO Beer VALUES (1, 'Delirium Tremens', 3, 'Slightly malty, a nice touch
 
 /******************************************** Great Lakes Brewing Company Info *************************************************************/
 
-INSERT INTO Brewery VALUES ('Great Lakes Brewing Company', '2516 Market Ave.', 'Cleveland', 'OH', 'USA', '44113', 'Two Irish brothers with limited brewing experience. A city that shuttered its last production brewery in the early 80s. A neighborhood in serious need of a facelift. In 1986 when Patrick and Daniel Conway opened their fledgling operation in Cleveland''s Ohio City neighborhood, the odds were stacked against them. Fortunately, they surrounded themselves with a staff of passionate, knowledgeable people, and from the start committed themselves to bringing a sophisticated, diverse selection of craft beer to their home state. Two decades, multiple awards, and a whole lot of stories later, Pat and Dan Conway celebrate over two decades of brewing exceptional beer for their adventurous and discerning customers.', 1986, 'https://www.greatlakesbrewing.com/sites/default/files/800x534_taproom4web.jpg', 'https://www.greatlakesbrewing.com/sites/default/files/800x534_taproom4web.jpg', 'https://media-cdn.tripadvisor.com/media/photo-s/01/60/80/ca/great-lakes-brewery.jpg')
+INSERT INTO Brewery VALUES ('Great Lakes Brewing Company', '2516 Market Ave.', 'Cleveland', 'OH', 'USA', '44113', 'Two Irish brothers with limited brewing experience. A city that shuttered its last production brewery in the early 80s. A neighborhood in serious need of a facelift. In 1986 when Patrick and Daniel Conway opened their fledgling operation in Cleveland''s Ohio City neighborhood, the odds were stacked against them. Fortunately, they surrounded themselves with a staff of passionate, knowledgeable people, and from the start committed themselves to bringing a sophisticated, diverse selection of craft beer to their home state. Two decades, multiple awards, and a whole lot of stories later, Pat and Dan Conway celebrate over two decades of brewing exceptional beer for their adventurous and discerning customers.', 1986, 'Monday - Thursday: 11:30 AM - 10:30 PM (bar open until 12:00 AM)
+Friday: 11:30 AM - 11:30 PM (bar open until 1:00 AM)
+Saturday: 11:00 AM - 11:30 PM (bar open until 1:00 AM)
+Sundays: Closed', 'glbcinfo@greatlakesbrewing.com', '216-771-4404', 'https://www.greatlakesbrewing.com/sites/default/files/800x534_taproom4web.jpg', 'https://www.greatlakesbrewing.com/sites/default/files/800x534_taproom4web.jpg', 'https://media-cdn.tripadvisor.com/media/photo-s/01/60/80/ca/great-lakes-brewery.jpg')
 INSERT INTO Beer VALUES (2, 'Dortmunder Gold', 20, 'A smooth, award-winning (and deceptively unassuming) balance of sweet malt and dry hop flavors. Yes, its known for winning medals worldwide. But locally, its known as "Dort," our flagship lager that humbly maintains its smooth, balanced (and charmingly unpretentious) ways. By Great Lakes Brewing Company.', 1, 5.8, 30, '1988-01-01', 'https://www.greatlakesbrewing.com/sites/default/files/styles/large/public/dortmunder-fixed_1.png?itok=67hwPAVE')
 INSERT INTO Beer VALUES (2, 'Eliot Ness', 2, 'Admittedly, its a bit of a paradox to name our Amber Lager for historys most famous agent of prohibition. But its a smooth, malty (and dare we say, arresting?) paradox. By Great Lakes Brewing Company.', 1, 6.1, 27, '1995-01-01', 'https://www.greatlakesbrewing.com/sites/default/files/styles/large/public/eliotness-fixed_1.png?itok=k-GSENtB')
 INSERT INTO Beer VALUES (2, 'Turntable Pils', 24, 'Flip that record and wax nostalgic about Ohio’s deep-cut music legacy with our refreshing pilsner. Consider this our reissue of a classic style. By Great Lakes Brewing Company.', 1, 5.4, 35, '2018-01-01', 'https://www.greatlakesbrewing.com/sites/default/files/styles/large/public/turntable-2018-330x546.png?itok=xKxe5ucc')
@@ -152,7 +163,13 @@ INSERT INTO Beer VALUES (2, 'Blackout Stout', 23, 'Bold and dark as a power-less
 /******************************************** Great Lakes Brewing Company Info *************************************************************/
 
 /******************************************** Yards Brewing Info *******************************************************************/
-INSERT INTO Brewery VALUES ('Yards Brewing', '500 Spring Garden St.', 'Philadelphia', 'PA', 'USA', '19123', 'Back in the late ''80s, two college buddies, Tom and Jon, decided to brew some beer for their friends. Whether it was natural talent or the endless supply of free beer, people liked what they tasted and wanted more. They didn’t know it at the time, but this was the beginning of what was to become Yards Brewing Company. From a garage in Manayunk, to Roxborough, then Kensington and finally to Northern Liberties, this is the Story of Yards, Philly’s Brewery since 1994.', 1994,'https://scontent-lga3-1.cdninstagram.com/vp/8d86b17adb8cce17fd2cdc29669a92cb/5B5A057B/t51.2885-15/e35/29403439_165290210837971_5950059091274498048_n.jpg', NULL, NULL)
+INSERT INTO Brewery VALUES ('Yards Brewing', '500 Spring Garden St.', 'Philadelphia', 'PA', 'USA', '19123', 'Back in the late ''80s, two college buddies, Tom and Jon, decided to brew some beer for their friends. Whether it was natural talent or the endless supply of free beer, people liked what they tasted and wanted more. They didn’t know it at the time, but this was the beginning of what was to become Yards Brewing Company. From a garage in Manayunk, to Roxborough, then Kensington and finally to Northern Liberties, this is the Story of Yards, Philly’s Brewery since 1994.', 1994, 'Sundays from 11am to 10pm
+Mondays from 11:30am to 10pm
+Tuesdays from 11:30am to 10pm
+Wednesdays from 11:30am to 10pm
+Thursdays from 11:30am to 11pm
+Fridays from 11:30am to 11pm
+Saturdays from 11am to 11pm', 'info@yardsbrewing.com', '(215) 525-0175', 'https://scontent-lga3-1.cdninstagram.com/vp/8d86b17adb8cce17fd2cdc29669a92cb/5B5A057B/t51.2885-15/e35/29403439_165290210837971_5950059091274498048_n.jpg', NULL, NULL)
 INSERT INTO Beer VALUES (3, 'Alexander Hamilton''s Treasury Ale', 24, 'By Yards Brewing', 0, 4.5, NULL, '2017-02-28', NULL)
 INSERT INTO Beer VALUES (3, 'Brandywine Brawler', 5, 'By Yards Brewing', 0, 4.2, NULL, '2017-10-27', 'http://yardsbrewing.com/assets/img/ales-logos/LOGO_BLR_circle_Yards_Ales.png')
 INSERT INTO Beer VALUES (3, 'Cape of Good Hope', 13, 'Our Cape of Good Hope, which changes year to year, pays homage to the original style and adventurous spirit of the first British IPAs. Our 2014 release is a West Coast style double IPA. There’s Columbus in the kettle, Chinook in the whirlpool and Mosaic in the hopback. We’ve dry hopped Cape with Mosaic, Crystal, Cluster, and Pacific Jade hops as well. Pilsner malt gives this brew a beautiful golden hue. The end result is a dry, crisp ale with unmistakable flavors and aromas of tropical fruits. By Yards Brewing', 0, 9.7, 76, '2011-07-25', 'http://yardsbrewing.com/assets/img/ales-logos/LOGO_COGH_circle_Yards_Ales.png')
@@ -172,6 +189,3 @@ INSERT INTO Beer VALUES (3, 'Pour House Hoppy White Ale', 27, 'By Yards Brewing'
 
 /******************************************** Yards Brewing Info *******************************************************************/
 
-INSERT INTO Role VALUES ('Beer Enthusiast')
-INSERT INTO Role VALUES ('Brewer')
-INSERT INTO Role VALUES ('Administrator')

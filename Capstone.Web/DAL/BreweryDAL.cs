@@ -228,7 +228,10 @@ namespace Capstone.Web.DAL
                 YearFounded = Convert.ToInt32(reader["YearFounded"]),
                 BreweryProfileImg = Convert.ToString(reader["BreweryProfileImg"]),
                 BreweryBackgroundImg = Convert.ToString(reader["BreweryBackgroundImg"]),
-                BreweryHeaderImage = Convert.ToString(reader["BreweryHeaderImg"])
+                BreweryHeaderImage = Convert.ToString(reader["BreweryHeaderImg"]),
+                HoursOfOperation = Convert.ToString(reader["HoursOfOperation"]),
+                Email = Convert.ToString(reader["Email"]),
+                Phone = Convert.ToString(reader["Phone"])
             };
         }
     }

@@ -519,6 +519,26 @@ li#spaceFiller {
         position: relative;
     }
 
+
+.beerTable {
+    border-spacing: 0px;
+}
+.beerTd{
+        padding: 5px 15px 5px 15px;
+        border-bottom: 1px solid black;
+}
+#genericLabelImg {
+    margin: 10px;
+    border-radius: 5px;
+    width: 50%;
+    height: 94%;
+    object-fit: cover;
+    display: inline-block;
+    box-shadow: 0px 2px 2px rgba(30, 30, 30, .5);
+}
+
+
+
 /******************************************END BEER INFO***********************************/
 
 
