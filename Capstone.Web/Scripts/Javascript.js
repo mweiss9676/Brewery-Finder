@@ -161,8 +161,8 @@ function ActionOne() {
     $('#listActionFour').removeClass('focus');
 
     $('.userInfo').removeClass('hidden');
-    $('.addBeerForm').addClass('hidden');
-    $('.addBreweryForm').addClass('hidden');
+    $('.viewOne').addClass('hidden');
+    $('.viewTwo').addClass('hidden');
 }
 function ActionTwo() {
     $('#listActionOne').removeClass('focus');
@@ -170,8 +170,8 @@ function ActionTwo() {
     $('#listActionThree').removeClass('focus');
     $('#listActionFour').removeClass('focus');
 
-    $('.addBeerForm').removeClass('hidden');
-    $('.addBreweryForm').addClass('hidden');
+    $('.viewOne').removeClass('hidden');
+    $('.viewTwo').addClass('hidden');
     $('.userInfo').addClass('hidden');
 }
 function ActionThree() {
@@ -180,8 +180,8 @@ function ActionThree() {
     $('#listActionThree').addClass('focus');
     $('#listActionFour').removeClass('focus');
 
-    $('.addBeerForm').removeClass('hidden');
-    $('.addBreweryForm').addClass('hidden');
+    $('.viewOne').removeClass('hidden');
+    $('.viewTwo').addClass('hidden');
     $('.userInfo').addClass('hidden');
 }
 function ActionFour() {
@@ -190,7 +190,7 @@ function ActionFour() {
     $('#listActionThree').removeClass('focus');
     $('#listActionFour').addClass('focus');
 
-    $('.addBreweryForm').removeClass('hidden');
-    $('.addBeerForm').addClass('hidden');
+    $('.viewTwo').removeClass('hidden');
+    $('.viewOne').addClass('hidden');
     $('.userInfo').addClass('hidden');
 }

@@ -48,13 +48,18 @@
                     <div id="userImage"></div>
                 </div><!--END USER INFO-->
 
-                <form class="addBeerForm hidden" method="post" action="@Url.Action("AddBeer", "Brewer")">
+                @if ((User.IsInRole("Admin")) || (User.IsInRole("Owner")))
+                {
+                <form class="viewOne hidden" method="post" action="@Url.Action("AddBeer", "Brewer")">
+                    @if (User.IsInRole("Admin"))
+                    {
                     <select>
                         @foreach (var breweryName in Model.BreweryNames)
                         {
                             <option>@breweryName</option>
                         }
                     </select>
+                    }
 
                     <input name="beerName" type="text" placeholder="Enter A Beer Name" />
 
@@ -72,7 +77,7 @@
                     <button class="submitter" type="submit">Submit</button>
                 </form><!--END addBeerForm-->
 
-                <form class="addBreweryForm hidden" method="post" action="@Url.Action("AddBrewery", "Brewer")">
+                <form class="viewTwo hidden" method="post" action="@Url.Action("AddBrewery", "Brewer")">
                     <input name="BreweryName" type="text" placeholder="Enter A Brewery Name" />
                     <input name="BreweryAddress" type="text" placeholder="Enter A Brewery Address" />
                     <input name="BreweryCity" type="text" placeholder="Enter A City" />
@@ -86,7 +91,19 @@
                     <input name="BreweryHeaderImage" type="text" placeholder="Enter A Header Image url" />
                     <button class="submitter" type="submit">Submit</button>
                 </form><!--End addBreweryForm-->
-
+                }
+                @if (User.IsInRole("Beer Enthusiast"))
+                {
+                <div class="viewOne">
+                    <ul>
+                        <li>Favorite Beer 1</li>
+                        <li>Favorite Beer 2</li>
+                        <li>Favorite Beer 3</li>
+                        <li>Favorite Beer 4</li>
+                        <li>Favorite Beer 5</li>
+                    </ul>
+                </div>
+                }
             </div><!--END userInformationContainer-->
         </div><!--END USER ACTIONS-->
     </div><!--END UserActionsContainer-->
