@@ -436,7 +436,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 /******************************************BREWERY OWNER***************************************/
 
-.addBreweryForm.hidden, .addBeerForm.hidden, .userInfo.hidden {
+.viewTwo.hidden, .viewOne.hidden, .userInfo.hidden {
     display: none;
 }
 
@@ -537,7 +537,7 @@ li#spaceFiller {
 }
 
 
-.addBreweryForm, .addBeerForm {
+.viewTwo, .viewOne {
     position: absolute;
     top: 10%;
     left: 50%;
@@ -547,7 +547,7 @@ li#spaceFiller {
     width: 300px;
 }
 
-.addBreweryForm > input, .addBeerForm > input, .addBeerForm > select {
+.viewTwo > input, .viewOne > input, .viewOne> select {
     width: 100%;
 }
    
