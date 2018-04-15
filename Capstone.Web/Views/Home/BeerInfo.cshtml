@@ -6,18 +6,19 @@
 
 
 
-<div class="container">
-    <div id="beerInfo">
 
+    <div id="beerInfo">
+        <div class="beerLabelImgContainer">
         @if (Model.BeerLabelImg == "NA")
         {
-            <img style="width: 30%; border-radius: 5px;" src="~/Content/IMGS/genericbottle.jpeg" />
+            <img class="beerLabelImg" src="~/Content/IMGS/genericBeer.png" />
+            <h2 id="notSupplied">Beer Image Not Supplied</h2>
         }
         else
         {
             <img class="beerLabelImg" src="@Model.BeerLabelImg" />
         }
-
+        </div><!--END BEER INFO IMAGE-->
         <div class="beerInfoTxt">
             <h1>@Model.BeerName</h1>
             <table class="beerTable">
@@ -43,7 +44,7 @@
             </table>
 
             <p>@Model.BeerDescription</p>
-        </div>
-    </div>
-</div>
+        </div><!--END BEER INFO TXT-->
+    </div><!--END BEER INFO-->
+
 

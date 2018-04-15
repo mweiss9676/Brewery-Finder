@@ -217,6 +217,7 @@
   <ItemGroup>
     <Content Include="Content\IMGS\genericbottle.jpeg" />
     <Content Include="Content\IMGS\kraftRED.png" />
+    <Content Include="Content\IMGS\genericBeer.png" />
     <Content Include="Content\IMGS\TestBackground.jpeg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
