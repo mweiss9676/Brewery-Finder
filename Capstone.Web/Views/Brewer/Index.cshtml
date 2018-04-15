@@ -80,7 +80,12 @@
                 <form class="viewTwo hidden" method="post" action="@Url.Action("AddBrewery", "Brewer")">
                     @if (User.IsInRole("Admin"))
                     {
-                    <input name="BreweryName" type="text" placeholder="Enter A Brewery Name" />
+                        <select>
+                        @foreach (var breweryName in Model.BreweryNames)
+                        {
+                            <option>@breweryName</option>
+                        }
+                        </select>
                     }
                     <input name="BreweryAddress" type="text" placeholder="Address" />
                     <input name="BreweryCity" type="text" placeholder="City" />

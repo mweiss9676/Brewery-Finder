@@ -17,6 +17,7 @@ input, select{
     width: 90%;
     height: 30px;
     font-size: 15px;
+    text-align-last: center;
 }
 
 
@@ -62,22 +63,40 @@ header {
 
 }
 
-a#registerLink {
+#registerLink {
     text-decoration: none;
     color: white;
     text-align: right;
-    font-family: '';
+    font-family: var(--headerFont);
     padding-right: 20px;
     z-index: 100;
 }
 
-a#loginLink {
+#loginLink {
     text-decoration: none;
     color: white;
     text-align: right;
-    font-family: '';
+    font-family: var(--headerFont);
     z-index: 500;
 }
+
+.links {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+}
+
+.links li a {
+    font-family: var(--bodyFont);
+    text-decoration: none;
+    color: gray;
+    margin-right: 1rem;
+}
+
 
 .backgroundMain{
     /*background-image: url('IMGS/TestBackground.jpeg');*/   
@@ -492,6 +511,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
     color: white;
     height: 92%;
     width: 140px;
+    display: table-cell;
+    vertical-align: middle;
+    font-family: var(--bodyFont);
 }
 
 .listActions > li {
@@ -553,7 +575,7 @@ li#spaceFiller {
     width: 300px;
 }
 
-.viewTwo > input, .viewOne > input, .viewOne> select {
+.viewTwo > input, .viewOne > input, .viewOne > select {
     width: 100%;
 }
    
