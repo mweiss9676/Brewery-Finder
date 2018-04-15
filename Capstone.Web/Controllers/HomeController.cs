@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
-
+using Microsoft.AspNet.Identity;
 
 namespace Capstone.Web.Controllers
 {
@@ -14,6 +14,7 @@ namespace Capstone.Web.Controllers
     {
         IBreweryDAL breweryDAL;
         IBeerDAL beerDAL;
+
         public HomeController(IBreweryDAL breweryDAL, IBeerDAL beerDAL)
         {
             this.breweryDAL = breweryDAL;

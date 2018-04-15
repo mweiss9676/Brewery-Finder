@@ -1,4 +1,5 @@
-﻿@model Capstone.Web.Models.ListOfBreweryNamesAndBeerTypesModel
+﻿@using Microsoft.AspNet.Identity
+@model Capstone.Web.Models.ListOfBreweryNamesAndBeerTypesModel
 @{
     ViewBag.Title = "Index";
 }
@@ -10,35 +11,39 @@
         <div class="userActions">
 
             <ul class="listActions">
-            @if (User.IsInRole("Admin"))
-            {
-                <li id="listActionOne" class="focus" onclick="ActionOne()">Admin Information</li>
-                <li id="listActionTwo" onclick="ActionTwo()">Add Beer</li>
-                <li id="listActionThree" onclick="ActionThree()">Edit / Remove Beer</li>
-                <li id="listActionFour" onclick="ActionFour()">Update Brewery Info</li>
-                <li id="spaceFiller">s</li>
-            }
-            @if (User.IsInRole("Owner"))
-            {
-                <li id="listActionOne" class="focus" onclick="ActionOne()">Owner Information</li>
-                <li id="listActionTwo" onclick="ActionTwo()">Add Beer</li>
-                <li id="listActionThree" onclick="ActionThree()">Edit / Remove Beer</li>
-                <li id="listActionFour" onclick="ActionFour()">Update Brewery Info</li>
-                <li id="spaceFiller">s</li>
-            }
-            @if (User.IsInRole("Enthusiast"))
-            {
-                <li id="listActionOne" class="focus" onclick="ActionOne()">User Information</li>
-                <li id="listActionTwo" onclick="ActionTwo()">Favorite Beers</li>
-                <li id="spaceFiller">s</li>
-            }
+                @if (User.IsInRole("Admin"))
+                {
+                    <li id="listActionOne" class="focus" onclick="ActionOne()">Admin Information</li>
+                    <li id="listActionTwo" onclick="ActionTwo()">Add Beer</li>
+                    <li id="listActionThree" onclick="ActionThree()">Edit / Remove Beer</li>
+                    <li id="listActionFour" onclick="ActionFour()">Update Brewery Info</li>
+                    <li id="spaceFiller">s</li>
+                }
+                @if (User.IsInRole("Owner"))
+                {
+                    <li id="listActionOne" class="focus" onclick="ActionOne()">Owner Information</li>
+                    <li id="listActionTwo" onclick="ActionTwo()">Add Beer</li>
+                    <li id="listActionThree" onclick="ActionThree()">Edit / Remove Beer</li>
+                    <li id="listActionFour" onclick="ActionFour()">Update Brewery Info</li>
+                    <li id="spaceFiller">s</li>
+                }
+                @if (User.IsInRole("Beer Enthusiast"))
+                {
+                    <li id="listActionOne" class="focus" onclick="ActionOne()">User Information</li>
+                    <li id="listActionTwo" onclick="ActionTwo()">Favorite Beers</li>
+                    <li id="spaceFiller">s</li>
+                }
+                @if (User.IsInRole("Beer Enthusiast"))
+                {
+                    <li id="listActionOne" class="focus" onclick="ActionOne()">Register Here</li>
+                    <li id="spaceFiller">s</li>
+                }
             </ul>
             <div class="userInformationContainer">
                 <div class="userInfo">
                     <ul class="userInfoList">
-                        <li>Brewery Owner</li>
-                        <li>Name of Brewery</li>
-                        <li>Name</li>
+                        <li><h2>@Model.User.Role</h2></li>
+                        <li>@User.Identity.GetUserName()</li>
                     </ul>
                     <div id="userImage"></div>
                 </div><!--END USER INFO-->
@@ -47,16 +52,16 @@
                     <select>
                         @foreach (var breweryName in Model.BreweryNames)
                         {
-                        <option>@breweryName</option>
+                            <option>@breweryName</option>
                         }
-                    </select>    
+                    </select>
 
-                        <input name="beerName" type="text" placeholder="Enter A Beer Name" />
+                    <input name="beerName" type="text" placeholder="Enter A Beer Name" />
 
                     <select>
                         @foreach (var beerType in Model.BeerTypes)
                         {
-                        <option>@beerType</option>
+                            <option>@beerType</option>
                         }
                     </select>
                     <input name="beerDescription" type="text" placeholder="Enter A Beer Description" />
