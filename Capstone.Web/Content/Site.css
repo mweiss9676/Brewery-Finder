@@ -12,6 +12,15 @@
     --headerHeight: 50px;
 }
 
+input{
+    text-align: center;
+    width: 90%;
+    height: 30px;
+    font-size: 15px;
+}
+
+
+
 /* Set padding to keep content from hitting the edges */
 
 
@@ -300,8 +309,66 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 /****************************************** REGISTRATION PAGE ********************************/
 
-.registerForm {
+.registerFormContainer {
     width: 25%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    align-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid white;
+    height: 30%;
+    
+}
+
+.registerForm {  
+    height: 100%;
+    width: 100%;   
+    text-align: center;
+}
+
+.registerHTag {
+    padding-bottom: 15px;
+    font-size: 20px;
+}
+
+.registrationInput {
+    color: black;
+    text-align: center;
+    display: block;
+    padding-bottom: 5px;
+}
+
+.registrationValidation {
+    width: 100%;
+    color: red;
+    padding-bottom: 5px;
+}
+
+.registerSubmitBtn{
+    background-color: rgb(124,33,17);
+    height: 30px;
+    width: 65px;
+    border: 0px solid;
+    margin-top: 10px;
+    border-radius: 10%;
+    box-shadow: white 1px 1px;
+}
+
+
+
+
+
+/****************************************** REGISTRATION PAGE ********************************/
+
+
+/********************************************* LOGIN PAGE ************************************/
+.loginFormContainer {
+    width: 25%;
+    height: 30%;
     background-color: black;
     color: white;
     text-align: center;
@@ -310,42 +377,53 @@ input[type=date]::-webkit-calendar-picker-indicator {
     top: 50%;
     transform: translate(-50%,-50%);
     border: 1px solid white;
-    height: 50%;
+    
 }
 
-.register {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-}
-
-.registerFields{
-    margin-bottom: 10px;
-    margin-top: 10px;
-}
-
-.submitter{
-    background-color: rgb(124,33,17);
-    height: 30px;
-    width: 60px;
-    border: 0px solid;
-}
-
-input {
-    /*background-color: rgb(124,33,17);
-    border: 0px solid;*/
-    color: black;
+.loginForm {
+    height: 100%;
+    width: 100%;
     text-align: center;
 }
 
+.loginHTag {
+    padding-bottom: 15px;
+    font-size: 20px;
+}
 
-/****************************************** REGISTRATION PAGE ********************************/
 
 
-/********************************************* LOGIN PAGE ************************************/
 
+.loginInput {
+    color: black;
+    text-align: center;
+    display: block;
+    padding-bottom: 5px;
+}
 
+.loginValidation {
+    width: 100%;
+    color: red;
+    padding-bottom: 5px;
+}
+
+.checkBox{
+    height: 20px;
+}
+
+.loginSubmitBtn {
+    background-color: rgb(124,33,17);
+    height: 30px;
+    width: 65px;
+    border: 0px solid;
+    margin-top: 10px;
+    border-radius: 10%;
+    box-shadow: white 1px 1px;
+}
+
+.regAsNewUserLink{
+    padding-top: 5px;
+}
 
 
 
@@ -542,9 +620,6 @@ li#spaceFiller {
 
 
 /******************************************END BEER INFO***********************************/
-
-
-
 
 
 

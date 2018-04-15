@@ -2,31 +2,35 @@
     ViewBag.Title = "Register";
 }
 
-<div class="registerForm">
-    <div class="register">
-
-        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
-        {
-            @Html.AntiForgeryToken()
-            <h4>Create a new account.</h4>
-            <div class="registerFields">
-                <div>
-                    @Html.TextBoxFor(m => m.Email, new { placeholder = "email" })
-                </div>
-                <div>
-                    @Html.PasswordFor(m => m.Password, new { placeholder = "password" })
-                </div>
-                <div>
-                    @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "confirm password" })
-                </div>
-            </div>
-            <div>
-                <input class="submitter" type="submit" value="Register" />
-
-            </div>
-        }
-    </div>
+<div class="registerFormContainer">
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form", @class = "registerForm" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4 class="registerHTag">Create a New Account</h4>
+        <div class="registrationValidation">
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+        <div class="registrationInput">
+            @Html.TextBoxFor(m => m.Email, new { placeholder = "email" })
+        </div>      
+        <div class="registrationValidation">
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+        <div class="registrationInput">
+            @Html.PasswordFor(m => m.Password, new { placeholder = "password" })
+        </div>
+        <div class="registrationValidation">
+            @Html.ValidationMessageFor(m => m.ConfirmPassword)
+        </div>
+        <div class="registrationInput">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "confirm password" })
+        </div>
+        <div>
+            <input class="registerSubmitBtn" type="submit" value="Register" />
+        </div>
+    }
 </div>
+
 @section Scripts {
 
 }
