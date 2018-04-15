@@ -12,7 +12,7 @@
     --headerHeight: 50px;
 }
 
-input{
+input, select{
     text-align: center;
     width: 90%;
     height: 30px;
@@ -440,6 +440,12 @@ input[type=date]::-webkit-calendar-picker-indicator {
     display: none;
 }
 
+.submitter {
+    height: 30px;
+    background-color: white;
+    float: right;
+}
+
 .userViewContainer {
     height: 100vh;
     width: 100vw;
@@ -458,7 +464,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .userActionsContainer {
     width: 800px;
-    height: 60vh;
+    height: 450px;
     background-color: black;
     display: flex;
     flex-direction: row;
@@ -523,17 +529,17 @@ li#spaceFiller {
 .userInfoList {
     position: relative;
     list-style: none;
-    left: 10%;
-    top: 10%
+    left: 2rem;
+    top: 1rem;
 }
 
-#userImage {
+#icon {
     width: 150px;
     height: 150px;
     background-color: gray;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 1rem;
+    right: 1rem;
 }
 
 
