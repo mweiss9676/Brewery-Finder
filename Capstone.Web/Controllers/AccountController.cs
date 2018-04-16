@@ -61,7 +61,7 @@ namespace Capstone.Web.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-
+        
         //
         // POST: /Account/Login
         [HttpPost]
@@ -83,7 +83,7 @@ namespace Capstone.Web.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Invalid login attempt.");
+                ModelState.AddModelError("InvalidLogin", "Invalid login attempt.");
                 return View(model);
             }
         }
@@ -93,6 +93,8 @@ namespace Capstone.Web.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            
+
             return View();
         }
 
@@ -105,11 +107,22 @@ namespace Capstone.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                var existingUser = await UserManager.FindByNameAsync(model.Email);
+                if(existingUser != null)
+                {
+                    ModelState.AddModelError("UserExists", "Username already exists.");
+                    return View(model);
+                }
+                var invalidPassword = await UserManager.PasswordValidator.ValidateAsync(model.Password);
+                if (!invalidPassword.Succeeded)
+                {
+                    ModelState.AddModelError("BadPassword", "Required: 1 uppercase, 1 number, 1 special character");
+                }
                 var user = new User { UserName = model.Email };
 
                 // Add the roles here to the user
                 //user.Roles.Add("Administrator");
-                user.Roles.Add("Beer Enthusiast");
+                user.Roles.Add("Enthusiast");
                 //....
 
                 var result = await UserManager.CreateAsync(user, model.Password);

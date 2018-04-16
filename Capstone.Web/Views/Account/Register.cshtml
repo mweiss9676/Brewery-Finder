@@ -9,12 +9,14 @@
         <h4 class="registerHTag">Create a New Account</h4>
         <div class="registrationValidation">
             @Html.ValidationMessageFor(m => m.Email)
+            @Html.ValidationMessage("UserExists")
         </div>
         <div class="registrationInput">
             @Html.TextBoxFor(m => m.Email, new { placeholder = "email" })
         </div>      
         <div class="registrationValidation">
             @Html.ValidationMessageFor(m => m.Password)
+            @Html.ValidationMessage("BadPassword")
         </div>
         <div class="registrationInput">
             @Html.PasswordFor(m => m.Password, new { placeholder = "password" })
