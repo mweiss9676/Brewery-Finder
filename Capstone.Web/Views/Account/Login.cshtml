@@ -18,6 +18,7 @@
         </div>
         <div class="loginValidation">
             @Html.ValidationMessageFor(m => m.Password)
+            @Html.ValidationMessage("InvalidLogin")
         </div>
         <div class="loginInput">
             @Html.PasswordFor(m => m.Password, new { placeholder = "password" })
