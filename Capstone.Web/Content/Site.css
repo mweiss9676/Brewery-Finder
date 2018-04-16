@@ -225,12 +225,12 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .breweryResults{
     height: 200px;
+    
 }
 
 .breweryImage{
     height: 200px;
     width: 50%;
-    object-fit: cover;
 }
 
 .beerImage{
@@ -250,6 +250,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     font-family: var(--headerFont);
     text-shadow: 2px 2px 2px rgba(30, 30, 30, .8);
     width: 50%;
+    
 }
 
 .breweryHistory, .beerDescription {
