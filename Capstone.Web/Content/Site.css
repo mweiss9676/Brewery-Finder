@@ -504,9 +504,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
     position: relative;
 }
 
+
 .userActionsContainer {
     width: 800px;
-    height: 450px;
+    height: 500px;
     background-color: black;
     display: flex;
     flex-direction: row;
@@ -526,6 +527,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+    overflow-y: scroll;
+    overflow-x: hidden;
     overflow: hidden;
 }
 
@@ -590,7 +593,7 @@ li#spaceFiller {
 
 .viewTwo, .viewThree, .viewFour {
     position: absolute;
-    top: 10%;
+    top: 1rem;
     left: 50%;
     transform: translateX(-50%);
     color: white;
