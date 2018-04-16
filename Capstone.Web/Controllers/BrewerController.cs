@@ -6,13 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using GoogleMaps.LocationServices;
 
 namespace Capstone.Web.Controllers
 {
     public class BrewerController : Controller
     {
-
         private IBeerDAL beerDAL;
         private IBreweryDAL breweryDAL;
         private IUserDAL userDAL;
@@ -39,9 +37,10 @@ namespace Capstone.Web.Controllers
         public ActionResult AddBrewery(AddBreweryModel brewery)
         {
             // This Gets and Sets Lat and Long of Brewery from the Brewery Address - JV
-            SetBreweryCoords(brewery);
+            breweryDAL.SetBreweryCoords(brewery); 
 
             breweryDAL.AddBrewery(brewery);
+
             return RedirectToAction("GreatSuccess");
         }
 
@@ -56,22 +55,5 @@ namespace Capstone.Web.Controllers
         {
             return View("GreatSuccess");
         }
-
-        /// <summary>
-        /// Helper Method that uses Google GeoCode API to get Latitude and Longitude from an address
-        /// - JV
-        /// </summary>
-        /// <param name="brewery">the brewery model containing address information</param>
-        public void SetBreweryCoords(AddBreweryModel brewery)
-        {
-            string address = brewery.BreweryAddress + ", " + brewery.BreweryCity + ", " + brewery.BreweryDistrict + "," + brewery.BreweryPostalCode;
-
-            var geoCoder = new GoogleLocationService("AIzaSyBd0o2LU8lvSyx2etULu-bEEiSl7EKTJFM");
-
-            var breweryLocation = geoCoder.GetLatLongFromAddress(address);
-
-            brewery.BreweryLatitude = breweryLocation.Latitude;
-            brewery.BreweryLongitude = breweryLocation.Longitude;
-        } 
     }
 }

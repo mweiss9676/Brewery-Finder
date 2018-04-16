@@ -6,12 +6,15 @@ using System.Data.SqlClient;
 using Capstone.Web.Models;
 using System.Configuration;
 using System.Text.RegularExpressions;
+using GoogleMaps.LocationServices;
 
 namespace Capstone.Web.DAL
 {
     public class BreweryDAL : IBreweryDAL
     {
         private string connectionString;
+
+        private string locationServiceApiKey = "AIzaSyBd0o2LU8lvSyx2etULu-bEEiSl7EKTJFM";
 
         public BreweryDAL(string connectionString)
         {
@@ -25,9 +28,9 @@ namespace Capstone.Web.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-
-                    SqlCommand cmd = new SqlCommand(@"INSERT INTO Brewery (BreweryName, BreweryAddress, BreweryCity, BreweryDistrict, BreweryCountry, BreweryPostalCode, History, YearFounded, BreweryProfileImg, BreweryBackgroundImg, BreweryHeaderImg)
-                                                      VALUES (@breweryName, @breweryAddress, @breweryCity, @breweryDistrict, @breweryCountry, @breweryPostalCode, @history, @yearFounded, @breweryProfileImg, @breweryBackgroundImg, @breweryHeaderImg)", conn);
+                                                                                                                                                                                                                                                          
+                    SqlCommand cmd = new SqlCommand(@"INSERT INTO Brewery (BreweryName, BreweryAddress, BreweryCity, BreweryDistrict, BreweryCountry, BreweryPostalCode, History, YearFounded, BreweryProfileImg, BreweryBackgroundImg, BreweryHeaderImg, BreweryLatitude, BreweryLongitude) 
+                                                      VALUES (@breweryName, @breweryAddress, @breweryCity, @breweryDistrict, @breweryCountry, @breweryPostalCode, @history, @yearFounded, @breweryProfileImg, @breweryBackgroundImg, @breweryHeaderImg, @breweryLatitude, @breweryLongitude)", conn);
 
                     cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
                     cmd.Parameters.AddWithValue("@breweryAddress", brewery.BreweryAddress);
@@ -40,6 +43,8 @@ namespace Capstone.Web.DAL
                     cmd.Parameters.AddWithValue("@breweryProfileImg", brewery.BreweryProfileImg);
                     cmd.Parameters.AddWithValue("@breweryBackgroundImg", brewery.BreweryBackgroundImg);
                     cmd.Parameters.AddWithValue("@breweryHeaderImg", brewery.BreweryHeaderImage);
+                    cmd.Parameters.AddWithValue("@breweryLatitude", brewery.BreweryLatitude);
+                    cmd.Parameters.AddWithValue("@breweryLongitude", brewery.BreweryLongitude);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -106,7 +111,6 @@ namespace Capstone.Web.DAL
                 return null;
             }
         }
-
 
         public BreweryModel GetBreweryDetail(int breweryId)
         {
@@ -233,6 +237,23 @@ namespace Capstone.Web.DAL
                 Email = Convert.ToString(reader["Email"]),
                 Phone = Convert.ToString(reader["Phone"])
             };
+        }
+
+        /// <summary>
+        /// Helper Method that uses Google GeoCode API that gets and sets lat and long from an address
+        /// - JV
+        /// </summary>
+        /// <param name="brewery">the brewery model being added</param>
+        public void SetBreweryCoords(AddBreweryModel brewery)
+        {
+            string address = brewery.BreweryAddress + ", " + brewery.BreweryCity + ", " + brewery.BreweryDistrict + "," + brewery.BreweryPostalCode;
+
+            var geoCoder = new GoogleLocationService(locationServiceApiKey);
+
+            var breweryLocation = geoCoder.GetLatLongFromAddress(address);
+
+            brewery.BreweryLatitude = breweryLocation.Latitude;
+            brewery.BreweryLongitude = breweryLocation.Longitude;
         }
     }
 }
