@@ -595,12 +595,9 @@ li#spaceFiller {
     transform: translateX(-50%);
     color: white;
     height: 50%;
-    width: 300px;
+    width: 75%;
 }
 
-.viewOne > input, .viewTwo > input, .viewThree > select {
-    width: 100%;
-}
    
 
 
