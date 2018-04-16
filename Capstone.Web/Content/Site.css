@@ -658,7 +658,9 @@ li#spaceFiller {
     text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
     position: relative;
 }
-
+.beerTable{
+    border-spacing: 0;
+}
 
 .beerTd{
         padding: 5px 15px 5px 15px;
