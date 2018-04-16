@@ -225,12 +225,12 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .breweryResults{
     height: 200px;
+    
 }
 
 .breweryImage{
     height: 200px;
     width: 50%;
-    object-fit: cover;
 }
 
 .beerImage{
@@ -250,6 +250,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     font-family: var(--headerFont);
     text-shadow: 2px 2px 2px rgba(30, 30, 30, .8);
     width: 50%;
+    
 }
 
 .breweryHistory, .beerDescription {
@@ -284,12 +285,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
 #breweryProfileImg {
     margin: 10px;
     border-radius: 5px;
-    width: 50%;
+    width: 100%;
     height: 94%;
     object-fit: cover;
     display: inline-block;
     box-shadow: 0px 2px 2px rgba(30, 30, 30, .5);
 }
+
 
 #breweryInfo {
     width: 75%;
@@ -322,6 +324,27 @@ input[type=date]::-webkit-calendar-picker-indicator {
         text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
         position: relative;
     }
+.contactInfo {
+    position: absolute;
+    bottom: 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.brewPhone {
+    text-align: right;
+    padding-right: 5px;
+    float: right;
+}
+.hours{
+    padding-bottom: 10px;
+}
+.brewHeader{
+    white-space: nowrap;
+}
+.brewInfoTxt{
+    padding-left: 5px;
+}
 
 /******************************************END BREWERY INFO***********************************/
 
@@ -455,7 +478,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 /******************************************BREWERY OWNER***************************************/
 
-.viewTwo.hidden, .viewOne.hidden, .userInfo.hidden {
+.viewOne.hidden, .viewTwo.hidden, .viewThree.hidden, .viewFour.hidden {
     display: none;
 }
 
@@ -481,9 +504,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
     position: relative;
 }
 
+
 .userActionsContainer {
     width: 800px;
-    height: 450px;
+    height: 500px;
     background-color: black;
     display: flex;
     flex-direction: row;
@@ -503,6 +527,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+    overflow-y: scroll;
+    overflow-x: hidden;
     overflow: hidden;
 }
 
@@ -541,7 +567,7 @@ li#spaceFiller {
     border-right: none;
 }
 
-.userInfo{
+.viewOne{
     color: white;
     height: 100%;
     width: 100%;
@@ -565,19 +591,16 @@ li#spaceFiller {
 }
 
 
-.viewTwo, .viewOne {
+.viewTwo, .viewThree, .viewFour {
     position: absolute;
-    top: 10%;
+    top: 1rem;
     left: 50%;
     transform: translateX(-50%);
     color: white;
     height: 50%;
-    width: 300px;
+    width: 75%;
 }
 
-.viewTwo > input, .viewOne > input, .viewOne > select {
-    width: 100%;
-}
    
 
 
@@ -635,23 +658,15 @@ li#spaceFiller {
     text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
     position: relative;
 }
-
+.beerTable{
+    border-spacing: 0;
+}
 
 .beerTd{
         padding: 5px 15px 5px 15px;
         border-bottom: 1px solid black;
 }
-.contactInfo{
-    position: absolute;
-    bottom: 0;
-    display: inline-block;
-    width: 100%;
-}
-.brewPhone {
-    text-align: right;
-    padding-right: 5px;
-    float: right;
-}
+
 
 
 /******************************************END BEER INFO***********************************/

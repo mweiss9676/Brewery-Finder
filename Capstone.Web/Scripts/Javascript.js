@@ -125,9 +125,15 @@
                         let beerDiv = document.createElement("div");
                         beerDiv.className = 'beerResults results';
 
+                        
                         let beerImg = document.createElement("img");
                         beerImg.className = 'beerImage';
-                        beerImg.src = beers[i].BeerLabelImg;
+                        if (beers[i].BeerLabelImg == "NA") {
+                            beerImg.src = "../Content/IMGS/genericBeer.png";
+                        }
+                        else {
+                            beerImg.src = beers[i].BeerLabelImg;
+                        }
 
                         let beerName = document.createElement("p");
                         beerName.className = 'beerName';
@@ -160,9 +166,10 @@ function ActionOne() {
     $('#listActionThree').removeClass('focus');
     $('#listActionFour').removeClass('focus');
 
-    $('.userInfo').removeClass('hidden');
-    $('.viewOne').addClass('hidden');
+    $('.viewOne').removeClass('hidden');
     $('.viewTwo').addClass('hidden');
+    $('.viewThree').addClass('hidden');
+    $('.viewFour').addClass('hidden');
 }
 function ActionTwo() {
     $('#listActionOne').removeClass('focus');
@@ -170,9 +177,10 @@ function ActionTwo() {
     $('#listActionThree').removeClass('focus');
     $('#listActionFour').removeClass('focus');
 
-    $('.viewOne').removeClass('hidden');
-    $('.viewTwo').addClass('hidden');
-    $('.userInfo').addClass('hidden');
+    $('.viewOne').addClass('hidden');
+    $('.viewTwo').removeClass('hidden');
+    $('.viewThree').addClass('hidden');
+    $('.viewFour').addClass('hidden');
 }
 function ActionThree() {
     $('#listActionOne').removeClass('focus');
@@ -180,9 +188,10 @@ function ActionThree() {
     $('#listActionThree').addClass('focus');
     $('#listActionFour').removeClass('focus');
 
-    $('.viewOne').removeClass('hidden');
+    $('.viewOne').addClass('hidden');
     $('.viewTwo').addClass('hidden');
-    $('.userInfo').addClass('hidden');
+    $('.viewThree').removeClass('hidden');
+    $('.viewFour').addClass('hidden');
 }
 function ActionFour() {
     $('#listActionOne').removeClass('focus');
@@ -190,7 +199,8 @@ function ActionFour() {
     $('#listActionThree').removeClass('focus');
     $('#listActionFour').addClass('focus');
 
-    $('.viewTwo').removeClass('hidden');
     $('.viewOne').addClass('hidden');
-    $('.userInfo').addClass('hidden');
+    $('.viewTwo').addClass('hidden');
+    $('.viewThree').addClass('hidden');
+    $('.viewFour').removeClass('hidden');
 }

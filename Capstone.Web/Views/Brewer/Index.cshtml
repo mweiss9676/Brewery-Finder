@@ -15,42 +15,52 @@
                 {
                     <li id="listActionOne" class="focus" onclick="ActionOne()">Admin Information</li>
                     <li id="listActionTwo" onclick="ActionTwo()">Add Beer</li>
-                    <li id="listActionThree" onclick="ActionThree()">Edit / Remove Beer</li>
-                    <li id="listActionFour" onclick="ActionFour()">Update Brewery Info</li>
+                    <li id="listActionThree" onclick="ActionThree()">Add Brewery</li>
+                    <li id="listActionFour" onclick="ActionFour()">Grant Brewer Permissions</li>
                     <li id="spaceFiller">s</li>
-                }
-                @if (User.IsInRole("Owner"))
+                } 
+                @if (User.IsInRole("Brewer"))
                 {
-                    <li id="listActionOne" class="focus" onclick="ActionOne()">Owner Information</li>
+                    <li id="listActionOne" class="focus" onclick="ActionOne()">Brewer Information</li>
                     <li id="listActionTwo" onclick="ActionTwo()">Add Beer</li>
-                    <li id="listActionThree" onclick="ActionThree()">Edit / Remove Beer</li>
-                    <li id="listActionFour" onclick="ActionFour()">Update Brewery Info</li>
+                    <li id="listActionThree" onclick="ActionThree()">Update Brewery Info</li>
+                    <li id="listActionFour" onclick="ActionFour()">Edit / Remove Beer</li>
                     <li id="spaceFiller">s</li>
                 }
-                @if (User.IsInRole("Beer Enthusiast"))
+                @if (User.IsInRole("Enthusiast"))
                 {
                     <li id="listActionOne" class="focus" onclick="ActionOne()">User Information</li>
                     <li id="listActionTwo" onclick="ActionTwo()">Favorite Beers</li>
+                    @*<li id="listActionThree" onclick="ActionThree()">I'm a Brewer!</li>*@
                     <li id="spaceFiller">s</li>
                 }
-                @if (User.IsInRole("Beer Enthusiast"))
+                @if (!User.IsInRole("Enthusiast"))
                 {
                     <li id="listActionOne" class="focus" onclick="ActionOne()">Register Here</li>
                     <li id="spaceFiller">s</li>
                 }
             </ul>
-            <div class="userInformationContainer">
-                <div class="userInfo">
+
+
+
+
+            <div class="userInformationContainer"><!--PARENT OF ALL SUBVIEWS-->
+
+                @if ((User.IsInRole("Enthusiast")) || (User.IsInRole("Brewer")) || (User.IsInRole("Admin")))
+                {
+                <div class="viewOne"> <!--EVERY USER HAS VIEW ONE-->
                     <ul class="userInfoList">
                         <li><h2>@Model.User.Role</h2></li>
                         <li>@User.Identity.GetUserName()</li>
                     </ul>
                     <img id="icon" src="~/Content/IMGS/avatar.jpg"/>
-                </div><!--END USER INFO-->
+                </div><!--END VIEW ONE-->
+                }
 
-                @if ((User.IsInRole("Admin")) || (User.IsInRole("Owner")))
+                <!--VIEW TWO IF THE USER IS ADMIN OR BREWER-->
+                @if ((User.IsInRole("Admin")) || (User.IsInRole("Brewer")))
                 {
-                <form class="viewOne hidden" method="post" action="@Url.Action("AddBeer", "Brewer")">
+                <form class="viewTwo hidden" method="post" action="@Url.Action("AddBeer", "Brewer")">
                     @if (User.IsInRole("Admin"))
                     {
                     <select>
@@ -75,34 +85,45 @@
                     <input name="dateBrewed" type="date" placeholder="Enter A date brewed" />
                     <input name="beerLabelImg" type="text" placeholder="Enter A an image url" />
                     <button class="submitter" type="submit">Submit</button>
-                </form><!--END addBeerForm-->
+                </form><!--END VIEW TWO-->
+                <!--END OF ADMIN/BREWER VIEWS-->
+                }
 
-                <form class="viewTwo hidden" method="post" action="@Url.Action("AddBrewery", "Brewer")">
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <select>
-                        @foreach (var breweryName in Model.BreweryNames)
-                        {
-                            <option>@breweryName</option>
-                        }
-                        </select>
-                    }
+                <!--VIEW THREE IF THE USER IS ADMIN-->
+                @if (User.IsInRole("Admin"))
+                {
+                <form class="viewThree hidden" method="post" action="@Url.Action("AddBrewery", "Brewer")">
+                    <input name="BreweryName" type="text" placeholder="Brewery Name" />
                     <input name="BreweryAddress" type="text" placeholder="Address" />
                     <input name="BreweryCity" type="text" placeholder="City" />
-                    <input name="BreweryPostalCode" type="text" placeholder="Postal Code" />
                     <input name="BreweryDistrict" type="text" placeholder="District" />
+                    <input name="BreweryPostalCode" type="text" placeholder="Postal Code" />
                     <input name="BreweryCountry" type="text" placeholder="Country" />
+                    <input name="Email" type="text" placeholder="Email" />
+                    <input name="Phone" type="text" placeholder="Phone Number" />
                     <input name="History" type="text" placeholder="History of Brewery" />
                     <input name="YearFounded" type="text" placeholder="Year Founded" />
+                    <input name="HoursOfOperation" type="text" placeholder="Hours Of Operation" />
                     <input name="BreweryProfileImg" type="text" placeholder="Brewery Profile Image URL" />
                     <input name="BreweryBackgroundImg" type="text" placeholder="Background Image URL" />
                     <input name="BreweryHeaderImage" type="text" placeholder="Header Image URL" />
                     <button class="submitter" type="submit">Submit</button>
-                </form><!--End addBreweryForm-->
+                </form><!--End VIEW THREE-->
+
+
+                <!--VIEW FOUR IF THE USER IS ADMIN-->
+
+                <form class="viewFour hidden" method="post" action="@Url.Action("GrantRoleToUser", "Brewer", new { username = @User.Identity.GetUserName(), role = "Brewer" })">
+                    <input name="username" type="text" placeholder="What User" />
+                    <input name="RequestBrewerRole" type="checkbox"/>
+                    <button class="submitter">Request</button>
+                </form><!--End VIEW FOUR-->
                 }
-                @if (User.IsInRole("Beer Enthusiast"))
+
+                <!--VIEW TWO IF THE USER IS BEER ENTHUSIAST-->
+                @if (User.IsInRole("Enthusiast"))
                 {
-                <div class="viewOne hidden">
+                <div class="viewTwo hidden">
                     <ul>
                         <li>Favorite Beer 1</li>
                         <li>Favorite Beer 2</li>

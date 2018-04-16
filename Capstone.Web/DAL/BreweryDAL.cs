@@ -28,9 +28,9 @@ namespace Capstone.Web.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                                                                                                                                                                                                                                                          
-                    SqlCommand cmd = new SqlCommand(@"INSERT INTO Brewery (BreweryName, BreweryAddress, BreweryCity, BreweryDistrict, BreweryCountry, BreweryPostalCode, History, YearFounded, BreweryProfileImg, BreweryBackgroundImg, BreweryHeaderImg, BreweryLatitude, BreweryLongitude) 
-                                                      VALUES (@breweryName, @breweryAddress, @breweryCity, @breweryDistrict, @breweryCountry, @breweryPostalCode, @history, @yearFounded, @breweryProfileImg, @breweryBackgroundImg, @breweryHeaderImg, @breweryLatitude, @breweryLongitude)", conn);
+
+                    SqlCommand cmd = new SqlCommand(@"INSERT INTO Brewery (BreweryName, BreweryAddress, BreweryCity, BreweryDistrict, BreweryCountry, BreweryPostalCode, History, YearFounded, HoursOfOperation, BreweryProfileImg, BreweryBackgroundImg, BreweryHeaderImg, Email, Phone)
+                                                                  VALUES (@breweryName, @breweryAddress, @breweryCity, @breweryDistrict, @breweryCountry, @breweryPostalCode, @history, @yearFounded, @hoursOfOperation, @breweryProfileImg, @breweryBackgroundImg, @breweryHeaderImg, @email, @phone)", conn);
 
                     cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
                     cmd.Parameters.AddWithValue("@breweryAddress", brewery.BreweryAddress);
@@ -40,11 +40,14 @@ namespace Capstone.Web.DAL
                     cmd.Parameters.AddWithValue("@breweryPostalCode", brewery.BreweryPostalCode);
                     cmd.Parameters.AddWithValue("@history", brewery.History);
                     cmd.Parameters.AddWithValue("@yearFounded", brewery.YearFounded);
+                    cmd.Parameters.AddWithValue("@hoursOfOperation", brewery.HoursOfOperation);
                     cmd.Parameters.AddWithValue("@breweryProfileImg", brewery.BreweryProfileImg);
                     cmd.Parameters.AddWithValue("@breweryBackgroundImg", brewery.BreweryBackgroundImg);
                     cmd.Parameters.AddWithValue("@breweryHeaderImg", brewery.BreweryHeaderImage);
-                    cmd.Parameters.AddWithValue("@breweryLatitude", brewery.BreweryLatitude);
-                    cmd.Parameters.AddWithValue("@breweryLongitude", brewery.BreweryLongitude);
+                    cmd.Parameters.AddWithValue("@email", brewery.Email);
+                    cmd.Parameters.AddWithValue("@phone", brewery.Phone);
+
+
 
                     cmd.ExecuteNonQuery();
                 }
