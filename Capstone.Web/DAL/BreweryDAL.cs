@@ -29,8 +29,8 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand(@"INSERT INTO Brewery (BreweryName, BreweryAddress, BreweryCity, BreweryDistrict, BreweryCountry, BreweryPostalCode, History, YearFounded, HoursOfOperation, BreweryProfileImg, BreweryBackgroundImg, BreweryHeaderImg, Email, Phone)
-                                                                  VALUES (@breweryName, @breweryAddress, @breweryCity, @breweryDistrict, @breweryCountry, @breweryPostalCode, @history, @yearFounded, @hoursOfOperation, @breweryProfileImg, @breweryBackgroundImg, @breweryHeaderImg, @email, @phone)", conn);
+                    SqlCommand cmd = new SqlCommand(@"INSERT INTO Brewery (BreweryName, BreweryAddress, BreweryCity, BreweryDistrict, BreweryCountry, BreweryPostalCode, History, YearFounded, HoursOfOperation, BreweryProfileImg, BreweryBackgroundImg, BreweryHeaderImg, Email, Phone, BreweryLatitude, BreweryLongitude)
+                                                                  VALUES (@breweryName, @breweryAddress, @breweryCity, @breweryDistrict, @breweryCountry, @breweryPostalCode, @history, @yearFounded, @hoursOfOperation, @breweryProfileImg, @breweryBackgroundImg, @breweryHeaderImg, @email, @phone, @latitude, @longitude)", conn);
 
                     cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
                     cmd.Parameters.AddWithValue("@breweryAddress", brewery.BreweryAddress);
@@ -46,8 +46,8 @@ namespace Capstone.Web.DAL
                     cmd.Parameters.AddWithValue("@breweryHeaderImg", brewery.BreweryHeaderImage);
                     cmd.Parameters.AddWithValue("@email", brewery.Email);
                     cmd.Parameters.AddWithValue("@phone", brewery.Phone);
-
-
+                    cmd.Parameters.AddWithValue("@latitude", brewery.BreweryLatitude);
+                    cmd.Parameters.AddWithValue("@longitude", brewery.BreweryLongitude);
 
                     cmd.ExecuteNonQuery();
                 }
