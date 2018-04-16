@@ -198,8 +198,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DAL\BeerDAL.cs" />
+    <Compile Include="DAL\BeerRatingDAL.cs" />
     <Compile Include="DAL\BreweryDAL.cs" />
     <Compile Include="DAL\IBeerDAL.cs" />
+    <Compile Include="DAL\IBeerRatingDAL.cs" />
     <Compile Include="DAL\IBreweryDAL.cs" />
     <Compile Include="DAL\IUserDAL.cs" />
     <Compile Include="DAL\UserDAL.cs" />
@@ -212,7 +214,6 @@
     <Compile Include="Models\BeerModel.cs" />
     <Compile Include="Models\BeerRatingModel.cs" />
     <Compile Include="Models\BreweryModel.cs" />
-    <Compile Include="Models\BreweryRatingModel.cs" />
     <Compile Include="Models\ListOfBreweryNamesAndBeerTypesModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\SearchResultsModel.cs" />
