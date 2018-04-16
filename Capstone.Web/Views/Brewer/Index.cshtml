@@ -45,7 +45,7 @@
                         <li><h2>@Model.User.Role</h2></li>
                         <li>@User.Identity.GetUserName()</li>
                     </ul>
-                    <div id="userImage"></div>
+                    <img id="icon" src="~/Content/IMGS/avatar.jpg"/>
                 </div><!--END USER INFO-->
 
                 @if ((User.IsInRole("Admin")) || (User.IsInRole("Owner")))
@@ -78,23 +78,31 @@
                 </form><!--END addBeerForm-->
 
                 <form class="viewTwo hidden" method="post" action="@Url.Action("AddBrewery", "Brewer")">
-                    <input name="BreweryName" type="text" placeholder="Enter A Brewery Name" />
-                    <input name="BreweryAddress" type="text" placeholder="Enter A Brewery Address" />
-                    <input name="BreweryCity" type="text" placeholder="Enter A City" />
-                    <input name="BreweryPostalCode" type="text" placeholder="Enter A Postal Code" />
-                    <input name="BreweryDistrict" type="text" placeholder="Enter A District" />
-                    <input name="BreweryCountry" type="text" placeholder="Enter A Country" />
-                    <input name="History" type="text" placeholder="Enter A Brief History of Your Brewery" />
-                    <input name="YearFounded" type="text" placeholder="What Year was the Brewery Founded" />
-                    <input name="BreweryProfileImg" type="text" placeholder="Enter A an Profile Image URL" />
-                    <input name="BreweryBackgroundImg" type="text" placeholder="Enter A Background Image url" />
-                    <input name="BreweryHeaderImage" type="text" placeholder="Enter A Header Image url" />
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <select>
+                        @foreach (var breweryName in Model.BreweryNames)
+                        {
+                            <option>@breweryName</option>
+                        }
+                        </select>
+                    }
+                    <input name="BreweryAddress" type="text" placeholder="Address" />
+                    <input name="BreweryCity" type="text" placeholder="City" />
+                    <input name="BreweryPostalCode" type="text" placeholder="Postal Code" />
+                    <input name="BreweryDistrict" type="text" placeholder="District" />
+                    <input name="BreweryCountry" type="text" placeholder="Country" />
+                    <input name="History" type="text" placeholder="History of Brewery" />
+                    <input name="YearFounded" type="text" placeholder="Year Founded" />
+                    <input name="BreweryProfileImg" type="text" placeholder="Brewery Profile Image URL" />
+                    <input name="BreweryBackgroundImg" type="text" placeholder="Background Image URL" />
+                    <input name="BreweryHeaderImage" type="text" placeholder="Header Image URL" />
                     <button class="submitter" type="submit">Submit</button>
                 </form><!--End addBreweryForm-->
                 }
                 @if (User.IsInRole("Beer Enthusiast"))
                 {
-                <div class="viewOne">
+                <div class="viewOne hidden">
                     <ul>
                         <li>Favorite Beer 1</li>
                         <li>Favorite Beer 2</li>

@@ -218,6 +218,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\IMGS\avatar.jpg" />
     <Content Include="Content\IMGS\genericbottle.jpeg" />
     <Content Include="Content\IMGS\kraftRED.png" />
     <Content Include="Content\IMGS\genericBeer.png" />
