@@ -46,6 +46,8 @@
 
             <div class="userInformationContainer"><!--PARENT OF ALL SUBVIEWS-->
 
+                @if ((User.IsInRole("Enthusiast")) || (User.IsInRole("Brewer")) || (User.IsInRole("Admin")))
+                {
                 <div class="viewOne"> <!--EVERY USER HAS VIEW ONE-->
                     <ul class="userInfoList">
                         <li><h2>@Model.User.Role</h2></li>
@@ -53,6 +55,7 @@
                     </ul>
                     <img id="icon" src="~/Content/IMGS/avatar.jpg"/>
                 </div><!--END VIEW ONE-->
+                }
 
                 <!--VIEW TWO IF THE USER IS ADMIN OR BREWER-->
                 @if ((User.IsInRole("Admin")) || (User.IsInRole("Brewer")))
