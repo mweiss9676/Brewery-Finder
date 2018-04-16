@@ -1,5 +1,6 @@
 ﻿using Capstone.Web.DAL;
 using Capstone.Web.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,13 @@ namespace Capstone.Web.Controllers
 
         private IBeerDAL beerDAL;
         private IBreweryDAL breweryDAL;
+        private IUserDAL userDAL;
 
-        public BrewerController(IBeerDAL beerDAL, IBreweryDAL breweryDAL)
+        public BrewerController(IBeerDAL beerDAL, IBreweryDAL breweryDAL, IUserDAL userDAL)
         {
             this.beerDAL = beerDAL;
             this.breweryDAL = breweryDAL;
+            this.userDAL = userDAL;
         }
 
         // GET: Brewer
@@ -26,6 +29,7 @@ namespace Capstone.Web.Controllers
             ListOfBreweryNamesAndBeerTypesModel breweriesAndBeers = new ListOfBreweryNamesAndBeerTypesModel();
             breweriesAndBeers.BreweryNames = breweryDAL.GetAllBreweryNames();
             breweriesAndBeers.BeerTypes = beerDAL.GetListOfBeerTypes();
+            breweriesAndBeers.User = userDAL.GetUserRole(User.Identity.GetUserId());
 
             return View("Index", breweriesAndBeers);
         }

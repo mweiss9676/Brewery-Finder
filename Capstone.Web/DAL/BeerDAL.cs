@@ -196,7 +196,7 @@ namespace Capstone.Web.DAL
                 BeerId = Convert.ToInt32(reader["BeerId"]),
                 BeerName = Convert.ToString(reader["BeerName"]),
                 BeerDescription = Convert.ToString(reader["BeerDescription"]),
-                BeerLabelImg = Convert.ToString(reader["BeerLabelImg"]),
+                BeerLabelImg = Convert.ToString(reader["BeerLabelImg"] as string ?? "NA"),
                 ABV = Convert.ToDecimal(reader["ABV"] as decimal ?),
                 IBU = Convert.ToInt32(reader["IBU"] as int ?),
                 DateBrewed = Convert.ToDateTime(reader["DateBrewed"])
@@ -204,7 +204,7 @@ namespace Capstone.Web.DAL
         }
 
         //DID NOT TEST THIS. 
-        public void RemoveBeer(int beerId)
+        public void RemoveBeer(string beerName)
         {
             try
             {
@@ -213,9 +213,9 @@ namespace Capstone.Web.DAL
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(@"DELETE FROM Beer
-                                                      WHERE Beer.BeerID = @beerId", conn);
+                                                      WHERE Beer.BeerName = @beerName", conn);
 
-                    cmd.Parameters.AddWithValue("@beerId", beerId);
+                    cmd.Parameters.AddWithValue("@beerName", beerName);
 
                     cmd.ExecuteNonQuery();
                 }

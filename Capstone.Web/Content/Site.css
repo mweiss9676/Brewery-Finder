@@ -12,6 +12,16 @@
     --headerHeight: 50px;
 }
 
+input, select{
+    text-align: center;
+    width: 90%;
+    height: 30px;
+    font-size: 15px;
+    text-align-last: center;
+}
+
+
+
 /* Set padding to keep content from hitting the edges */
 
 
@@ -30,6 +40,7 @@ header {
     height: 50px;
     position: fixed;
     width: 100%;
+    z-index: 500;
 }
 
 .navLinks {
@@ -52,20 +63,40 @@ header {
 
 }
 
-a#registerLink {
+#registerLink {
     text-decoration: none;
     color: white;
     text-align: right;
-    font-family: '';
+    font-family: var(--headerFont);
     padding-right: 20px;
+    z-index: 100;
 }
 
-a#loginLink {
+#loginLink {
     text-decoration: none;
     color: white;
     text-align: right;
-    font-family: '';
+    font-family: var(--headerFont);
+    z-index: 500;
 }
+
+.links {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+}
+
+.links li a {
+    font-family: var(--bodyFont);
+    text-decoration: none;
+    color: gray;
+    margin-right: 1rem;
+}
+
 
 .backgroundMain{
     /*background-image: url('IMGS/TestBackground.jpeg');*/   
@@ -163,14 +194,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
 /*******************************************RESULTS LIST***********************************************/
 
 .searchResultsPage {
-    position: absolute;
-    height: 100%;
+    height: 70%;
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    padding-top: 150px;
+    position: absolute;
+    bottom: 0;
 }
 
 .results {
@@ -298,8 +328,66 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 /****************************************** REGISTRATION PAGE ********************************/
 
-.registerForm {
+.registerFormContainer {
     width: 25%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    align-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid white;
+    height: 30%;
+    
+}
+
+.registerForm {  
+    height: 100%;
+    width: 100%;   
+    text-align: center;
+}
+
+.registerHTag {
+    padding-bottom: 15px;
+    font-size: 20px;
+}
+
+.registrationInput {
+    color: black;
+    text-align: center;
+    display: block;
+    padding-bottom: 5px;
+}
+
+.registrationValidation {
+    width: 100%;
+    color: red;
+    padding-bottom: 5px;
+}
+
+.registerSubmitBtn{
+    background-color: rgb(124,33,17);
+    height: 30px;
+    width: 65px;
+    border: 0px solid;
+    margin-top: 10px;
+    border-radius: 10%;
+    box-shadow: white 1px 1px;
+}
+
+
+
+
+
+/****************************************** REGISTRATION PAGE ********************************/
+
+
+/********************************************* LOGIN PAGE ************************************/
+.loginFormContainer {
+    width: 25%;
+    height: 30%;
     background-color: black;
     color: white;
     text-align: center;
@@ -308,42 +396,53 @@ input[type=date]::-webkit-calendar-picker-indicator {
     top: 50%;
     transform: translate(-50%,-50%);
     border: 1px solid white;
-    height: 50%;
+    
 }
 
-.register {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-}
-
-.registerFields{
-    margin-bottom: 10px;
-    margin-top: 10px;
-}
-
-.submitter{
-    background-color: rgb(124,33,17);
-    height: 30px;
-    width: 60px;
-    border: 0px solid;
-}
-
-input {
-    /*background-color: rgb(124,33,17);
-    border: 0px solid;*/
-    color: black;
+.loginForm {
+    height: 100%;
+    width: 100%;
     text-align: center;
 }
 
+.loginHTag {
+    padding-bottom: 15px;
+    font-size: 20px;
+}
 
-/****************************************** REGISTRATION PAGE ********************************/
 
 
-/********************************************* LOGIN PAGE ************************************/
 
+.loginInput {
+    color: black;
+    text-align: center;
+    display: block;
+    padding-bottom: 5px;
+}
 
+.loginValidation {
+    width: 100%;
+    color: red;
+    padding-bottom: 5px;
+}
+
+.checkBox{
+    height: 20px;
+}
+
+.loginSubmitBtn {
+    background-color: rgb(124,33,17);
+    height: 30px;
+    width: 65px;
+    border: 0px solid;
+    margin-top: 10px;
+    border-radius: 10%;
+    box-shadow: white 1px 1px;
+}
+
+.regAsNewUserLink{
+    padding-top: 5px;
+}
 
 
 
@@ -356,8 +455,14 @@ input {
 
 /******************************************BREWERY OWNER***************************************/
 
-.addBreweryForm.hidden, .addBeerForm.hidden, .userInformation.hidden {
+.viewTwo.hidden, .viewOne.hidden, .userInfo.hidden {
     display: none;
+}
+
+.submitter {
+    height: 30px;
+    background-color: white;
+    float: right;
 }
 
 .userViewContainer {
@@ -367,11 +472,18 @@ input {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    font-family: var(--bodyFont);
+}
+
+.userInformationContainer{
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
 .userActionsContainer {
-    width: 60vw;
-    height: 60vh;
+    width: 800px;
+    height: 450px;
     background-color: black;
     display: flex;
     flex-direction: row;
@@ -394,14 +506,17 @@ input {
     overflow: hidden;
 }
 
-.brewerOptions {
+.listActions {
     list-style: none;
     color: white;
     height: 92%;
     width: 140px;
+    display: table-cell;
+    vertical-align: middle;
+    font-family: var(--bodyFont);
 }
 
-.brewerOptions > li {
+.listActions > li {
     background-color: black;
     padding: 1rem 0;
     display: table;
@@ -410,6 +525,7 @@ input {
     border-collapse: collapse;
     height: 60px;
     width: 100%;
+    text-align: center;
 }
 
 li#spaceFiller {
@@ -417,36 +533,50 @@ li#spaceFiller {
     color: transparent;
 }
 
-.brewerOptions li:hover {
+.listActions li:hover {
     cursor: pointer;
 }
 
-#brewerInformation.focus, #addBeer.focus, #removeBeer.focus, #updateBreweryInfo.focus {
+#listActionOne.focus, #listActionTwo.focus, #listActionThree.focus, #listActionFour.focus {
     border-right: none;
 }
 
-.userInformation {
-    list-style: none;
+.userInfo{
+    color: white;
+    height: 100%;
+    width: 100%;
+    position: relative;
 }
 
-#userImage {
+.userInfoList {
+    position: relative;
+    list-style: none;
+    left: 2rem;
+    top: 1rem;
+}
+
+#icon {
     width: 150px;
     height: 150px;
     background-color: gray;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
 }
 
 
-.addBreweryForm, .addBeerForm {
-    align-self: center;
-    background-color: red;
+.viewTwo, .viewOne {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
     color: white;
-    text-align: center;
     height: 50%;
-    width: 50%;
+    width: 300px;
 }
 
-.addBreweryForm > input, .addBeerForm > * {
-    width: 50%;
+.viewTwo > input, .viewOne > input, .viewOne > select {
+    width: 100%;
 }
    
 
@@ -454,16 +584,6 @@ li#spaceFiller {
 /**************************************END BREWERY OWNER***************************************/
 
 /******************************************BEER INFO***************************************/
-
-#beerLabelImg {
-    margin: 10px;
-    border-radius: 5px;
-    width: 50%;
-    height: 94%;
-    object-fit: cover;
-    display: inline-block;
-    box-shadow: 0px 2px 2px rgba(30, 30, 30, .5);
-}
 
 #beerInfo {
     width: 75%;
@@ -474,33 +594,67 @@ li#spaceFiller {
     background-color: rgba(220, 220, 220, .8);
     box-shadow: 2px 2px 15px rgba(0, 0, 0, .5);
     border-radius: 5px;
-    position: absolute;
+    position: relative;
     left: 50%;
     top: 60%;
     transform: translate(-50%, -50%);
+    overflow: hidden;
 }
 
-    #beerInfo h1, h2 {
-        margin: auto;
-        font-family: var(--headerFont);
-        text-shadow: 2px 2px 2px rgba(30, 30, 30, .8);
-    }
+.beerLabelImgContainer {
+    width: 25%;
+    height: 100%;
+}
 
-    #beerInfo .beerInfoTxt {
-        display: inline;
-        width: 75%;
-        margin: 10px;
-        margin-top: 0;
-        font-family: var(--bodyFont);
-        color: var(--secondaryColor);
-        text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
-        position: relative;
-    }
+.beerLabelImg {
+    margin: 10px;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#notSupplied {
+    position: absolute;
+    bottom: 0;
+}
+
+#beerInfo h1 {
+    margin: auto;
+    font-family: var(--headerFont);
+    text-shadow: 2px 2px 2px rgba(30, 30, 30, .8);
+}
+
+.beerInfoTxt {
+    display: inline;
+    width: 70%;
+    margin: 10px;
+    margin-top: 0;
+    font-family: var(--bodyFont);
+    color: var(--secondaryColor);
+    text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
+    position: relative;
+}
+
+
+.beerTd{
+        padding: 5px 15px 5px 15px;
+        border-bottom: 1px solid black;
+}
+.contactInfo{
+    position: absolute;
+    bottom: 0;
+    display: inline-block;
+    width: 100%;
+}
+.brewPhone {
+    text-align: right;
+    padding-right: 5px;
+    float: right;
+}
+
 
 /******************************************END BEER INFO***********************************/
-
-
-
 
 
 

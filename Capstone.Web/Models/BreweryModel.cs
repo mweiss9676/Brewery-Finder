@@ -16,6 +16,9 @@ namespace Capstone.Web.Models
         public string BreweryCountry { get; set; }
         public string History { get; set; }
         public int YearFounded { get; set; }
+        public string HoursOfOperation { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
         public string BreweryProfileImg { get; set; }
         public string BreweryBackgroundImg { get; set; }
         public string BreweryHeaderImage { get; set; }

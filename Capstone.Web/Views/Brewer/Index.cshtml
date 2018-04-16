@@ -1,4 +1,5 @@
-﻿@model Capstone.Web.Models.ListOfBreweryNamesAndBeerTypesModel
+﻿@using Microsoft.AspNet.Identity
+@model Capstone.Web.Models.ListOfBreweryNamesAndBeerTypesModel
 @{
     ViewBag.Title = "Index";
 }
@@ -8,38 +9,64 @@
     <div class="userActionsContainer">
 
         <div class="userActions">
-            @if (!User.IsInRole("Brewer"))
-            {
-            <ul class="brewerOptions">
-                <li id="brewerInformation" class="focus" onclick="BrewerInfo()">Owner Information</li>
-                <li id="addBeer" onclick="AddBeer()">Add Beer</li>
-                <li id="removeBeer" onclick="RemoveBeer()">Edit / Remove Beer</li>
-                <li id="updateBreweryInfo" onclick="UpdateBrewery()">Update Brewery Info</li>
-                <li id="spaceFiller">s</li>
-            </ul>
-            }
-            <div class="userInformationContainer">
-                <ul class="userInformation">
-                    <li>Permissions</li>
-                    <li>Name of Brewery</li>
-                    <li>Name</li>
-                </ul>
-                <div id="userImage"></div>
 
-                <form class="addBeerForm hidden" method="post" action="@Url.Action("AddBeer", "Brewer")">
+            <ul class="listActions">
+                @if (User.IsInRole("Admin"))
+                {
+                    <li id="listActionOne" class="focus" onclick="ActionOne()">Admin Information</li>
+                    <li id="listActionTwo" onclick="ActionTwo()">Add Beer</li>
+                    <li id="listActionThree" onclick="ActionThree()">Edit / Remove Beer</li>
+                    <li id="listActionFour" onclick="ActionFour()">Update Brewery Info</li>
+                    <li id="spaceFiller">s</li>
+                }
+                @if (User.IsInRole("Owner"))
+                {
+                    <li id="listActionOne" class="focus" onclick="ActionOne()">Owner Information</li>
+                    <li id="listActionTwo" onclick="ActionTwo()">Add Beer</li>
+                    <li id="listActionThree" onclick="ActionThree()">Edit / Remove Beer</li>
+                    <li id="listActionFour" onclick="ActionFour()">Update Brewery Info</li>
+                    <li id="spaceFiller">s</li>
+                }
+                @if (User.IsInRole("Beer Enthusiast"))
+                {
+                    <li id="listActionOne" class="focus" onclick="ActionOne()">User Information</li>
+                    <li id="listActionTwo" onclick="ActionTwo()">Favorite Beers</li>
+                    <li id="spaceFiller">s</li>
+                }
+                @if (User.IsInRole("Beer Enthusiast"))
+                {
+                    <li id="listActionOne" class="focus" onclick="ActionOne()">Register Here</li>
+                    <li id="spaceFiller">s</li>
+                }
+            </ul>
+            <div class="userInformationContainer">
+                <div class="userInfo">
+                    <ul class="userInfoList">
+                        <li><h2>@Model.User.Role</h2></li>
+                        <li>@User.Identity.GetUserName()</li>
+                    </ul>
+                    <img id="icon" src="~/Content/IMGS/avatar.jpg"/>
+                </div><!--END USER INFO-->
+
+                @if ((User.IsInRole("Admin")) || (User.IsInRole("Owner")))
+                {
+                <form class="viewOne hidden" method="post" action="@Url.Action("AddBeer", "Brewer")">
+                    @if (User.IsInRole("Admin"))
+                    {
                     <select>
                         @foreach (var breweryName in Model.BreweryNames)
                         {
-                        <option>@breweryName</option>
+                            <option>@breweryName</option>
                         }
-                    </select>    
+                    </select>
+                    }
 
-                        <input name="beerName" type="text" placeholder="Enter A Beer Name" />
+                    <input name="beerName" type="text" placeholder="Enter A Beer Name" />
 
                     <select>
                         @foreach (var beerType in Model.BeerTypes)
                         {
-                        <option>@beerType</option>
+                            <option>@beerType</option>
                         }
                     </select>
                     <input name="beerDescription" type="text" placeholder="Enter A Beer Description" />
@@ -47,24 +74,44 @@
                     <input name="ibu" type="text" placeholder="Enter AN IBU" />
                     <input name="dateBrewed" type="date" placeholder="Enter A date brewed" />
                     <input name="beerLabelImg" type="text" placeholder="Enter A an image url" />
-                    <button type="submit">Submit</button>
+                    <button class="submitter" type="submit">Submit</button>
                 </form><!--END addBeerForm-->
 
-                <form class="addBreweryForm hidden" method="post" action="@Url.Action("AddBrewery", "Brewer")">
-                    <input name="BreweryName" type="text" placeholder="Enter A Brewery Name" />
-                    <input name="BreweryAddress" type="text" placeholder="Enter A Brewery Address" />
-                    <input name="BreweryCity" type="text" placeholder="Enter A City" />
-                    <input name="BreweryPostalCode" type="text" placeholder="Enter A Postal Code" />
-                    <input name="BreweryDistrict" type="text" placeholder="Enter A District" />
-                    <input name="BreweryCountry" type="text" placeholder="Enter A Country" />
-                    <input name="History" type="text" placeholder="Enter A Brief History of Your Brewery" />
-                    <input name="YearFounded" type="text" placeholder="What Year was the Brewery Founded" />
-                    <input name="BreweryProfileImg" type="text" placeholder="Enter A an Profile Image URL" />
-                    <input name="BreweryBackgroundImg" type="text" placeholder="Enter A Background Image url" />
-                    <input name="BreweryHeaderImage" type="text" placeholder="Enter A Header Image url" />
-                    <button type="submit">Submit</button>
+                <form class="viewTwo hidden" method="post" action="@Url.Action("AddBrewery", "Brewer")">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <select>
+                        @foreach (var breweryName in Model.BreweryNames)
+                        {
+                            <option>@breweryName</option>
+                        }
+                        </select>
+                    }
+                    <input name="BreweryAddress" type="text" placeholder="Address" />
+                    <input name="BreweryCity" type="text" placeholder="City" />
+                    <input name="BreweryPostalCode" type="text" placeholder="Postal Code" />
+                    <input name="BreweryDistrict" type="text" placeholder="District" />
+                    <input name="BreweryCountry" type="text" placeholder="Country" />
+                    <input name="History" type="text" placeholder="History of Brewery" />
+                    <input name="YearFounded" type="text" placeholder="Year Founded" />
+                    <input name="BreweryProfileImg" type="text" placeholder="Brewery Profile Image URL" />
+                    <input name="BreweryBackgroundImg" type="text" placeholder="Background Image URL" />
+                    <input name="BreweryHeaderImage" type="text" placeholder="Header Image URL" />
+                    <button class="submitter" type="submit">Submit</button>
                 </form><!--End addBreweryForm-->
-
+                }
+                @if (User.IsInRole("Beer Enthusiast"))
+                {
+                <div class="viewOne hidden">
+                    <ul>
+                        <li>Favorite Beer 1</li>
+                        <li>Favorite Beer 2</li>
+                        <li>Favorite Beer 3</li>
+                        <li>Favorite Beer 4</li>
+                        <li>Favorite Beer 5</li>
+                    </ul>
+                </div>
+                }
             </div><!--END userInformationContainer-->
         </div><!--END USER ACTIONS-->
     </div><!--END UserActionsContainer-->

@@ -197,6 +197,8 @@
     <Compile Include="DAL\BreweryDAL.cs" />
     <Compile Include="DAL\IBeerDAL.cs" />
     <Compile Include="DAL\IBreweryDAL.cs" />
+    <Compile Include="DAL\IUserDAL.cs" />
+    <Compile Include="DAL\UserDAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -211,11 +213,15 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\SearchResultsModel.cs" />
     <Compile Include="Models\TypeModel.cs" />
+    <Compile Include="Models\UserRolesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\IMGS\avatar.jpg" />
+    <Content Include="Content\IMGS\genericbottle.jpeg" />
     <Content Include="Content\IMGS\kraftRED.png" />
+    <Content Include="Content\IMGS\genericBeer.png" />
     <Content Include="Content\IMGS\TestBackground.jpeg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
