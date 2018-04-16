@@ -59,14 +59,13 @@ namespace Capstone.Web.Controllers
 
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> GrantRoleToUser(string username, string role)
         {            
             var user = await UserManager.FindByNameAsync(username);
             user.Roles.Add(role);
             await UserManager.UpdateAsync(user);
 
-            return RedirectToAction("blah");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
