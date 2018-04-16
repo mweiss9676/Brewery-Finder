@@ -8,20 +8,21 @@
 
     <div id="breweryInfo">
 
-        <img id="breweryProfileImg" src='@Model.BreweryProfileImg'>
-
+        <div style="width: 45%">
+            <img id="breweryProfileImg" src='@Model.BreweryProfileImg'>
+        </div>
         <div class="brewInfoTxt">
-            <h1>@Model.BreweryName</h1>
+            <h1 class="brewHeader">@Model.BreweryName</h1>
 
             <h2>Founded in: @Model.YearFounded</h2>
 
-            <p>@Model.History</p>
-            <div>
+            <div class="history">@Model.History</div>
+            <div class="contactInfo">
                 <div>Hours of Operation:</div>
-                <div>@Model.HoursOfOperation</div>
+                <div class="hours">@Model.HoursOfOperation</div>
                 
-                <div class="contactInfo">
-                    <span>Email: @Model.Email</span>
+                <div>
+                    <span style="width: 50%">Email: @Model.Email</span>
                     <span class="brewPhone">Phone: @Model.Phone</span>
                 </div>
             </div>
