@@ -477,7 +477,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 /******************************************BREWERY OWNER***************************************/
 
-.viewTwo.hidden, .viewOne.hidden, .userInfo.hidden {
+.viewOne.hidden, .viewTwo.hidden, .viewThree.hidden, .viewFour.hidden {
     display: none;
 }
 
@@ -563,7 +563,7 @@ li#spaceFiller {
     border-right: none;
 }
 
-.userInfo{
+.viewOne{
     color: white;
     height: 100%;
     width: 100%;
@@ -587,7 +587,7 @@ li#spaceFiller {
 }
 
 
-.viewTwo, .viewOne {
+.viewTwo, .viewThree, .viewFour {
     position: absolute;
     top: 10%;
     left: 50%;
@@ -597,7 +597,7 @@ li#spaceFiller {
     width: 300px;
 }
 
-.viewTwo > input, .viewOne > input, .viewOne > select {
+.viewOne > input, .viewTwo > input, .viewThree > select {
     width: 100%;
 }
    

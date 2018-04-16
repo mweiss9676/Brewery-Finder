@@ -77,7 +77,6 @@ namespace Capstone.Web.Authentication
         /// <returns></returns>
         public Task DeleteAsync(User user)
         {
-
             if (user == null)
                 throw new ArgumentNullException("user");
 

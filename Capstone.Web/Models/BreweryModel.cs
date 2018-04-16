@@ -22,6 +22,7 @@ namespace Capstone.Web.Models
         public string BreweryProfileImg { get; set; }
         public string BreweryBackgroundImg { get; set; }
         public string BreweryHeaderImage { get; set; }
-
+        public double BreweryLatitude { get; set; }
+        public double BreweryLongitude { get; set; }
     }
 }

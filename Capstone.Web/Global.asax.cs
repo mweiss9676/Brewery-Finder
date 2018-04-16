@@ -35,6 +35,7 @@ namespace Capstone.Web
             kernel.Bind<IBreweryDAL>().To<BreweryDAL>().WithConstructorArgument("connectionString",connectionString);
             kernel.Bind<IBeerDAL>().To<BeerDAL>().WithConstructorArgument("connectionString",connectionString);
             kernel.Bind<IUserDAL>().To<UserDAL>().WithConstructorArgument("connectionString",connectionString);
+            
 
             //GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
 
