@@ -117,12 +117,13 @@ INSERT INTO BeerTypes VALUES ('Scotch Ale','Scotch Ale was first used as a desig
 
 /******************************************** GoldHorn Brewery Info ****************************************************************/
 
-INSERT INTO Brewery VALUES ('Goldhorn', '1361 E 55th St.', 'Cleveland', 'OH', 'USA', '44103', 'Located on Cleveland’s East Side, in the St. Clair neighborhood, featuring classic European and American style beers. We believe beer is more than just a beverage; it''s a shared experience between brewer, buyer and community.', 2010, 'Tuesday 3:00 pm – 9:00 pm
-Wednesday 3:00 pm – 9:00 pm
-Thursday 3:00 pm – 9:00 pm
-Friday 3:00 pm – 10:00 pm, Saturday 12:00 pm – 10:00 pm
-Sunday 11:00 am – 6:00 pm
-Closed: Mondays', 'info@goldhorn.com', '216-465-1352', 'http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header2-1.jpg','http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header1.jpg', 'http://www.ohiocraftbeer.org/wp-content/uploads/2015/12/OCBA_simplified_color.png')
+INSERT INTO Brewery VALUES ('Goldhorn', '1361 E 55th St.', 'Cleveland', 'OH', 'USA', '44103', 'Located on Cleveland’s East Side, in the St. Clair neighborhood, featuring classic European and American style beers. We believe beer is more than just a beverage; it''s a shared experience between brewer, buyer and community.', 2010, 'Tuesday 3:00 pm – 9:00 pm' + CHAR(13) + CHAR(10) +
+'Wednesday 3:00 pm – 9:00 pm' + CHAR(13) + CHAR(10) +
+'Thursday 3:00 pm – 9:00 pm' + CHAR(13) + CHAR(10) +
+'Friday 3:00 pm – 10:00 pm' + CHAR(13) + CHAR(10) +
+'Saturday 12:00 pm – 10:00 pm' + CHAR(13) + CHAR(10) +
+'Sunday 11:00 am – 6:00 pm' + CHAR(13) + CHAR(10) +
+'Closed: Mondays', 'info@goldhorn.com', '216-465-1352', 'http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header2-1.jpg','http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header1.jpg', 'http://www.ohiocraftbeer.org/wp-content/uploads/2015/12/OCBA_simplified_color.png')
 INSERT INTO Beer VALUES (1, 'Lagunitas IPA', 13, 'Piney and resinous with classic West Coast citrus zing. By Lagunitas Brewing Company.', 0, 6.2, 51.5, '2017-01-18', 'https://lagunitas.com/uploads/beers_landing/beer-landing-hitting-selves-waldos.png')
 INSERT INTO Beer VALUES (1, 'Back In Black', 13, 'Brewed like an American IPA but with the addition of rich, dark malts, this beer has all the flavor and hop character you expect with a smooth, mellow finish. By 21st Amendment Brewery.', 0, 6.8, 65, '2017-11-18', 'http://21st-amendment.com/assets/backinblack_can_022113-230x409.png')
 INSERT INTO Beer VALUES (1, 'Wanderlust IPA', 13, 'Golden IPA made with five different hops. Intense grapefruit and dank notes with a crisp finish. By Breakside Brewery.', 0, 6.2, 64, '2017-01-19', 'https://res.cloudinary.com/ratebeer/image/upload/w_120,c_limit/beer_139634.jpg')
@@ -189,3 +190,4 @@ INSERT INTO Beer VALUES (3, 'Pour House Hoppy White Ale', 27, 'By Yards Brewing'
 
 /******************************************** Yards Brewing Info *******************************************************************/
 
+select * from Brewery where Brewery.BreweryName = 'Goldhorn'

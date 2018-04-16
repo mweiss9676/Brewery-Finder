@@ -16,13 +16,15 @@
             <h2>Founded in: @Model.YearFounded</h2>
 
             <p>@Model.History</p>
-            <table>
-                <tr>
-                    <td class="brewTable">@Model.HoursOfOperation</td>
-                    <td class="brewTable">@Model.Email</td>
-                    <td class="brewTable">@Model.Phone</td>
-                </tr>
-            </table>
+            <div>
+                <div>Hours of Operation:</div>
+                <div>@Model.HoursOfOperation</div>
+                
+                <div class="contactInfo">
+                    <span>Email: @Model.Email</span>
+                    <span class="brewPhone">Phone: @Model.Phone</span>
+                </div>
+            </div>
         </div>
     </div>
 
