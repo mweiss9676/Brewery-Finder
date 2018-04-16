@@ -125,9 +125,15 @@
                         let beerDiv = document.createElement("div");
                         beerDiv.className = 'beerResults results';
 
+                        
                         let beerImg = document.createElement("img");
                         beerImg.className = 'beerImage';
-                        beerImg.src = beers[i].BeerLabelImg;
+                        if (beers[i].BeerLabelImg == "NA") {
+                            beerImg.src = "../Content/IMGS/genericBeer.png";
+                        }
+                        else {
+                            beerImg.src = beers[i].BeerLabelImg;
+                        }
 
                         let beerName = document.createElement("p");
                         beerName.className = 'beerName';

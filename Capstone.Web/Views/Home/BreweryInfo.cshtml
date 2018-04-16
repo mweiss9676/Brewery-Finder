@@ -8,7 +8,7 @@
 
     <div id="breweryInfo">
 
-        <div style="width: 45%">
+        <div style="width: 48%">
             <img id="breweryProfileImg" src='@Model.BreweryProfileImg'>
         </div>
         <div class="brewInfoTxt">
@@ -19,7 +19,7 @@
             <div class="history">@Model.History</div>
             <div class="contactInfo">
                 <div>Hours of Operation:</div>
-                <div class="hours">@Model.HoursOfOperation</div>
+                <div class="hours">@Html.Raw(Model.HoursOfOperation)</div>
                 
                 <div>
                     <span style="width: 50%">Email: @Model.Email</span>
