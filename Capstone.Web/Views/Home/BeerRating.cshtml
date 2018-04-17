@@ -2,10 +2,15 @@
 
 @{
     ViewBag.Title = "BeerRating";
+    int totalRating = 0;
+    int averageRating = 0;
 
 }
 
 @foreach(var rating in Model)
 {
-    <p>@rating.BeerRating</p>
+    totalRating += rating.BeerRating;
+    averageRating = (totalRating / Model.Count);
 }
+
+<p>@averageRating</p>
