@@ -16,15 +16,15 @@ namespace Capstone.Web.DAL
             this.connectionString = connectionString;
         }
 
-        public List<int> GetAllReviewsForOneBeer(int BeerId)
+        public List<BeerRatingModel> GetAllReviewsForOneBeer(int BeerId)
         {
-            List<int> list = new List<int>();
+            List<BeerRatingModel> list = new List<BeerRatingModel>();
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("@SELECT BeerRating.BeerRating from BeerRating WHERE BeerId = @beerId", conn);
+                SqlCommand cmd = new SqlCommand(@"SELECT * from BeerRating INNER JOIN Beer ON Beer.BeerId = @beerId" , conn);
 
                 cmd.Parameters.AddWithValue("@beerId", BeerId);
 
@@ -32,7 +32,7 @@ namespace Capstone.Web.DAL
 
                 while (reader.Read())
                 {
-                    list.Add(Convert.ToInt32(reader["BeerRating"]));
+                    list.Add(BeerRatingReader(reader));
                 }
             }
             return list;
@@ -66,10 +66,7 @@ namespace Capstone.Web.DAL
             {
                 BeerId = Convert.ToInt32(reader["BeerId"]),
                 BeerRating = Convert.ToInt32(reader["BeerRating"]),
-<<<<<<< HEAD
-                //UserId = new Guid(reader[])
-=======
->>>>>>> f5d135d8c25819fa06d587b0166c9d1b6a98ac98
+                UserId = Guid.Parse(reader["UserId"].ToString())
             };
         }
     }

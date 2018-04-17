@@ -45,7 +45,7 @@
 
         <p>@Model.BeerDescription</p>
         <div>
-            @Html.Partial("BeerRating")
+            @Html.Action("BeerRating", "Home", new { id = Model.BeerId})
         </div>
     </div><!--END BEER INFO TXT-->
 </div><!--END BEER INFO-->

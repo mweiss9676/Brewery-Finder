@@ -80,8 +80,7 @@ CREATE TABLE BreweryRating
 (
 	UserId						uniqueidentifier FOREIGN KEY REFERENCES Users(UserId),
 	BreweryId					int FOREIGN KEY REFERENCES Brewery(BreweryId),
-	BreweryRating				int NOT NULL,
-	BreweryReview				varchar(max)
+	BreweryRating				int NULL,
 );
 
 COMMIT TRANSACTION

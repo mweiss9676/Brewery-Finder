@@ -14,11 +14,13 @@ namespace Capstone.Web.Controllers
     {
         IBreweryDAL breweryDAL;
         IBeerDAL beerDAL;
+        IBeerRatingDAL beerRatingDAL;
 
-        public HomeController(IBreweryDAL breweryDAL, IBeerDAL beerDAL)
+        public HomeController(IBreweryDAL breweryDAL, IBeerDAL beerDAL, IBeerRatingDAL beerRatingDAL)
         {
             this.breweryDAL = breweryDAL;
             this.beerDAL = beerDAL;
+            this.beerRatingDAL = beerRatingDAL;
         }
 
         public ActionResult Index()
@@ -50,6 +52,12 @@ namespace Capstone.Web.Controllers
             var result = beerDAL.GetBeerDetail(id);
 
             return View("BeerInfo", result);
+        }
+
+        public ActionResult BeerRating(BeerRatingModel model)
+        {
+            List<BeerRatingModel> list = beerRatingDAL.GetAllReviewsForOneBeer(model.BeerId);
+            return PartialView("BeerRating", list);
         }
     }
 }
