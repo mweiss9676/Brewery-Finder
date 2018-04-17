@@ -1,18 +1,27 @@
 ﻿$(document).ready(function () {
 
-    // Get user coordinates
+    //** Jimmy V **//
+    // If User Allows Location
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition)
+
+        // Get User Location
+        navigator.geolocation.getCurrentPosition(saveUserPosition)
+
+      // Else Location Not Allowed or Supported
     } else {
+
+         // Alert 'Location Not Supported'
         alert('Location Is Not Supported');
     }
-    
-    function showPosition(position) {
+
+    // Saves User's Position and Sends it to Home Controller
+    function saveUserPosition(position) {
+
+        // URL To Home Controller Method 
         var URL = 'http://' + window.location.host + '/Home/GetUserLocationJson';
 
+        // Send Latitiude and Longitude to GetUserLocationJson() in Home Controller
         $.when($.get(URL, { latitude: position.coords.latitude, longitude: position.coords.longitude }));
-
-        console.log('Latitude: ' + position.coords.latitude + 'Longitude: ' + position.coords.longitude);
     }
 
     $(window).bind("pageshow", function () {
@@ -28,7 +37,6 @@
         // Re-run search bar form
 
     });
-
 
     $('.ageCheckerContainer').keypress(function (e) {
 
