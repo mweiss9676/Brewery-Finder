@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using Microsoft.AspNet.Identity;
+using System.Device.Location;
 
 namespace Capstone.Web.Controllers
 {
@@ -21,7 +22,6 @@ namespace Capstone.Web.Controllers
             this.breweryDAL = breweryDAL;
             this.beerDAL = beerDAL;
             this.beerRatingDAL = beerRatingDAL;
-
         }
 
         public ActionResult Index()
@@ -39,8 +39,12 @@ namespace Capstone.Web.Controllers
         public string GetSearchResultsJson(string searchResult)
         {
             SearchResultsModel searchResults = new SearchResultsModel();
+            var breweries = breweryDAL.SearchBreweries(searchResult);
 
-            searchResults.Breweries = breweryDAL.SearchBreweries(searchResult, Session["UserLatitude"].ToString(), Session["UserLongitude"].ToString());
+            GeoCoordinate userCoord = new GeoCoordinate(Convert.ToDouble(Session["UserLatitude"]), Convert.ToDouble(Session["UserLongitude"]));
+
+            searchResults.Breweries = breweries.OrderBy(brewery => userCoord.GetDistanceTo(new GeoCoordinate(brewery.BreweryLatitude, brewery.BreweryLongitude))).ToList();
+
             searchResults.Beers = beerDAL.Beers(searchResult);
 
             var result = JsonConvert.SerializeObject(searchResults);

@@ -7,7 +7,7 @@ namespace Capstone.Web.Models
 {
     public class SearchResultsModel
     {
-        public List<BreweryModel> Breweries { get; set; }
+        public IList<BreweryModel> Breweries { get; set; }
         public List<BeerModel> Beers { get; set; }
     }
 }
