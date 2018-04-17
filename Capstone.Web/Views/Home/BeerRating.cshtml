@@ -2,7 +2,20 @@
 
 @{
     ViewBag.Title = "BeerRating";
+    int totalRating = 0;
+    double averageRating = 0;
 
 }
 
-<p>working</p>
+@foreach(var rating in Model)
+{
+    totalRating += rating.BeerRating;
+    averageRating = Math.Round(((double)totalRating / Model.Count),MidpointRounding.AwayFromZero);
+}
+
+@for(int i = 0; i < averageRating; i++)
+{
+    <div style="display:inline-block">
+        <img src="~/Content/IMGS/star.png"/>
+    </div>
+}
