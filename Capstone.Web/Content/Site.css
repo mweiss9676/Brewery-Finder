@@ -237,6 +237,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     height: 130px;
     width: auto;
     object-fit: contain;
+    padding: 5px 5px 5px 5px;
 }
 
 .breweryName, .beerName {
