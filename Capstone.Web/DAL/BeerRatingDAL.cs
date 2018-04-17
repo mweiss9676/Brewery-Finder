@@ -66,7 +66,7 @@ namespace Capstone.Web.DAL
             {
                 BeerId = Convert.ToInt32(reader["BeerId"]),
                 BeerRating = Convert.ToInt32(reader["BeerRating"]),
-                UserId = new Guid(reader[])
+                //UserId = new Guid(reader[])
             };
         }
     }
