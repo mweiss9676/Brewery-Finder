@@ -1,0 +1,17 @@
+﻿@model IList<Capstone.Web.Models.BeerModel>
+@{
+    ViewBag.Title = "BreweryBeerList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@foreach(var beer in Model)
+{
+    <a href= "~/Views/Home/BeerInfo.cshtml">
+    <div class="beerResults results">
+        <img class="beerImage" src="@beer.BeerLabelImg"/>
+        <p class="beerName">@beer.BeerName</p>
+        <p class="beerDescription">@beer.BeerDescription</p>
+    </div>
+    </a>
+}
