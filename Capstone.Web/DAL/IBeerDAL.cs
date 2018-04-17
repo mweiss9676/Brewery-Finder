@@ -21,5 +21,7 @@ namespace Capstone.Web.DAL
 
         void RemoveBeer(string beerName);
 
+        List<BeerModel> GetBreweriesBeers(int breweryId);
+
     }
 }

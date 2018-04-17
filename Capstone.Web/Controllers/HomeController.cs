@@ -29,11 +29,13 @@ namespace Capstone.Web.Controllers
             return View();
         }
 
-        public ActionResult BreweryInfo(int id)
+        public ActionResult BreweryInfo(int Id)
         {
-            var result = breweryDAL.GetBreweryDetail(id);
+            BreweryDetailModel breweryInfo = new BreweryDetailModel();
+            breweryInfo.Brewery = breweryDAL.GetBreweryDetail(Id);
+            breweryInfo.Beers = beerDAL.GetBreweriesBeers(Id);
 
-            return View("BreweryInfo", result);
+            return View("BreweryInfo", breweryInfo);
         }
 
         public string GetSearchResultsJson(string searchResult)

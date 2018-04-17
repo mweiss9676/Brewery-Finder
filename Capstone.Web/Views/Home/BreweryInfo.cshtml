@@ -1,34 +1,45 @@
-﻿@model Capstone.Web.Models.BreweryModel
+﻿@model Capstone.Web.Models.BreweryDetailModel
 
 @{
 
 }
 
-<div class="container">
-
     <div id="breweryInfo">
 
         <div style="width: 48%">
-            <img id="breweryProfileImg" src='@Model.BreweryProfileImg'>
+            <img id="breweryProfileImg" src='@Model.Brewery.BreweryProfileImg'>
         </div>
         <div class="brewInfoTxt">
-            <h1 class="brewHeader">@Model.BreweryName</h1>
+            <h1 class="brewHeader">@Model.Brewery.BreweryName</h1>
 
-            <h2>Founded in: @Model.YearFounded</h2>
+            <h2>Founded in: @Model.Brewery.YearFounded</h2>
 
-            <div class="history">@Model.History</div>
+            <div class="history">@Model.Brewery.History</div>
             <div class="contactInfo">
                 <div>Hours of Operation:</div>
-                <div class="hours">@Html.Raw(Model.HoursOfOperation)</div>
+                <div class="hours">@Html.Raw(@Model.Brewery.HoursOfOperation)</div>
                 
                 <div>
-                    <span style="width: 50%">Email: @Model.Email</span>
-                    <span class="brewPhone">Phone: @Model.Phone</span>
+                    <span style="width: 50%">Email: @Model.Brewery.Email</span>
+                    <span class="brewPhone">Phone: @Model.Brewery.Phone</span>
                 </div>
             </div>
         </div>
+    </div><!--END BREWERY INFO-->
+    <div class="breweryBeerList">
+        @foreach(var beer in Model.Beers)
+        {
+        <div class="results breweryBeers">
+            <div class="breweryImgContainer">
+                <img src="@beer.BeerLabelImg" />
+            </div>
+            <div class="breweryBeerDetailContainer">
+                <h1>@beer.BeerName</h1>
+                <p>@beer.ABV</p>
+                <p>@beer.BeerDescription</p>
+            </div>
+        </div>
+        }        
     </div>
     
-
-</div>
 

@@ -189,20 +189,6 @@ namespace Capstone.Web.DAL
             return beers;
         }
 
-        private BeerModel BeerReader(SqlDataReader reader)
-        {
-            return new BeerModel()
-            {
-                BeerId = Convert.ToInt32(reader["BeerId"]),
-                BeerName = Convert.ToString(reader["BeerName"]),
-                BeerDescription = Convert.ToString(reader["BeerDescription"]),
-                BeerLabelImg = Convert.ToString(reader["BeerLabelImg"] as string ?? "NA"),
-                ABV = Convert.ToDecimal(reader["ABV"] as decimal ?),
-                IBU = Convert.ToInt32(reader["IBU"] as int ?),
-                DateBrewed = Convert.ToDateTime(reader["DateBrewed"])
-            };
-        }
-
         //DID NOT TEST THIS. 
         public void RemoveBeer(string beerName)
         {
@@ -230,5 +216,54 @@ namespace Capstone.Web.DAL
         {
             throw new NotImplementedException();
         }
+
+        public List<BeerModel> GetBreweriesBeers(int breweryId)
+        {
+            try
+            {
+                List<BeerModel> results = new List<BeerModel>();
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM Beer 
+                                                      JOIN Brewery ON Brewery.BreweryId = Beer.BreweryId
+                                                      WHERE Brewery.BreweryId = @breweryId", conn);
+                    cmd.Parameters.AddWithValue("@breweryId", breweryId);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        BeerModel beer = BeerReader(reader);
+                        results.Add(beer);
+                    }
+
+                    return results;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return null;
+        }
+
+        private BeerModel BeerReader(SqlDataReader reader)
+        {
+            return new BeerModel()
+            {
+                BeerId = Convert.ToInt32(reader["BeerId"]),
+                BeerName = Convert.ToString(reader["BeerName"]),
+                BeerDescription = Convert.ToString(reader["BeerDescription"]),
+                BeerLabelImg = Convert.ToString(reader["BeerLabelImg"] as string ?? "NA"),
+                ABV = Convert.ToDecimal(reader["ABV"] as decimal?),
+                IBU = Convert.ToInt32(reader["IBU"] as int?),
+                DateBrewed = Convert.ToDateTime(reader["DateBrewed"])
+            };
+        }
     }
+
+
 }
