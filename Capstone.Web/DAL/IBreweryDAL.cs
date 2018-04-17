@@ -20,5 +20,7 @@ namespace Capstone.Web.DAL
         void AddBrewery(AddBreweryModel brewery);
 
         void RemoveBrewery(int breweryId);
+
+        void SetBreweryCoords(AddBreweryModel brewery);
     }
 }

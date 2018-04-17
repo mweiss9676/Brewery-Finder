@@ -7,7 +7,8 @@ namespace Capstone.Web.Models
 {
     public class BeerRatingModel
     {
-        public int BeerRating { get; set; }
-        public string BeerReview { get; set; }
+        public Guid UserId { get; set; }
+        public int BeerId { get; set; }
+        public int BeerRating { get; set; }       
     }
 }

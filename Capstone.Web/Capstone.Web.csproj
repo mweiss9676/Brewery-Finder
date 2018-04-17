@@ -73,6 +73,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Device" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -197,8 +198,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DAL\BeerDAL.cs" />
+    <Compile Include="DAL\BeerRatingDAL.cs" />
     <Compile Include="DAL\BreweryDAL.cs" />
     <Compile Include="DAL\IBeerDAL.cs" />
+    <Compile Include="DAL\IBeerRatingDAL.cs" />
     <Compile Include="DAL\IBreweryDAL.cs" />
     <Compile Include="DAL\IUserDAL.cs" />
     <Compile Include="DAL\UserDAL.cs" />
@@ -211,7 +214,6 @@
     <Compile Include="Models\BeerModel.cs" />
     <Compile Include="Models\BeerRatingModel.cs" />
     <Compile Include="Models\BreweryModel.cs" />
-    <Compile Include="Models\BreweryRatingModel.cs" />
     <Compile Include="Models\ListOfBreweryNamesAndBeerTypesModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\SearchResultsModel.cs" />
