@@ -16,7 +16,7 @@ namespace Capstone.Web.Models
         public DateTime DateBrewed { get; set; }
         public string BeerLabelImg { get; set; }
         public double AverageRating { get; set; }
+        public int BreweryId { get; set; }
 
-        
     }
 }

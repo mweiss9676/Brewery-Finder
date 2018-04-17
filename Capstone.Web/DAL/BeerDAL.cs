@@ -19,7 +19,7 @@ namespace Capstone.Web.DAL
             this.connectionString = connectionString;
         }
 
-        public List<BeerModel> Beers(string searchString)
+        public List<BeerModel> GetBeerSearchResults(string searchString)
         {
             Dictionary<string, BeerModel> searchResults = new Dictionary<string, BeerModel>();
 
@@ -217,7 +217,7 @@ namespace Capstone.Web.DAL
             throw new NotImplementedException();
         }
 
-        public List<BeerModel> GetBreweriesBeers(int breweryId)
+        public List<BeerModel> GetBreweryBeers(int breweryId)
         {
             try
             {
@@ -250,6 +250,8 @@ namespace Capstone.Web.DAL
             return null;
         }
 
+        
+
         private BeerModel BeerReader(SqlDataReader reader)
         {
             return new BeerModel()
@@ -260,7 +262,8 @@ namespace Capstone.Web.DAL
                 BeerLabelImg = Convert.ToString(reader["BeerLabelImg"] as string ?? "NA"),
                 ABV = Convert.ToDecimal(reader["ABV"] as decimal?),
                 IBU = Convert.ToInt32(reader["IBU"] as int?),
-                DateBrewed = Convert.ToDateTime(reader["DateBrewed"])
+                DateBrewed = Convert.ToDateTime(reader["DateBrewed"]),
+                BreweryId = Convert.ToInt32(reader["BreweryId"])
             };
         }
     }
