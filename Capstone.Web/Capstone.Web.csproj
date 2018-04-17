@@ -213,6 +213,7 @@
     <Compile Include="Models\AddBreweryModel.cs" />
     <Compile Include="Models\BeerModel.cs" />
     <Compile Include="Models\BeerRatingModel.cs" />
+    <Compile Include="Models\BreweryDetailModel.cs" />
     <Compile Include="Models\BreweryModel.cs" />
     <Compile Include="Models\ListOfBreweryNamesAndBeerTypesModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
