@@ -60,14 +60,14 @@ namespace Capstone.Web.DAL
 
         }
 
-        private BeerRatingModel BeerRatingReader(SqlDataReader reader)
-        {
-            return new BeerRatingModel()
-            {
-                BeerId = Convert.ToInt32(reader["BeerId"]),
-                BeerRating = Convert.ToInt32(reader["BeerRating"]),
-                UserId = new Guid(reader[])
-            };
-        }
+        //private BeerRatingModel BeerRatingReader(SqlDataReader reader)
+        //{
+        //    return new BeerRatingModel()
+        //    {
+        //        BeerId = Convert.ToInt32(reader["BeerId"]),
+        //        BeerRating = Convert.ToInt32(reader["BeerRating"]),
+        //        UserId = new Guid(reader[])
+        //    };
+        //}
     }
 }

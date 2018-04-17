@@ -1,17 +1,32 @@
 ﻿$(document).ready(function () {
 
+    // Get user coordinates
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition)
+    } else {
+        alert('Location Is Not Supported');
+    }
+    
+    function showPosition(position) {
+        var URL = 'http://' + window.location.host + '/Home/GetUserLocationJson';
+
+        $.when($.get(URL, { latitude: position.coords.latitude, longitude: position.coords.longitude }));
+
+        console.log('Latitude: ' + position.coords.latitude + 'Longitude: ' + position.coords.longitude);
+    }
+
     $(window).bind("pageshow", function () {
 
         // Get search from querystring
         let params = (new URL(document.location)).searchParams;
 
         if (params.has("q")) {
-            let query = params.get("q");            
+            let query = params.get("q");
             performSearch(query);
         }
 
         // Re-run search bar form
-        
+
     });
 
 
@@ -40,7 +55,7 @@
     $('.searchBarForm').keypress(function (e) {
 
 
-        let searchString = $('.searchBar').val();     
+        let searchString = $('.searchBar').val();
 
         if (e.which == 13 && searchString != "") {
             performSearch(searchString);
@@ -125,7 +140,7 @@
                         let beerDiv = document.createElement("div");
                         beerDiv.className = 'beerResults results';
 
-                        
+
                         let beerImg = document.createElement("img");
                         beerImg.className = 'beerImage';
                         if (beers[i].BeerLabelImg == "NA") {
@@ -160,6 +175,7 @@
 
     };
 });
+
 function ActionOne() {
     $('#listActionOne').addClass('focus');
     $('#listActionTwo').removeClass('focus');
