@@ -33,7 +33,7 @@ namespace Capstone.Web.Controllers
         {
             BreweryDetailModel breweryInfo = new BreweryDetailModel();
             breweryInfo.Brewery = breweryDAL.GetBreweryDetail(Id);
-            breweryInfo.Beers = beerDAL.GetBreweriesBeers(Id);
+            breweryInfo.Beers = beerDAL.GetBreweryBeers(Id);
 
             return View("BreweryInfo", breweryInfo);
         }
@@ -42,12 +42,15 @@ namespace Capstone.Web.Controllers
         {
             SearchResultsModel searchResults = new SearchResultsModel();
             var breweries = breweryDAL.SearchBreweries(searchResult);
+            var beers = beerDAL.GetBeerSearchResults(searchResult);
 
             GeoCoordinate userCoord = new GeoCoordinate(Convert.ToDouble(Session["UserLatitude"]), Convert.ToDouble(Session["UserLongitude"]));
 
             searchResults.Breweries = breweries.OrderBy(brewery => userCoord.GetDistanceTo(new GeoCoordinate(brewery.BreweryLatitude, brewery.BreweryLongitude))).ToList();
+            searchResults.Beers = beers.OrderBy(beer => userCoord.GetDistanceTo(new GeoCoordinate(breweryDAL.GetBreweryDetail(beer.BreweryId).BreweryLatitude, breweryDAL.GetBreweryDetail(beer.BreweryId).BreweryLongitude))).ToList();
 
-            searchResults.Beers = beerDAL.Beers(searchResult);
+
+            //searchResults.Beers = beerDAL.GetBeerSearchResults(searchResult);
 
             var result = JsonConvert.SerializeObject(searchResults);
 
