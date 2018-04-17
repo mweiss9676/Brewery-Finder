@@ -49,9 +49,6 @@ namespace Capstone.Web.Controllers
             searchResults.Breweries = breweries.OrderBy(brewery => userCoord.GetDistanceTo(new GeoCoordinate(brewery.BreweryLatitude, brewery.BreweryLongitude))).ToList();
             searchResults.Beers = beers.OrderBy(beer => userCoord.GetDistanceTo(new GeoCoordinate(breweryDAL.GetBreweryDetail(beer.BreweryId).BreweryLatitude, breweryDAL.GetBreweryDetail(beer.BreweryId).BreweryLongitude))).ToList();
 
-
-            //searchResults.Beers = beerDAL.GetBeerSearchResults(searchResult);
-
             var result = JsonConvert.SerializeObject(searchResults);
 
             return result;
