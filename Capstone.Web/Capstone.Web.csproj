@@ -227,6 +227,7 @@
     <Content Include="Content\IMGS\genericbottle.jpeg" />
     <Content Include="Content\IMGS\kraftRED.png" />
     <Content Include="Content\IMGS\genericBeer.png" />
+    <Content Include="Content\IMGS\star.png" />
     <Content Include="Content\IMGS\TestBackground.jpeg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -269,6 +270,7 @@
     <Content Include="Views\Home\BeerInfo.cshtml" />
     <Content Include="Views\Brewer\Index.cshtml" />
     <Content Include="Views\Brewer\GreatSuccess.cshtml" />
+    <Content Include="Views\Home\BeerRating.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -14,13 +14,14 @@ namespace Capstone.Web.Controllers
     {
         IBreweryDAL breweryDAL;
         IBeerDAL beerDAL;
+        IBeerRatingDAL beerRatingDAL;
 
-        //string userLatitude, userLongitude;
-
-        public HomeController(IBreweryDAL breweryDAL, IBeerDAL beerDAL)
+        public HomeController(IBreweryDAL breweryDAL, IBeerDAL beerDAL, IBeerRatingDAL beerRatingDAL)
         {
             this.breweryDAL = breweryDAL;
             this.beerDAL = beerDAL;
+            this.beerRatingDAL = beerRatingDAL;
+
         }
 
         public ActionResult Index()
@@ -53,12 +54,17 @@ namespace Capstone.Web.Controllers
 
             return View("BeerInfo", result);
         }
-        
+
         public void GetUserLocationJson(string latitude, string longitude)
         {
-            // See if the user has a shopping cart stored in session
             Session["UserLatitude"] = latitude;
             Session["UserLongitude"] = longitude;
+        }
+
+        public ActionResult BeerRating(int id)
+        {
+            List<BeerRatingModel> list = beerRatingDAL.GetAllReviewsForOneBeer(id);
+            return PartialView("BeerRating", list);
         }
     }
 }

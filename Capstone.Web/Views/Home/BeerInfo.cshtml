@@ -7,8 +7,8 @@
 
 
 
-    <div id="beerInfo">
-        <div class="beerLabelImgContainer">
+<div id="beerInfo">
+    <div class="beerLabelImgContainer">
         @if (Model.BeerLabelImg == "NA")
         {
             <img class="beerLabelImg" src="~/Content/IMGS/genericBeer.png" />
@@ -18,33 +18,34 @@
         {
             <img class="beerLabelImg" src="@Model.BeerLabelImg" />
         }
-        </div><!--END BEER INFO IMAGE-->
-        <div class="beerInfoTxt">
-            <h1>@Model.BeerName</h1>
-            <table class="beerTable">
-                <tr>
-                    @if (Model.ABV == 0)
-                    {
-                        <td class="beerTd">ABV: N/A</td>
-                    }
-                    else
-                    {
-                        <td class="beerTd">ABV: @Model.ABV</td>
-                    }
-                    @if (Model.IBU == 0)
-                    {
-                        <td class="beerTd">IBU: N/A</td>
-                    }
-                    else
-                    {
-                        <td class="beerTd">IBU: @Model.IBU</td>
-                    }
-                    <td class="beerTd">First Brewed: @Model.DateBrewed.Year</td>
-                </tr>
-            </table>
+    </div><!--END BEER INFO IMAGE-->
+    <div class="beerInfoTxt">
+        <h1>@Model.BeerName</h1>
+        <table class="beerTable">
+            <tr>
+                @if (Model.ABV == 0)
+                {
+                    <td class="beerTd">ABV: N/A</td>
+                }
+                else
+                {
+                    <td class="beerTd">ABV: @Model.ABV</td>
+                }
+                @if (Model.IBU == 0)
+                {
+                    <td class="beerTd">IBU: N/A</td>
+                }
+                else
+                {
+                    <td class="beerTd">IBU: @Model.IBU</td>
+                }
+                <td class="beerTd">First Brewed: @Model.DateBrewed.Year</td>
+            </tr>
+        </table>
 
-            <p>@Model.BeerDescription</p>
-        </div><!--END BEER INFO TXT-->
-    </div><!--END BEER INFO-->
-
-
+        <p>@Model.BeerDescription</p>
+        <div>
+            @Html.Action("BeerRating", "Home", new { id = Model.BeerId})
+        </div>
+    </div><!--END BEER INFO TXT-->
+</div><!--END BEER INFO-->

@@ -10,6 +10,6 @@ namespace Capstone.Web.DAL
     public interface IBeerRatingDAL
     {
         void RateABeer(BeerRatingModel beerRatingModel);
-        List<int> GetAllReviewsForOneBeer(int BeerId);
+        List<BeerRatingModel> GetAllReviewsForOneBeer(int BeerId);
     }
 }

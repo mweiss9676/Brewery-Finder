@@ -72,7 +72,6 @@ CREATE TABLE BeerRating
 (
 	BeerId						int FOREIGN KEY REFERENCES Beer(BeerId),
 	BeerRating					int NOT NULL,
-	BeerReview					varchar(max) NULL,
 	UserId						uniqueidentifier FOREIGN KEY REFERENCES Users(UserId),
 );
 
@@ -80,8 +79,7 @@ CREATE TABLE BreweryRating
 (
 	UserId						uniqueidentifier FOREIGN KEY REFERENCES Users(UserId),
 	BreweryId					int FOREIGN KEY REFERENCES Brewery(BreweryId),
-	BreweryRating				int NOT NULL,
-	BreweryReview				varchar(max)
+	BreweryRating				int NULL,
 );
 
 COMMIT TRANSACTION
@@ -139,13 +137,13 @@ INSERT INTO BeerTypes VALUES ('Scotch Ale','Scotch Ale was first used as a desig
 SET IDENTITY_INSERT Brewery ON
 
 INSERT INTO Brewery (BreweryId, UserId, BreweryName, BreweryAddress, BreweryCity, BreweryDistrict, BreweryCountry, BreweryPostalCode, History, YearFounded, HoursOfOperation, Email, Phone, BreweryProfileImg, BreweryBackgroundImg, BreweryHeaderImg, BreweryLatitude, BreweryLongitude)
-VALUES (1, TRY_CONVERT(UNIQUEIDENTIFIER,'7EB3ACB7-3EAF-4CFE-91AD-12C8551F4B65'),'Goldhorn', '1361 E 55th St.', 'Cleveland', 'OH', 'USA', '44103', 'Located on Cleveland’s East Side, in the St. Clair neighborhood, featuring classic European and American style beers. We believe beer is more than just a beverage; it''s a shared experience between brewer, buyer and community.', 2010, 'Tuesday 3:00 pm – 9:00 pm' + CHAR(13) + CHAR(10) +
-'Wednesday 3:00 pm – 9:00 pm' + CHAR(13) + CHAR(10) +
-'Thursday 3:00 pm – 9:00 pm' + CHAR(13) + CHAR(10) +
-'Friday 3:00 pm – 10:00 pm' + CHAR(13) + CHAR(10) +
-'Saturday 12:00 pm – 10:00 pm' + CHAR(13) + CHAR(10) +
-'Sunday 11:00 am – 6:00 pm' + CHAR(13) + CHAR(10) +
-'Closed: Mondays', 'info@goldhorn.com', '216-465-1352', 'http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header2-1.jpg','http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header1.jpg', 'http://www.ohiocraftbeer.org/wp-content/uploads/2015/12/OCBA_simplified_color.png', '41.5217531', '-81.6513999')
+VALUES (1, TRY_CONVERT(UNIQUEIDENTIFIER,'7EB3ACB7-3EAF-4CFE-91AD-12C8551F4B65'),'Goldhorn', '1361 E 55th St.', 'Cleveland', 'OH', 'USA', '44103', 'Located on Cleveland’s East Side, in the St. Clair neighborhood, featuring classic European and American style beers. We believe beer is more than just a beverage; it''s a shared experience between brewer, buyer and community.', 2010, 'Tuesday 3:00 pm – 9:00 pm <br/> 
+Wednesday 3:00 pm – 9:00 pm <br/> 
+Thursday 3:00 pm – 9:00 pm <br/>
+Friday 3:00 pm – 10:00 pm <br/>
+Saturday 12:00 pm – 10:00 pm <br/>
+Sunday 11:00 am – 6:00 pm <br/>
+Closed: Mondays', 'info@goldhorn.com', '216-465-1352', 'http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header2-1.jpg','http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header1.jpg', 'http://www.ohiocraftbeer.org/wp-content/uploads/2015/12/OCBA_simplified_color.png', '41.5217531', '-81.6513999')
 
 INSERT INTO Beer VALUES (1, 'Lagunitas IPA', 13, 'Piney and resinous with classic West Coast citrus zing. By Lagunitas Brewing Company.', 0, 6.2, 51.5, '2017-01-18', 'https://lagunitas.com/uploads/beers_landing/beer-landing-hitting-selves-waldos.png')
 INSERT INTO Beer VALUES (1, 'Back In Black', 13, 'Brewed like an American IPA but with the addition of rich, dark malts, this beer has all the flavor and hop character you expect with a smooth, mellow finish. By 21st Amendment Brewery.', 0, 6.8, 65, '2017-11-18', 'http://21st-amendment.com/assets/backinblack_can_022113-230x409.png')
@@ -160,9 +158,9 @@ INSERT INTO Beer VALUES (1, 'Delirium Tremens', 3, 'Slightly malty, a nice touch
 /******************************************** Great Lakes Brewing Company Info *************************************************************/
 
 INSERT INTO Brewery (BreweryId, UserId, BreweryName, BreweryAddress, BreweryCity, BreweryDistrict, BreweryCountry, BreweryPostalCode, History, YearFounded, HoursOfOperation, Email, Phone, BreweryProfileImg, BreweryBackgroundImg, BreweryHeaderImg, BreweryLatitude, BreweryLongitude)
-VALUES (2, TRY_CONVERT(UNIQUEIDENTIFIER,'2BF6CE16-54D4-463D-8CA3-AF223ABC1AC6'),'Great Lakes Brewing Company', '2516 Market Ave.', 'Cleveland', 'OH', 'USA', '44113', 'In 1986 when Patrick and Daniel Conway opened their fledgling operation in Cleveland''s Ohio City neighborhood, the odds were stacked against them. Fortunately, they surrounded themselves with a staff of passionate, knowledgeable people, and from the start committed themselves to bringing a sophisticated, diverse selection of craft beer to their home state.', 1986, 'Monday - Thursday: 11:30 AM - 10:30 PM (bar open until 12:00 AM)
-Friday: 11:30 AM - 11:30 PM (bar open until 1:00 AM)
-Saturday: 11:00 AM - 11:30 PM (bar open until 1:00 AM)
+VALUES (2, TRY_CONVERT(UNIQUEIDENTIFIER,'2BF6CE16-54D4-463D-8CA3-AF223ABC1AC6'),'Great Lakes Brewing Company', '2516 Market Ave.', 'Cleveland', 'OH', 'USA', '44113', 'In 1986 when Patrick and Daniel Conway opened their fledgling operation in Cleveland''s Ohio City neighborhood, the odds were stacked against them. Fortunately, they surrounded themselves with a staff of passionate, knowledgeable people, and from the start committed themselves to bringing a sophisticated, diverse selection of craft beer to their home state.', 1986, 'Monday - Thursday: 11:30 AM - 10:30 PM (bar open until 12:00 AM) <br/>
+Friday: 11:30 AM - 11:30 PM (bar open until 1:00 AM) <br/>
+Saturday: 11:00 AM - 11:30 PM (bar open until 1:00 AM) <br/>
 Sundays: Closed', 'glbcinfo@greatlakesbrewing.com', '216-771-4404', 'https://www.greatlakesbrewing.com/sites/default/files/800x534_taproom4web.jpg', 'https://www.greatlakesbrewing.com/sites/default/files/800x534_taproom4web.jpg', 'https://media-cdn.tripadvisor.com/media/photo-s/01/60/80/ca/great-lakes-brewery.jpg', '41.484399', '-81.7045211')
 INSERT INTO Beer VALUES (2, 'Dortmunder Gold', 20, 'A smooth, award-winning (and deceptively unassuming) balance of sweet malt and dry hop flavors. Yes, its known for winning medals worldwide. But locally, its known as "Dort," our flagship lager that humbly maintains its smooth, balanced (and charmingly unpretentious) ways. By Great Lakes Brewing Company.', 1, 5.8, 30, '1988-01-01', 'https://www.greatlakesbrewing.com/sites/default/files/styles/large/public/dortmunder-fixed_1.png?itok=67hwPAVE')
 INSERT INTO Beer VALUES (2, 'Eliot Ness', 2, 'Admittedly, its a bit of a paradox to name our Amber Lager for historys most famous agent of prohibition. But its a smooth, malty (and dare we say, arresting?) paradox. By Great Lakes Brewing Company.', 1, 6.1, 27, '1995-01-01', 'https://www.greatlakesbrewing.com/sites/default/files/styles/large/public/eliotness-fixed_1.png?itok=k-GSENtB')
@@ -189,12 +187,12 @@ INSERT INTO Beer VALUES (2, 'Blackout Stout', 23, 'Bold and dark as a power-less
 
 /******************************************** Yards Brewing Info *******************************************************************/
 INSERT INTO Brewery(BreweryId, UserId, BreweryName, BreweryAddress, BreweryCity, BreweryDistrict, BreweryCountry, BreweryPostalCode, History, YearFounded, HoursOfOperation, Email, Phone, BreweryProfileImg, BreweryBackgroundImg, BreweryHeaderImg, BreweryLatitude, BreweryLongitude)
-VALUES (3, TRY_CONVERT(UNIQUEIDENTIFIER,'B6CA7E03-DB49-4DE2-9D76-0E5C19E311B7'),'Yards Brewing', '500 Spring Garden St.', 'Philadelphia', 'PA', 'USA', '19123', 'Back in the late ''80s, two college buddies, Tom and Jon, decided to brew some beer for their friends. Whether it was natural talent or the endless supply of free beer, people liked what they tasted and wanted more. They didn’t know it at the time, but this was the beginning of what was to become Yards Brewing Company. From a garage in Manayunk, to Roxborough, then Kensington and finally to Northern Liberties, this is the Story of Yards, Philly’s Brewery since 1994.', 1994, 'Sundays from 11am to 10pm
-Mondays from 11:30am to 10pm
-Tuesdays from 11:30am to 10pm
-Wednesdays from 11:30am to 10pm
-Thursdays from 11:30am to 11pm
-Fridays from 11:30am to 11pm
+VALUES (3, TRY_CONVERT(UNIQUEIDENTIFIER,'B6CA7E03-DB49-4DE2-9D76-0E5C19E311B7'),'Yards Brewing', '500 Spring Garden St.', 'Philadelphia', 'PA', 'USA', '19123', 'Back in the late ''80s, two college buddies, Tom and Jon, decided to brew some beer for their friends. Whether it was natural talent or the endless supply of free beer, people liked what they tasted and wanted more. They didn’t know it at the time, but this was the beginning of what was to become Yards Brewing Company. From a garage in Manayunk, to Roxborough, then Kensington and finally to Northern Liberties, this is the Story of Yards, Philly’s Brewery since 1994.', 1994, 'Sundays from 11am to 10pm <br/>
+Mondays from 11:30am to 10pm <br/>
+Tuesdays from 11:30am to 10pm <br/>
+Wednesdays from 11:30am to 10pm <br/>
+Thursdays from 11:30am to 11pm <br/>
+Fridays from 11:30am to 11pm <br/>
 Saturdays from 11am to 11pm', 'info@yardsbrewing.com', '(215) 525-0175', 'https://scontent-lga3-1.cdninstagram.com/vp/8d86b17adb8cce17fd2cdc29669a92cb/5B5A057B/t51.2885-15/e35/29403439_165290210837971_5950059091274498048_n.jpg', NULL, NULL, '39.9607821', '-75.1470542')
 INSERT INTO Beer VALUES (3, 'Alexander Hamilton''s Treasury Ale', 24, 'By Yards Brewing', 0, 4.5, NULL, '2017-02-28', NULL)
 INSERT INTO Beer VALUES (3, 'Brandywine Brawler', 5, 'By Yards Brewing', 0, 4.2, NULL, '2017-10-27', 'http://yardsbrewing.com/assets/img/ales-logos/LOGO_BLR_circle_Yards_Ales.png')
