@@ -269,6 +269,7 @@
     <Content Include="Views\Home\BeerInfo.cshtml" />
     <Content Include="Views\Brewer\Index.cshtml" />
     <Content Include="Views\Brewer\GreatSuccess.cshtml" />
+    <Content Include="Views\Home\BeerRating.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
