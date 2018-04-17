@@ -16,7 +16,9 @@ namespace Capstone.Web.Controllers
         IBeerDAL beerDAL;
         IBeerRatingDAL beerRatingDAL;
 
-        public HomeController(IBreweryDAL breweryDAL, IBeerDAL beerDAL, IBeerRatingDAL beerRatingDAL)
+        string latitude, longitude;
+
+        public HomeController(IBreweryDAL breweryDAL, IBeerDAL beerDAL)
         {
             this.breweryDAL = breweryDAL;
             this.beerDAL = beerDAL;
@@ -52,12 +54,6 @@ namespace Capstone.Web.Controllers
             var result = beerDAL.GetBeerDetail(id);
 
             return View("BeerInfo", result);
-        }
-
-        public ActionResult BeerRating(BeerRatingModel model)
-        {
-            List<BeerRatingModel> list = beerRatingDAL.GetAllReviewsForOneBeer(model.BeerId);
-            return PartialView("BeerRating", list);
         }
     }
 }
