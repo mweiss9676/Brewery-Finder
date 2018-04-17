@@ -15,7 +15,7 @@ namespace Capstone.Web.Controllers
         IBreweryDAL breweryDAL;
         IBeerDAL beerDAL;
 
-        string latitude, longitude;
+        //string userLatitude, userLongitude;
 
         public HomeController(IBreweryDAL breweryDAL, IBeerDAL beerDAL)
         {
@@ -39,7 +39,7 @@ namespace Capstone.Web.Controllers
         {
             SearchResultsModel searchResults = new SearchResultsModel();
 
-            searchResults.Breweries = breweryDAL.SearchBreweries(searchResult);
+            searchResults.Breweries = breweryDAL.SearchBreweries(searchResult, Session["UserLatitude"].ToString(), Session["UserLongitude"].ToString());
             searchResults.Beers = beerDAL.Beers(searchResult);
 
             var result = JsonConvert.SerializeObject(searchResults);
@@ -56,8 +56,9 @@ namespace Capstone.Web.Controllers
         
         public void GetUserLocationJson(string latitude, string longitude)
         {
-            this.latitude = latitude;
-            this.longitude = longitude;
+            // See if the user has a shopping cart stored in session
+            Session["UserLatitude"] = latitude;
+            Session["UserLongitude"] = longitude;
         }
     }
 }
