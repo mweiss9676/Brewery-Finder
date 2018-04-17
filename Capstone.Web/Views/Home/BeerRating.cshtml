@@ -5,4 +5,7 @@
 
 }
 
-<p>working</p>
+@foreach(var rating in Model)
+{
+    <p>@rating.BeerRating</p>
+}

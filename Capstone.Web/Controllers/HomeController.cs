@@ -18,7 +18,7 @@ namespace Capstone.Web.Controllers
 
         string latitude, longitude;
 
-        public HomeController(IBreweryDAL breweryDAL, IBeerDAL beerDAL)
+        public HomeController(IBreweryDAL breweryDAL, IBeerDAL beerDAL, IBeerRatingDAL beerRatingDAL)
         {
             this.breweryDAL = breweryDAL;
             this.beerDAL = beerDAL;
