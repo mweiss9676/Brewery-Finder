@@ -72,7 +72,6 @@ CREATE TABLE BeerRating
 (
 	BeerId						int FOREIGN KEY REFERENCES Beer(BeerId),
 	BeerRating					int NOT NULL,
-	BeerReview					varchar(max) NULL,
 	UserId						uniqueidentifier FOREIGN KEY REFERENCES Users(UserId),
 );
 

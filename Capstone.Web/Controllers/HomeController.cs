@@ -55,5 +55,11 @@ namespace Capstone.Web.Controllers
 
             return View("BeerInfo", result);
         }
+
+        public ActionResult BeerRating(int id)
+        {
+            List<BeerRatingModel> list = beerRatingDAL.GetAllReviewsForOneBeer(id);
+            return PartialView("BeerRating", list);
+        }
     }
 }

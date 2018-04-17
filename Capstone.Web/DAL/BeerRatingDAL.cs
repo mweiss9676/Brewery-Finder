@@ -24,7 +24,7 @@ namespace Capstone.Web.DAL
             {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand(@"SELECT * from BeerRating INNER JOIN Beer ON Beer.BeerId = @beerId" , conn);
+                SqlCommand cmd = new SqlCommand(@"SELECT * from BeerRating INNER JOIN Beer ON Beer.BeerId = BeerRating.BeerId WHERE BeerId = @beerId" , conn);
 
                 cmd.Parameters.AddWithValue("@beerId", BeerId);
 
