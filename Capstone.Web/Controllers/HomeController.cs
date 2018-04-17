@@ -16,13 +16,12 @@ namespace Capstone.Web.Controllers
         IBeerDAL beerDAL;
         IBeerRatingDAL beerRatingDAL;
 
-        string latitude, longitude;
-
         public HomeController(IBreweryDAL breweryDAL, IBeerDAL beerDAL, IBeerRatingDAL beerRatingDAL)
         {
             this.breweryDAL = breweryDAL;
             this.beerDAL = beerDAL;
             this.beerRatingDAL = beerRatingDAL;
+
         }
 
         public ActionResult Index()
@@ -41,7 +40,7 @@ namespace Capstone.Web.Controllers
         {
             SearchResultsModel searchResults = new SearchResultsModel();
 
-            searchResults.Breweries = breweryDAL.SearchBreweries(searchResult);
+            searchResults.Breweries = breweryDAL.SearchBreweries(searchResult, Session["UserLatitude"].ToString(), Session["UserLongitude"].ToString());
             searchResults.Beers = beerDAL.Beers(searchResult);
 
             var result = JsonConvert.SerializeObject(searchResults);
@@ -54,6 +53,12 @@ namespace Capstone.Web.Controllers
             var result = beerDAL.GetBeerDetail(id);
 
             return View("BeerInfo", result);
+        }
+
+        public void GetUserLocationJson(string latitude, string longitude)
+        {
+            Session["UserLatitude"] = latitude;
+            Session["UserLongitude"] = longitude;
         }
 
         public ActionResult BeerRating(int id)

@@ -168,7 +168,7 @@ namespace Capstone.Web.DAL
             }
         }
 
-        public List<BreweryModel> SearchBreweries(string searchString)
+        public List<BreweryModel> SearchBreweries(string searchString, string latitude, string longitude)
         {
             Dictionary<string, BreweryModel> searchResults = new Dictionary<string, BreweryModel>();
 
@@ -185,18 +185,37 @@ namespace Capstone.Web.DAL
                     {
                         conn.Open();
 
+
+//DECLARE @user_lat DECIMAL(12, 9)
+//DECLARE @user_lng DECIMAL(12, 9)
+//SET @user_lat=39.963692 SET @user_lng=-75.139946
+
+//DECLARE @orig geography = geography::Point(@user_lat, @user_lng, 4326);
+
+//SELECT *, @orig.STDistance(geography::Point(Brewery.BreweryLatitude,  Brewery.BreweryLongitude, 4326)) AS distance
+
+//FROM Brewery
+//ORDER BY distance ASC
                         string searchTerm = searchParameters[i];
-                        SqlCommand cmd = new SqlCommand(@"SELECT * FROM Brewery
+                        SqlCommand cmd = new SqlCommand(@"DECLARE @user_lat DECIMAL(12, 9)
+                                                          DECLARE @user_lng DECIMAL(12, 9)
+                                                          SET @user_lat=@latitude SET @user_lng=@longitude
+                                                          DECLARE @orig geography = geography::Point(@user_lat, @user_lng, 4326);
+                                                          SELECT *, @orig.STDistance(geography::Point(Brewery.BreweryLatitude, Brewery.BreweryLongitude, 4326)) AS distance
+                                                          FROM Brewery
                                                           WHERE BreweryName LIKE @brewery
                                                           OR Brewery.BreweryDistrict LIKE @district
                                                           OR Brewery.BreweryCity LIKE @city
-                                                          OR Brewery.BreweryPostalCode LIKE @postal", conn);
+                                                          OR Brewery.BreweryPostalCode LIKE @postal
+                                                          ORDER BY distance ASC", conn);
 
                         cmd.Parameters.AddWithValue("@brewery", $"%{searchTerm}%");
                         cmd.Parameters.AddWithValue("@district", $"%{searchTerm}%");
                         cmd.Parameters.AddWithValue("@city", $"%{searchTerm}%");
                         cmd.Parameters.AddWithValue("@postal", $"%{searchTerm}%");
-
+                        cmd.Parameters.AddWithValue("@latitude", latitude);
+                        cmd.Parameters.AddWithValue("@longitude", longitude);
+                        
                         SqlDataReader reader = cmd.ExecuteReader();
 
                         while (reader.Read())
@@ -238,7 +257,9 @@ namespace Capstone.Web.DAL
                 BreweryHeaderImage = Convert.ToString(reader["BreweryHeaderImg"]),
                 HoursOfOperation = Convert.ToString(reader["HoursOfOperation"]),
                 Email = Convert.ToString(reader["Email"]),
-                Phone = Convert.ToString(reader["Phone"])
+                Phone = Convert.ToString(reader["Phone"]),
+                BreweryLatitude = Convert.ToDouble(reader["BreweryLatitude"]),
+                BreweryLongitude = Convert.ToDouble(reader["BreweryLongitude"]),
             };
         }
 
