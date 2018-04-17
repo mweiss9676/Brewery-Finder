@@ -15,6 +15,8 @@ namespace Capstone.Web.Controllers
         IBreweryDAL breweryDAL;
         IBeerDAL beerDAL;
 
+        string latitude, longitude;
+
         public HomeController(IBreweryDAL breweryDAL, IBeerDAL beerDAL)
         {
             this.breweryDAL = breweryDAL;
@@ -50,6 +52,12 @@ namespace Capstone.Web.Controllers
             var result = beerDAL.GetBeerDetail(id);
 
             return View("BeerInfo", result);
+        }
+        
+        public void GetUserLocationJson(string latitude, string longitude)
+        {
+            this.latitude = latitude;
+            this.longitude = longitude;
         }
     }
 }

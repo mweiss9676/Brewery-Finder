@@ -1,19 +1,42 @@
 ﻿$(document).ready(function () {
 
+    //** Jimmy V **//
+    // If User Allows Location
+    if (navigator.geolocation) {
+
+        // Get User Location
+        navigator.geolocation.getCurrentPosition(saveUserPosition)
+
+      // Else Location Not Allowed or Supported
+    } else {
+
+         // Alert 'Location Not Supported'
+        alert('Location Is Not Supported');
+    }
+
+    // Saves User's Position and Sends it to Home Controller
+    function saveUserPosition(position) {
+
+        // URL To Home Controller Method 
+        var URL = 'http://' + window.location.host + '/Home/GetUserLocationJson';
+
+        // Send Latitiude and Longitude to GetUserLocationJson() in Home Controller
+        $.when($.get(URL, { latitude: position.coords.latitude, longitude: position.coords.longitude }));
+    }
+
     $(window).bind("pageshow", function () {
 
         // Get search from querystring
         let params = (new URL(document.location)).searchParams;
 
         if (params.has("q")) {
-            let query = params.get("q");            
+            let query = params.get("q");
             performSearch(query);
         }
 
         // Re-run search bar form
-        
-    });
 
+    });
 
     $('.ageCheckerContainer').keypress(function (e) {
 
@@ -40,7 +63,7 @@
     $('.searchBarForm').keypress(function (e) {
 
 
-        let searchString = $('.searchBar').val();     
+        let searchString = $('.searchBar').val();
 
         if (e.which == 13 && searchString != "") {
             performSearch(searchString);
@@ -125,7 +148,7 @@
                         let beerDiv = document.createElement("div");
                         beerDiv.className = 'beerResults results';
 
-                        
+
                         let beerImg = document.createElement("img");
                         beerImg.className = 'beerImage';
                         if (beers[i].BeerLabelImg == "NA") {
@@ -160,6 +183,7 @@
 
     };
 });
+
 function ActionOne() {
     $('#listActionOne').addClass('focus');
     $('#listActionTwo').removeClass('focus');
