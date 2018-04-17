@@ -211,7 +211,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     margin-top: 15px;
     overflow: hidden;
     box-shadow: 0 10px 10px -10px rgba(30, 30, 30, .5);
-
+    border-radius: 5px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -348,7 +348,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 .breweryBeerList {
-    top: 1000px;
+    top: 900px;
 }
 
 .breweryBeers {
@@ -365,10 +365,14 @@ input[type=date]::-webkit-calendar-picker-indicator {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-family: var(--bodyFont);
+    color: var(--secondaryColor);
+    text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
+    
 }
 
 .breweryImgContainer{
-    width: 30%;
+    width: 50%;
     overflow: hidden;
 }
 
@@ -382,7 +386,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 .breweryBeerDetailContainer {
-    width: 70%;
+    width: 50%;
+    padding: 5px 5px 5px 5px;
+    
 }
 /******************************************END BREWERY INFO***********************************/
 /****************************************** REGISTRATION PAGE ********************************/
