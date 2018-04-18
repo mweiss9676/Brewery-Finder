@@ -84,7 +84,6 @@
 
             ).then(function (data) {
 
-                $('.searchResults').empty();
                 let dynamicDiv = $('.searchResults');
                 let searchResultModel = JSON.parse(data);
 
