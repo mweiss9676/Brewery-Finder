@@ -127,6 +127,21 @@ header {
     z-index: 10;  
 }
 
+.searchBar::-webkit-input-placeholder { 
+
+}
+
+.searchBar::-moz-placeholder { 
+}
+
+.searchBar:-ms-input-placeholder { 
+
+}
+
+.searchBar:-moz-placeholder { 
+
+}
+
 .locationBar {
     border-radius: 25px;
     border: 1px solid white;
@@ -149,7 +164,7 @@ header {
     visibility: hidden;     
 }
 
-.searchBar:focus {
+.searchBar:focus, .locationBar:focus {
     outline: none;
 }
 

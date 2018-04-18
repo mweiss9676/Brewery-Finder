@@ -4,9 +4,8 @@
 
 <div class="container">
 
-    @if (Request.Cookies["Over21"] == null || Request.Cookies["Over21"].Value != "true")
+    @if (Request.Cookies["Over21"] == null || Request.Cookies["Over21"].Value != "true")  
     {
-
     <div class="ageCheckerDiv">
         <div class="ageCheck">
             <p>Are you 21?</p>
@@ -20,9 +19,9 @@
         <div class="searchBarForm">
             <input autofocus class="searchBar" type="search" name="SearchString" placeholder="Search for beers or breweries" autocomplete="off" />
         </div>
-        <div class="locationForm">
+        @*<div class="locationForm">
             <input class="locationBar" type="search" name="locationString" placeholder="Location" autocomplete="off" />
-        </div>
+        </div>*@
         <div class="searchResultsPage">
             <div class="searchResults"></div>
         </div>
