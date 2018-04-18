@@ -7,29 +7,33 @@
 
 }
 
-@foreach(var rating in Model)
+@foreach (var rating in Model)
 {
     totalRating += rating.BeerRating;
-    averageRating = Math.Round(((double)totalRating / Model.Count),MidpointRounding.AwayFromZero);
+    averageRating = Math.Round(((double)totalRating / Model.Count), MidpointRounding.AwayFromZero);
 }
+<div class="currentRatings">
+    <p>Current Rating:</p>
+    @for (int i = 0; i < averageRating; i++)
+    {       
+        <img style="display:inline-block" class="testIMG" src="~/Content/IMGS/star.png" />     
+    }
+</div>
 
-@for(int i = 0; i < averageRating; i++)
+
+@if (User.IsInRole("Admin") || User.IsInRole("Enthusiast") || User.IsInRole("Brewer"))
 {
-    <div style="display:inline-block">
-        <img src="~/Content/IMGS/star.png"/>
+    <div class="userRatings">
+        <p >Rate this beer:</p>
+        <form method="post" action="@Url.Action("BeerRating", "Home")" class="beerRatingForm">
+            <select name="BeerRating" class="ratingSelect">
+                <option value="1">One Star</option>
+                <option value="2">Two Stars</option>
+                <option value="3">Three Stars</option>
+                <option value="4">Four Stars</option>
+                <option value="5">Five Stars</option>
+            </select>
+            <button class="ratingsButton">Submit</button>
+        </form>
     </div>
 }
-
-<div>
-    <p>Rate this beer:</p>
-    <form method="post" action="@Url.Action("BeerRating", "Home")" class="beerRatingForm">
-        <select name="BeerRating">
-            <option value="1">One Star</option>
-            <option value="2">Two Stars</option>
-            <option value="3">Three Stars</option>
-            <option value="4">Four Stars</option>
-            <option value="5">Five Stars</option>
-        </select>
-        <button>Submit</button>
-    </form>
-</div>
