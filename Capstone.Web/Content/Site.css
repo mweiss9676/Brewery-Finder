@@ -737,6 +737,7 @@ li#spaceFiller {
     color: var(--secondaryColor);
     text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
     position: relative;
+    
 }
 .beerTable{
     border-spacing: 0;
@@ -750,7 +751,7 @@ li#spaceFiller {
 /******************************************END BEER INFO***********************************/
 
 .partialRatingsView{
-    height: auto;
+    height: 50%;
 }
 .beerStars{
     
@@ -764,14 +765,14 @@ li#spaceFiller {
     padding: 5px;
     border: 1px solid black;
     margin-top: 20px;
-    width: 140px;
+    width: 160px;
     height: auto;
 }
 .userRatings{
     padding: 5px;
     margin-top: 20px;
     border: 1px solid black;
-    width: 140px;
+    width: 160px;
     height: auto;
 }
 
