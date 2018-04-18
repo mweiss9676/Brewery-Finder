@@ -45,12 +45,12 @@ namespace Capstone.Web.Controllers
         public string GetSearchResultsJson(string searchResult)
         {
             SearchResultsModel searchResults = new SearchResultsModel();
-            var breweries = breweryDAL.SearchBreweries(searchResult);
-            var beers = beerDAL.GetBeerSearchResults(searchResult);
+
 
             Regex location = new Regex(@"(?<=\snear\s|\sby\s|\sat\s|\sin\s|\sclose\sto\s|\saround\s|\swithin\s)(.+)$");
 
             GeoCoordinate userCoord;
+            decimal searchRadius = decimal.MaxValue;
 
             if (location.IsMatch(searchResult))
             {
@@ -62,11 +62,15 @@ namespace Capstone.Web.Controllers
                 var searchLocation = geoCoder.GetLatLongFromAddress(address);
 
                 userCoord = new GeoCoordinate(searchLocation.Latitude, searchLocation.Longitude);
+                searchRadius = 40500;
             }
             else
             {
                 userCoord = new GeoCoordinate(Convert.ToDouble(Session["UserLatitude"]), Convert.ToDouble(Session["UserLongitude"]));
             }
+
+            var breweries = breweryDAL.SearchBreweries(searchResult, userCoord.Latitude.ToString(), userCoord.Longitude.ToString(), searchRadius);
+            var beers = beerDAL.GetBeerSearchResults(searchResult);
 
             searchResults.Breweries = breweries.OrderBy(brewery => userCoord.GetDistanceTo(new GeoCoordinate(brewery.BreweryLatitude, brewery.BreweryLongitude))).ToList();
             searchResults.Beers = beers.OrderBy(beer => userCoord.GetDistanceTo(new GeoCoordinate(breweryDAL.GetBreweryDetail(beer.BreweryId).BreweryLatitude, breweryDAL.GetBreweryDetail(beer.BreweryId).BreweryLongitude))).ToList();
