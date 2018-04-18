@@ -70,7 +70,7 @@ namespace Capstone.Web.Controllers
             }
 
             var breweries = breweryDAL.SearchBreweries(searchResult, userCoord.Latitude.ToString(), userCoord.Longitude.ToString(), searchRadius);
-            var beers = beerDAL.GetBeerSearchResults(searchResult);
+            var beers = beerDAL.GetBeerSearchResults(searchResult, userCoord.Latitude.ToString(), userCoord.Longitude.ToString(), searchRadius);
 
             searchResults.Breweries = breweries.OrderBy(brewery => userCoord.GetDistanceTo(new GeoCoordinate(brewery.BreweryLatitude, brewery.BreweryLongitude))).ToList();
             searchResults.Beers = beers.OrderBy(beer => userCoord.GetDistanceTo(new GeoCoordinate(breweryDAL.GetBreweryDetail(beer.BreweryId).BreweryLatitude, breweryDAL.GetBreweryDetail(beer.BreweryId).BreweryLongitude))).ToList();
