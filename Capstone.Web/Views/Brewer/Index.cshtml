@@ -79,11 +79,11 @@
                             <option>@beerType</option>
                         }
                     </select>
-                    <input name="beerDescription" type="text" placeholder="Enter A Beer Description" />
-                    <input name="abv" type="text" placeholder="Enter AN ABV" />
-                    <input name="ibu" type="text" placeholder="Enter AN IBU" />
-                    <input name="dateBrewed" type="date" placeholder="Enter A date brewed" />
-                    <input name="beerLabelImg" type="text" placeholder="Enter A an image url" />
+                    <input name="beerDescription" type="text" placeholder="Enter a Beer Description" />
+                    <input name="abv" type="text" placeholder="Enter an ABV" />
+                    <input name="ibu" type="text" placeholder="Enter an IBU" />
+                    <input name="dateBrewed" type="date" placeholder="Enter a Date Brewed" />
+                    <input name="beerLabelImg" type="text" placeholder="Enter an Image URL" />
                     <button class="submitter" type="submit">Submit</button>
                 </form><!--END VIEW TWO-->
                 <!--END OF ADMIN/BREWER VIEWS-->
@@ -104,7 +104,7 @@
                     <input name="Phone" type="text" placeholder="Phone Number" />
                     <input name="History" type="text" placeholder="History of Brewery" />
                     <input name="YearFounded" type="text" placeholder="Year Founded" />
-                    <input name="HoursOfOperation" type="text" placeholder="Hours Of Operation" />
+                    <input name="HoursOfOperation" type="text" placeholder="Hours of Operation" />
                     <input name="BreweryProfileImg" type="text" placeholder="Brewery Profile Image URL" />
                     <input name="BreweryBackgroundImg" type="text" placeholder="Background Image URL" />
                     <input name="BreweryHeaderImage" type="text" placeholder="Header Image URL" />
@@ -125,13 +125,13 @@
                 @if (User.IsInRole("Enthusiast"))
                 {
                 <div class="viewTwo hidden">
-                    <ul>
+                    @*<ul>
                         <li>Favorite Beer 1</li>
                         <li>Favorite Beer 2</li>
                         <li>Favorite Beer 3</li>
                         <li>Favorite Beer 4</li>
                         <li>Favorite Beer 5</li>
-                    </ul>
+                    </ul>*@
                 </div>
                 }
             </div><!--END userInformationContainer-->
