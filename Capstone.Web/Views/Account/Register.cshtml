@@ -19,7 +19,7 @@
             @Html.ValidationMessage("BadPassword")
         </div>
         <div class="registrationInput">
-            @Html.PasswordFor(m => m.Password, new { placeholder = "password" })
+            @Html.PasswordFor(m => m.Password, new { placeholder = "password (must contain caps, letter, number, special)" })
         </div>
         <div class="registrationValidation">
             @Html.ValidationMessageFor(m => m.ConfirmPassword)
