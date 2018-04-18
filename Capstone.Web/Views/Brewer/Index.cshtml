@@ -93,6 +93,7 @@
                 @if (User.IsInRole("Admin"))
                 {
                 <form class="viewThree hidden" method="post" action="@Url.Action("AddBrewery", "Brewer")">
+                    <input name="UserName" type="text" placeholder="Owner Username" />
                     <input name="BreweryName" type="text" placeholder="Brewery Name" />
                     <input name="BreweryAddress" type="text" placeholder="Address" />
                     <input name="BreweryCity" type="text" placeholder="City" />
