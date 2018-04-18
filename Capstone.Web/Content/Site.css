@@ -730,9 +730,62 @@ li#spaceFiller {
         border-bottom: 1px solid black;
 }
 
-
-
 /******************************************END BEER INFO***********************************/
 
+.partialRatingsView{
+    height: auto;
+}
+.beerStars{
+    
+}
 
+.ratingSelect{
+   
+}
+
+.currentRatings{
+    padding: 5px;
+    border: 1px solid black;
+    margin-top: 20px;
+    width: 140px;
+    height: auto;
+}
+.userRatings{
+    padding: 5px;
+    margin-top: 20px;
+    border: 1px solid black;
+    width: 140px;
+    height: auto;
+}
+
+form.BeerRatingForm{
+  padding:10px;
+  text-align: center;
+}
+
+.ratingsButton{
+    width: 50px;
+   
+}
+
+img.testIMG{
+    margin: auto;
+}
+.ratingSelect{
+    text-align: center;
+}
+
+
+/****************************************** BEERRATING PARTIAL VIEW ***********************/
+
+
+
+
+
+
+
+
+
+
+/****************************************** END BEERRATING PARTIAL VIEW *******************/
 
