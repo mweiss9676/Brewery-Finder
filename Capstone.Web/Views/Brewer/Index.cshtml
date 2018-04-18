@@ -63,7 +63,7 @@
                 <form class="viewTwo hidden" method="post" action="@Url.Action("AddBeer", "Brewer")">
                     @if (User.IsInRole("Admin"))
                     {
-                    <select>
+                    <select name="BreweryName">
                         @foreach (var breweryName in Model.BreweryNames)
                         {
                             <option>@breweryName</option>
@@ -73,7 +73,7 @@
 
                     <input name="beerName" type="text" placeholder="Enter A Beer Name" />
 
-                    <select>
+                    <select name="BeerTypeName">
                         @foreach (var beerType in Model.BeerTypes)
                         {
                             <option>@beerType</option>
