@@ -22,5 +22,7 @@ namespace Capstone.Web.DAL
         void RemoveBrewery(int breweryId);
 
         void SetBreweryCoords(AddBreweryModel brewery);
+
+        void SetBreweryOwner(AddBreweryModel brewery, string userName);
     }
 }

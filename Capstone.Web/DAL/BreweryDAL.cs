@@ -23,15 +23,19 @@ namespace Capstone.Web.DAL
 
         public void AddBrewery(AddBreweryModel brewery)
         {
+
+            SetBreweryCoords(brewery);
+
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand(@"INSERT INTO Brewery (BreweryName, BreweryAddress, BreweryCity, BreweryDistrict, BreweryCountry, BreweryPostalCode, History, YearFounded, HoursOfOperation, BreweryProfileImg, BreweryBackgroundImg, BreweryHeaderImg, Email, Phone, BreweryLatitude, BreweryLongitude)
-                                                                  VALUES (@breweryName, @breweryAddress, @breweryCity, @breweryDistrict, @breweryCountry, @breweryPostalCode, @history, @yearFounded, @hoursOfOperation, @breweryProfileImg, @breweryBackgroundImg, @breweryHeaderImg, @email, @phone, @latitude, @longitude)", conn);
+                    SqlCommand cmd = new SqlCommand(@"INSERT INTO Brewery (UserId, BreweryName, BreweryAddress, BreweryCity, BreweryDistrict, BreweryCountry, BreweryPostalCode, History, YearFounded, HoursOfOperation, BreweryProfileImg, BreweryBackgroundImg, BreweryHeaderImg, Email, Phone, BreweryLatitude, BreweryLongitude)
+                                                                  VALUES (@userId, @breweryName, @breweryAddress, @breweryCity, @breweryDistrict, @breweryCountry, @breweryPostalCode, @history, @yearFounded, @hoursOfOperation, @breweryProfileImg, @breweryBackgroundImg, @breweryHeaderImg, @email, @phone, @latitude, @longitude)", conn);
 
+                    cmd.Parameters.AddWithValue("@userId", brewery.UserId);
                     cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
                     cmd.Parameters.AddWithValue("@breweryAddress", brewery.BreweryAddress);
                     cmd.Parameters.AddWithValue("@breweryCity", brewery.BreweryCity);
@@ -273,6 +277,35 @@ namespace Capstone.Web.DAL
 
             brewery.BreweryLatitude = breweryLocation.Latitude;
             brewery.BreweryLongitude = breweryLocation.Longitude;
+        }
+
+        public void SetBreweryOwner(AddBreweryModel brewery, string userName)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"SELECT Users.UserId FROM Users
+                                                    WHERE userName = @userName", conn);
+
+                    cmd.Parameters.AddWithValue("@userName", userName);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        brewery.UserId = Convert.ToString(reader["UserId"]);
+                    }
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+            }
+
         }
     }
 }

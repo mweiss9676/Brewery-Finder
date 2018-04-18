@@ -143,15 +143,15 @@ Thursday 3:00 pm – 9:00 pm <br/>
 Friday 3:00 pm – 10:00 pm <br/>
 Saturday 12:00 pm – 10:00 pm <br/>
 Sunday 11:00 am – 6:00 pm <br/>
-Closed: Mondays', 'info@goldhorn.com', '216-465-1352', 'http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header2-1.jpg','http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header1.jpg', 'http://www.ohiocraftbeer.org/wp-content/uploads/2015/12/OCBA_simplified_color.png', '41.5217531', '-81.6513999')
+Closed: Mondays', 'info@goldhorn.com', '216-465-1352', 'http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header2-1.jpg','http://www.ohiocraftbeer.org/wp-content/uploads/2016/01/Goldhorn_Header1.jpg', 'http://www.totalwine.com/media/sys_master/twmmedia/h0a/h36/8804310974494.png', '41.5217531', '-81.6513999')
 
-INSERT INTO Beer VALUES (1, 'Lagunitas IPA', 13, 'Piney and resinous with classic West Coast citrus zing. By Lagunitas Brewing Company.', 0, 6.2, 51.5, '2017-01-18', 'https://lagunitas.com/uploads/beers_landing/beer-landing-hitting-selves-waldos.png')
+INSERT INTO Beer VALUES (1, 'Lagunitas IPA', 13, 'Piney and resinous with classic West Coast citrus zing. By Lagunitas Brewing Company.', 0, 6.2, 51.5, '2017-01-18', 'http://www.totalwine.com/media/sys_master/twmmedia/h0a/h36/8804310974494.png')
 INSERT INTO Beer VALUES (1, 'Back In Black', 13, 'Brewed like an American IPA but with the addition of rich, dark malts, this beer has all the flavor and hop character you expect with a smooth, mellow finish. By 21st Amendment Brewery.', 0, 6.8, 65, '2017-11-18', 'http://21st-amendment.com/assets/backinblack_can_022113-230x409.png')
-INSERT INTO Beer VALUES (1, 'Wanderlust IPA', 13, 'Golden IPA made with five different hops. Intense grapefruit and dank notes with a crisp finish. By Breakside Brewery.', 0, 6.2, 64, '2017-01-19', 'https://res.cloudinary.com/ratebeer/image/upload/w_120,c_limit/beer_139634.jpg')
+INSERT INTO Beer VALUES (1, 'Wanderlust IPA', 13, 'Golden IPA made with five different hops. Intense grapefruit and dank notes with a crisp finish. By Breakside Brewery.', 0, 6.2, 64, '2017-01-19', 'http://cdn6.bigcommerce.com/s-4dsnxp/products/2870/images/3226/Breakside_Brewery_Wanderlust_IPA__11425.1450253560.1280.1280.png?c=2')
 INSERT INTO Beer VALUES (1, 'Edward APA', 18, 'Aromatic and flowery, with impressions of citrus and pine. By Hill Farmstead Brewery.', 0, 5.2, 85, '2017-10-01', 'https://i.pinimg.com/736x/0c/09/a3/0c09a3a75d02b72c6a1798013902b946.jpg')
 INSERT INTO Beer VALUES (1, 'Heady Topper', 13, 'Extremely pleasant hoppy taste with a light nodes of citrus. By The Alchemist.', 0, 8.0, 75, '2016-01-18', 'https://cdn.beeradvocate.com/im/beers/16814.jpg')
-INSERT INTO Beer VALUES (1, 'Hofbrau Dunkel', 20, 'Pours dark amber, head slow to dissipate. Dark malt flavor is weak, mouthfeel is thin. By Dunkel Munich.', 0, 5.5, 62.5, '2017-01-18', 'https://beerconnoisseur.com/sites/default/files/styles/beer_page_245w/public/beer/hofbrau-dunkel-bc.jpg?itok=Xw1DoL1k')
-INSERT INTO Beer VALUES (1, 'Delirium Tremens', 3, 'Slightly malty, a nice touch of alcohol, spicy. By Huyghe Brewery.', 0, 8.5, 65.5, '2017-01-18', 'https://drizly-products1.imgix.net/ci-delirium-tremens-cc7c777c5292a683.png?auto=format%2Ccompress&fm=jpeg&q=20')
+INSERT INTO Beer VALUES (1, 'Hofbrau Dunkel', 20, 'Pours dark amber, head slow to dissipate. Dark malt flavor is weak, mouthfeel is thin. By Dunkel Munich.', 0, 5.5, 62.5, '2017-01-18', 'http://www.harats-distribution.hr/site/assets/files/1081/hofbrau-dunkel.png')
+INSERT INTO Beer VALUES (1, 'Delirium Tremens', 3, 'Slightly malty, a nice touch of alcohol, spicy. By Huyghe Brewery.', 0, 8.5, 65.5, '2017-01-18', 'http://www.beermerchants.com/media/catalog/product/cache/1/thumbnail/250x/9df78eab33525d08d6e5fb8d27136e95/d/e/delirium_tremens.png')
 
 /******************************************** GoldHorn Brewery Info ****************************************************************/
 
@@ -214,3 +214,5 @@ INSERT INTO Beer VALUES (3, 'Pour House Hoppy White Ale', 27, 'By Yards Brewing'
 /******************************************** Yards Brewing Info *******************************************************************/
 
 SET IDENTITY_INSERT Brewery OFF
+
+select * from users
