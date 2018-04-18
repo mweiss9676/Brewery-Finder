@@ -56,8 +56,6 @@ namespace Capstone.Web.Controllers
         }
 
         
-
-
         [HttpPost]
         public async Task<ActionResult> GrantRoleToUser(string username, string role)
         {            
@@ -73,6 +71,12 @@ namespace Capstone.Web.Controllers
         {
             beerDAL.AddNewBeer(beer);
             return RedirectToAction("GreatSuccess");
+        }
+
+        [HttpPost]
+        public ActionResult UpdateBeer(BeerModel beer)
+        {
+            throw new NotImplementedException();
         }
 
         public ActionResult GreatSuccess()

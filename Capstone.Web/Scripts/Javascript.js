@@ -22,7 +22,6 @@
 
         // Send Latitiude and Longitude to GetUserLocationJson() in Home Controller
         $.when($.get(URL, { latitude: position.coords.latitude, longitude: position.coords.longitude }));
-        console.log(position.coords.latitude, position.coords.longitude);
     }
 
     $(window).bind("pageshow", function () {
@@ -61,6 +60,7 @@
             }
         }
     });
+
     $('.searchBarForm').keypress(function (e) {
 
 
@@ -71,7 +71,6 @@
         }
 
     });
-
 
     function performSearch(searchString) {
         if (searchString != "") {
