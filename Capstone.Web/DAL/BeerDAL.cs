@@ -19,7 +19,7 @@ namespace Capstone.Web.DAL
             this.connectionString = connectionString;
         }
 
-        public List<BeerModel> GetBeerSearchResults(string searchString)
+        public List<BeerModel> GetBeerSearchResults(string searchString, string latitude, string longitude, decimal searchRadius)
         {
             Dictionary<string, BeerModel> searchResults = new Dictionary<string, BeerModel>();
 
@@ -35,18 +35,48 @@ namespace Capstone.Web.DAL
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
-
                         string searchTerm = searchParameters[i];
-                        SqlCommand cmd = new SqlCommand(@"SELECT * FROM Beer
-                                                          JOIN BeerTypes ON BeerTypes.BeerTypeId = Beer.BeerTypeId
-                                                          WHERE BeerName LIKE @beer
-                                                          OR Beer.BeerDescription LIKE @description
-                                                          OR BeerTypes.BeerType LIKE @beertype", conn);
 
+                        SqlCommand cmd = new SqlCommand(@"DECLARE @user_lat DECIMAL(12, 9)
+                                                          DECLARE @user_lng DECIMAL(12, 9)
+                                                          SET @user_lat=@latitude SET @user_lng=@longitude
+                                                          DECLARE @orig geography = geography::Point(@user_lat, @user_lng, 4326);
+                                                          SELECT * FROM Beer
+                                                          JOIN BeerTypes ON BeerTypes.BeerTypeId = Beer.BeerTypeId
+                                                          WHERE (BeerName LIKE @beer
+                                                          OR Beer.BeerDescription LIKE @description
+                                                          OR BeerTypes.BeerType LIKE @beertype)
+                                                          AND (@orig.STDistance(geography::Point(
+                                                                    (SELECT TOP 1 Brewery.BreweryLatitude FROM Brewery
+                                                                     JOIN Beer ON Beer.BreweryId = Brewery.BreweryId
+                                                                     JOIN BeerTypes ON BeerTypes.BeerTypeId = Beer.BeerTypeId 
+                                                                     WHERE BeerName LIKE @beer
+                                                                     OR Beer.BeerDescription LIKE @description
+                                                                     OR BeerTypes.BeerType LIKE @beertype), 
+                                                                     (SELECT TOP 1 Brewery.BreweryLongitude FROM Brewery
+                                                                     JOIN Beer ON Beer.BreweryId = Brewery.BreweryId
+                                                                     JOIN BeerTypes ON BeerTypes.BeerTypeId = Beer.BeerTypeId 
+                                                                     WHERE BeerName LIKE @beer
+                                                                     OR Beer.BeerDescription LIKE @description
+                                                                     OR BeerTypes.BeerType LIKE @beertype), 4326)) < @searchRadius)", conn);
 
                         cmd.Parameters.AddWithValue("@beer", $"%{searchTerm}%");
                         cmd.Parameters.AddWithValue("@description", $"%{searchTerm}%");
                         cmd.Parameters.AddWithValue("@beertype", $"%{searchTerm}%");
+                        cmd.Parameters.AddWithValue("@latitude", latitude);
+                        cmd.Parameters.AddWithValue("@longitude", longitude);
+                        cmd.Parameters.AddWithValue("@searchRadius", searchRadius);
+
+                        //SqlCommand cmd = new SqlCommand(@"SELECT * FROM Beer
+                        //                                  JOIN BeerTypes ON BeerTypes.BeerTypeId = Beer.BeerTypeId
+                        //                                  WHERE BeerName LIKE @beer
+                        //                                  OR Beer.BeerDescription LIKE @description
+                        //                                  OR BeerTypes.BeerType LIKE @beertype", conn);
+
+
+                        //cmd.Parameters.AddWithValue("@beer", $"%{searchTerm}%");
+                        //cmd.Parameters.AddWithValue("@description", $"%{searchTerm}%");
+                        //cmd.Parameters.AddWithValue("@beertype", $"%{searchTerm}%");
 
                         SqlDataReader reader = cmd.ExecuteReader();
 

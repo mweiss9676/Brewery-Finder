@@ -9,7 +9,7 @@ namespace Capstone.Web.DAL
 {
     public interface IBeerDAL
     {
-        List<BeerModel> GetBeerSearchResults(string searchString);
+        List<BeerModel> GetBeerSearchResults(string searchString, string latitude, string longitude, decimal searchRadius);
 
         BeerModel GetBeerDetail(int beerId);
 
