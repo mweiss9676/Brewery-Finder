@@ -112,8 +112,8 @@ namespace Capstone.Web.DAL
                                                               @beerName,
                                                               (SELECT BeerTypes.BeerTypeId FROM BeerTypes
                                                               WHERE BeerTypes.BeerType = @beerTypeName), @beerDescription, @abv, @ibu, @dateBrewed, @beerLabelImg)", conn);
-                    
-                    //cmd.Parameters.AddWithValue("@breweryName", beer.BreweryName);
+
+                    cmd.Parameters.AddWithValue("@breweryName", beer.BreweryName);
                     cmd.Parameters.AddWithValue("@beerName", beer.BeerName);
                     cmd.Parameters.AddWithValue("@beerTypeName", beer.BeerTypeName);
                     cmd.Parameters.AddWithValue("@beerDescription", beer.BeerDescription);

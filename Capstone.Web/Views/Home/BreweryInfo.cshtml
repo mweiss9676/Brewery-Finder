@@ -28,24 +28,27 @@
 </div><!--END BREWERY INFO-->
 <div class="breweryBeerList">
     @foreach (var beer in Model.Beers)
-    {
-        <div class="searchResults results breweryBeers">
-            <div class="breweryImgContainer">
-                @if (beer.BeerLabelImg == "NA")
-                {
-                    <img src="~/Content/IMGS/genericBeer.png" />
-                }
-                else
-                {
-                    <img src="@beer.BeerLabelImg" />
-                }
+    {<a style="text-decoration: none" href="@Url.Action("BeerInfo", "Home", new { id = beer.BeerId })">
+            <div class="searchResults results breweryBeers">
+
+                <div class="breweryImgContainer">
+                    @if (beer.BeerLabelImg == "NA")
+                    {
+                        <img src="~/Content/IMGS/genericBeer.png" />
+                    }
+                    else
+                    {
+                        <img src="@beer.BeerLabelImg" />
+                    }
+                </div>
+                <div class="breweryBeerDetailContainer">
+                    <h1 class="beerName">@beer.BeerName</h1>
+                    <p>ABV: @beer.ABV</p>
+                    <p >@beer.BeerDescription</p>
+                </div>
+
             </div>
-            <div class="breweryBeerDetailContainer">
-                <h1 class="beerName">@beer.BeerName</h1>
-                <p>ABV: @beer.ABV</p>
-                <p>@beer.BeerDescription</p>
-            </div>
-        </div>
+        </a>
     }
 </div>
 

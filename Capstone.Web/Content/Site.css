@@ -407,8 +407,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     font-family: var(--bodyFont);
     color: var(--secondaryColor);
     text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
-    font-size: 0.8rem;
-    
+    font-size: 0.8rem;    
 }
 
 .breweryImgContainer{
