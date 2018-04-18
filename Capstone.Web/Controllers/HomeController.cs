@@ -48,10 +48,7 @@ namespace Capstone.Web.Controllers
             var breweries = breweryDAL.SearchBreweries(searchResult);
             var beers = beerDAL.GetBeerSearchResults(searchResult);
 
-
-            //var locationKeywords = new List<string> { "around", "near", "in", "at", "by", "close to" };
-
-            Regex location = new Regex(@"(?<=\snear\s|\sby\s|\sat\s|\sin\s)(.+)$");
+            Regex location = new Regex(@"(?<=\snear\s|\sby\s|\sat\s|\sin\s|\sclose\sto\s|\saround\s|\swithin\s)(.+)$");
 
             GeoCoordinate userCoord;
 

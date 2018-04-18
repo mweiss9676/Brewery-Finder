@@ -44,10 +44,11 @@ namespace Capstone.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddBrewery(AddBreweryModel brewery)
+        public ActionResult AddBrewery(AddBreweryModel brewery, string UserName)
         {
             // This Gets and Sets Lat and Long of Brewery from the Brewery Address - JV
-            breweryDAL.SetBreweryCoords(brewery); 
+            breweryDAL.SetBreweryCoords(brewery);
+            breweryDAL.SetBreweryOwner(brewery, UserName);
 
             breweryDAL.AddBrewery(brewery);
 
