@@ -29,9 +29,6 @@ namespace Capstone.Web.Controllers
 
         public ApplicationUserManager UserManager {  get => HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>(); }
         
-        
-        
-
         // GET: Brewer
         public ActionResult Index()
         {
@@ -55,7 +52,6 @@ namespace Capstone.Web.Controllers
             return RedirectToAction("GreatSuccess");
         }
 
-        
         [HttpPost]
         public async Task<ActionResult> GrantRoleToUser(string username, string role)
         {            
@@ -73,11 +69,11 @@ namespace Capstone.Web.Controllers
             return RedirectToAction("GreatSuccess");
         }
 
-        [HttpPost]
-        public ActionResult UpdateBeer(BeerModel beer)
-        {
-            throw new NotImplementedException();
-        }
+        //[HttpPost]
+        //public ActionResult UpdateBeer(BeerModel beer)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public ActionResult GreatSuccess()
         {

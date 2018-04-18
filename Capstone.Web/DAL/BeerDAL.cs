@@ -270,39 +270,39 @@ namespace Capstone.Web.DAL
         }
 
         // Add Method for Updating a Beer 
-        public void UpdateBeer(BeerModel beer)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
+        //public void UpdateBeer(UpdateBeerModel beer)
+        //{
+        //    try
+        //    {
+        //        using (SqlConnection conn = new SqlConnection(connectionString))
+        //        {
+        //            conn.Open();
 
-                    SqlCommand cmd = new SqlCommand(@"UPDATE Beer
-                                                      SET BeerName = @name,
-                                                      BeerDescription = @description,
-                                                      IsBestSeller = @bestSeller
-                                                      ABV = @abv, IBU = @ibu, DateBrewed = @dateBrewed,
-                                                      BeerLabelImg = @beerImg,
-                                                      WHERE BeerID = @beerId;", conn);
+        //            SqlCommand cmd = new SqlCommand(@"UPDATE Beer
+        //                                              SET BeerName = @name,
+        //                                              BeerDescription = @description,
+        //                                              IsBestSeller = @bestSeller
+        //                                              ABV = @abv, IBU = @ibu, DateBrewed = @dateBrewed,
+        //                                              BeerLabelImg = @beerImg,
+        //                                              WHERE BeerID = @beerId;", conn);
 
-                    cmd.Parameters.AddWithValue("@beerId", beer.BeerId);
-                    cmd.Parameters.AddWithValue("@name", beer.BeerName);
-                    cmd.Parameters.AddWithValue("@description", beer.BeerDescription);
-                    cmd.Parameters.AddWithValue("@bestSeller", beer.IsBestSeller);
-                    cmd.Parameters.AddWithValue("@abv", beer.ABV);
-                    cmd.Parameters.AddWithValue("@ibu", beer.IBU);
-                    cmd.Parameters.AddWithValue("@dateBrewed", beer.DateBrewed);
-                    cmd.Parameters.AddWithValue("@beerImg", beer.BeerLabelImg);
+        //            cmd.Parameters.AddWithValue("@beerId", beer.BeerId);
+        //            cmd.Parameters.AddWithValue("@name", beer.BeerName);
+        //            cmd.Parameters.AddWithValue("@description", beer.BeerDescription);
+        //            cmd.Parameters.AddWithValue("@bestSeller", beer.IsBestSeller);
+        //            cmd.Parameters.AddWithValue("@abv", beer.ABV);
+        //            cmd.Parameters.AddWithValue("@ibu", beer.IBU);
+        //            cmd.Parameters.AddWithValue("@dateBrewed", beer.DateBrewed);
+        //            cmd.Parameters.AddWithValue("@beerImg", beer.BeerLabelImg);
 
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine(ex);
-            }
-        }
+        //            cmd.ExecuteNonQuery();
+        //        }
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        Console.WriteLine(ex);
+        //    }
+        //}
 
         private BeerModel BeerReader(SqlDataReader reader)
         {

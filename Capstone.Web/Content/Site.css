@@ -767,6 +767,8 @@ li#spaceFiller {
     margin-top: 20px;
     width: 160px;
     height: auto;
+    background: none;
+    border: none;
 }
 .userRatings{
     padding: 5px;
