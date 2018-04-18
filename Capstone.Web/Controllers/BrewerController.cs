@@ -75,6 +75,12 @@ namespace Capstone.Web.Controllers
             return RedirectToAction("GreatSuccess");
         }
 
+        [HttpPost]
+        public ActionResult UpdateBeer(BeerModel beer)
+        {
+            throw new NotImplementedException();
+        }
+
         public ActionResult GreatSuccess()
         {
             return View("GreatSuccess");
