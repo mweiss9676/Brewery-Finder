@@ -45,12 +45,13 @@ namespace Capstone.Web.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-
-                    SqlCommand cmd = new SqlCommand(@"INSERT INTO BeerRating (BeerId, BeerRating, UserId) VALUES (@beerId, @beerRating, @userId)", conn);
+/*(BeerId, BeerRating, UserId) */
+                    SqlCommand cmd = new SqlCommand(@"INSERT INTO BeerRating VALUES (@beerId, @beerRating, @userId)", conn);
 
                     cmd.Parameters.AddWithValue("@beerId", rating.BeerId);
                     cmd.Parameters.AddWithValue("@beerRating", rating.BeerRating);
                     cmd.Parameters.AddWithValue("@userId", rating.UserId);
+                    cmd.ExecuteNonQuery();
                 }
             }
             catch (SqlException ex)

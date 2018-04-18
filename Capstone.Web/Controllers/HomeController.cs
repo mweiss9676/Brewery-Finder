@@ -96,6 +96,7 @@ namespace Capstone.Web.Controllers
         public ActionResult BeerRating(int id)
         {
             List<BeerRatingModel> list = beerRatingDAL.GetAllReviewsForOneBeer(id);
+            ViewBag.BeerId = id;
 
             return PartialView("BeerRating", list);
         }
@@ -103,6 +104,7 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult BeerRating(BeerRatingModel model)
         {
+            model.UserId = Guid.Parse(User.Identity.GetUserId());
             beerRatingDAL.RateABeer(model);
             return RedirectToAction("Index", model);
         }

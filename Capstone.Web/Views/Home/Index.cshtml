@@ -3,18 +3,19 @@
 }
 
 <div class="container">
-
-    @if (Request.Cookies["Over21"] == null || Request.Cookies["Over21"].Value != "true")  
+    @if (!User.IsInRole("Admin") && !User.IsInRole("Enthusiast") && !User.IsInRole("Brewer"))
     {
-    <div class="ageCheckerDiv">
-        <div class="ageCheck">
-            <p>Are you 21?</p>
-            <div class="ageCheckerContainer">
-                <input class="ageCheckerForm" type="date" name="ageCheckerForm" autofocus />
+        if (Request.Cookies["Over21"] == null || Request.Cookies["Over21"].Value != "true")
+        {
+            <div class="ageCheckerDiv">
+                <div class="ageCheck">
+                    <p>Are you 21?</p>
+                    <div class="ageCheckerContainer">
+                        <input class="ageCheckerForm" type="date" name="ageCheckerForm" autofocus />
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    }
+        }}
     <div class="searchBarDiv">
         <div class="searchBarForm">
             <input autofocus class="searchBar" type="search" name="SearchString" placeholder="Search for beers or breweries" autocomplete="off" />
