@@ -14,14 +14,14 @@
             @Html.ValidationMessageFor(m => m.Email)
         </div>
         <div class="loginInput">
-            @Html.TextBoxFor(m => m.Email, new { placeholder = "email" })
+            @Html.TextBoxFor(m => m.Email, new { placeholder = "Email" })
         </div>
         <div class="loginValidation">
             @Html.ValidationMessageFor(m => m.Password)
             @Html.ValidationMessage("InvalidLogin")
         </div>
         <div class="loginInput">
-            @Html.PasswordFor(m => m.Password, new { placeholder = "password" })
+            @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
         </div>       
         <div>
             @Html.CheckBoxFor(m => m.RememberMe, new { @class = "checkBox" })

@@ -23,7 +23,6 @@ namespace Capstone.Web.DAL
 
         public void AddBrewery(AddBreweryModel brewery)
         {
-
             SetBreweryCoords(brewery);
 
             try
@@ -35,23 +34,67 @@ namespace Capstone.Web.DAL
                     SqlCommand cmd = new SqlCommand(@"INSERT INTO Brewery (UserId, BreweryName, BreweryAddress, BreweryCity, BreweryDistrict, BreweryCountry, BreweryPostalCode, History, YearFounded, HoursOfOperation, BreweryProfileImg, BreweryBackgroundImg, BreweryHeaderImg, Email, Phone, BreweryLatitude, BreweryLongitude)
                                                                   VALUES (@userId, @breweryName, @breweryAddress, @breweryCity, @breweryDistrict, @breweryCountry, @breweryPostalCode, @history, @yearFounded, @hoursOfOperation, @breweryProfileImg, @breweryBackgroundImg, @breweryHeaderImg, @email, @phone, @latitude, @longitude)", conn);
 
-                    cmd.Parameters.AddWithValue("@userId", brewery.UserId);
-                    cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
-                    cmd.Parameters.AddWithValue("@breweryAddress", brewery.BreweryAddress);
-                    cmd.Parameters.AddWithValue("@breweryCity", brewery.BreweryCity);
-                    cmd.Parameters.AddWithValue("@breweryDistrict", brewery.BreweryDistrict);
-                    cmd.Parameters.AddWithValue("@breweryCountry", brewery.BreweryCountry);
-                    cmd.Parameters.AddWithValue("@breweryPostalCode", brewery.BreweryPostalCode);
-                    cmd.Parameters.AddWithValue("@history", brewery.History);
-                    cmd.Parameters.AddWithValue("@yearFounded", brewery.YearFounded);
-                    cmd.Parameters.AddWithValue("@hoursOfOperation", brewery.HoursOfOperation);
-                    cmd.Parameters.AddWithValue("@breweryProfileImg", brewery.BreweryProfileImg);
-                    cmd.Parameters.AddWithValue("@breweryBackgroundImg", brewery.BreweryBackgroundImg);
-                    cmd.Parameters.AddWithValue("@breweryHeaderImg", brewery.BreweryHeaderImage);
-                    cmd.Parameters.AddWithValue("@email", brewery.Email);
-                    cmd.Parameters.AddWithValue("@phone", brewery.Phone);
-                    cmd.Parameters.AddWithValue("@latitude", brewery.BreweryLatitude);
-                    cmd.Parameters.AddWithValue("@longitude", brewery.BreweryLongitude);
+                    //MERGE INTO dbo.Brewery WITH(HOLDLOCK) AS target
+                    //USING(SELECT * FROM dbo.Brewery WHERE Brewery.BreweryId = 10) AS source
+                    //    ON target.BreweryId = source.BreweryId
+                    //WHEN MATCHED THEN
+                    //    UPDATE SET target.BreweryName = 'Hi i work'
+                    //WHEN NOT MATCHED BY TARGET THEN
+                    //    INSERT(BreweryName)
+                    //    VALUES('this is when it doesnt match');
+
+                    //--Update the row if it exists.
+                    //    UPDATE Brewery
+                    //SET BreweryName = 'timmy'
+                    //WHERE BreweryId = 16
+                    //-- Insert the row if the UPDATE statement failed.
+                    //IF(@@ROWCOUNT = 0)
+                    //BEGIN
+                    //    INSERT INTO Brewery(BreweryName, BreweryAddress)
+                    //    VALUES('not timmy', '111 E Balls St')
+
+                    //    END
+
+                    //SqlCommand cmd = new SqlCommand(@"UPDATE Brewery
+                    //                                         SET target.UserId = @userId
+                    //                                         SET target.BreweryName = @breweryName
+                    //                                         SET target.BreweryAddress = @breweryAddress
+                    //                                         SET target.BreweryCity = @breweryCity
+                    //                                         SET target.BreweryDistrict = @breweryDistrict
+                    //                                         SET target.BreweryCountry = @breweryCountry
+                    //                                         SET target.BreweryPostalCode = @breweryPostalCode
+                    //                                         SET target.History = @history
+                    //                                         SET target.YearFounded = @yearFounded
+                    //                                         SET target.HoursOfOperation, @hoursOfOperation
+                    //                                         SET target.BreweryProfileImg = @breweryProfileImg
+                    //                                         SET target.BreweryBackgroundImg = @breweryBackgroundImg
+                    //                                         SET target.BreweryHeaderImg = @breweryHeaderImage
+                    //                                         SET target.Email = @email
+                    //                                         SET target.Phone = @phone
+                    //                                         SET target.Latitude = @latitude
+                    //                                         SET target.Longitude = @longitude
+                    //                                    WHERE Brewery.BreweryName = @breweryName
+                    //                                    @IF(@@ROWCOUNT = 0)
+                    //                                        INSERT INTO Brewery (UserId, BreweryName, BreweryAddress, BreweryCity, BreweryDistrict, BreweryCountry, BreweryPostalCode, History, YearFounded, HoursOfOperation, BreweryProfileImg, BreweryBackgroundImg, BreweryHeaderImg, Email, Phone, BreweryLatitude, BreweryLongitude)
+                    //                                                    VALUES (@userId, @breweryName, @breweryAddress, @breweryCity, @breweryDistrict, @breweryCountry, @breweryPostalCode, @history, @yearFounded, @hoursOfOperation, @breweryProfileImg, @breweryBackgroundImg, @breweryHeaderImg, @email, @phone, @latitude, @longitude)", conn);
+
+                    //cmd.Parameters.AddWithValue("@userId", brewery.UserId);
+                    //cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
+                    //cmd.Parameters.AddWithValue("@breweryAddress", brewery.BreweryAddress);
+                    //cmd.Parameters.AddWithValue("@breweryCity", brewery.BreweryCity);
+                    //cmd.Parameters.AddWithValue("@breweryDistrict", brewery.BreweryDistrict);
+                    //cmd.Parameters.AddWithValue("@breweryCountry", brewery.BreweryCountry);
+                    //cmd.Parameters.AddWithValue("@breweryPostalCode", brewery.BreweryPostalCode);
+                    //cmd.Parameters.AddWithValue("@history", brewery.History);
+                    //cmd.Parameters.AddWithValue("@yearFounded", brewery.YearFounded);
+                    //cmd.Parameters.AddWithValue("@hoursOfOperation", brewery.HoursOfOperation);
+                    //cmd.Parameters.AddWithValue("@breweryProfileImg", brewery.BreweryProfileImg);
+                    //cmd.Parameters.AddWithValue("@breweryBackgroundImg", brewery.BreweryBackgroundImg);
+                    //cmd.Parameters.AddWithValue("@breweryHeaderImg", brewery.BreweryHeaderImage);
+                    //cmd.Parameters.AddWithValue("@email", brewery.Email);
+                    //cmd.Parameters.AddWithValue("@phone", brewery.Phone);
+                    //cmd.Parameters.AddWithValue("@latitude", brewery.BreweryLatitude);
+                    //cmd.Parameters.AddWithValue("@longitude", brewery.BreweryLongitude);
 
                     cmd.ExecuteNonQuery();
                 }
