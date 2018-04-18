@@ -38,7 +38,7 @@ namespace Capstone.Web.DAL
             return list;
         }
 
-        public void RateABeer(BeerRatingModel beerRatingModel)
+        public void RateABeer(BeerRatingModel rating)
         {
             try
             {
@@ -48,9 +48,9 @@ namespace Capstone.Web.DAL
 
                     SqlCommand cmd = new SqlCommand(@"INSERT INTO BeerRating (BeerId, BeerRating, UserId) VALUES (@beerId, @beerRating, @userId)", conn);
 
-                    cmd.Parameters.AddWithValue("@beerId", beerRatingModel.BeerId);
-                    cmd.Parameters.AddWithValue("@beerRating", beerRatingModel.BeerRating);
-                    cmd.Parameters.AddWithValue("@userId", beerRatingModel.UserId);
+                    cmd.Parameters.AddWithValue("@beerId", rating.BeerId);
+                    cmd.Parameters.AddWithValue("@beerRating", rating.BeerRating);
+                    cmd.Parameters.AddWithValue("@userId", rating.UserId);
                 }
             }
             catch (SqlException ex)

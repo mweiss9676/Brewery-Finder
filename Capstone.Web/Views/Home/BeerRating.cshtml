@@ -19,3 +19,17 @@
         <img src="~/Content/IMGS/star.png"/>
     </div>
 }
+
+<div>
+    <p>Rate this beer:</p>
+    <form method="post" action="@Url.Action("BeerRating", "Home")" class="beerRatingForm">
+        <select name="BeerRating">
+            <option value="1">One Star</option>
+            <option value="2">Two Stars</option>
+            <option value="3">Three Stars</option>
+            <option value="4">Four Stars</option>
+            <option value="5">Five Stars</option>
+        </select>
+        <button>Submit</button>
+    </form>
+</div>

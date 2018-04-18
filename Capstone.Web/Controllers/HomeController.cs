@@ -98,5 +98,12 @@ namespace Capstone.Web.Controllers
 
             return PartialView("BeerRating", list);
         }
+
+        [HttpPost]
+        public ActionResult BeerRating(BeerRatingModel model)
+        {
+            beerRatingDAL.RateABeer(model);
+            return RedirectToAction("Index", model);
+        }
     }
 }
