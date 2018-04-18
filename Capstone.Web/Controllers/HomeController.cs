@@ -8,11 +8,15 @@ using System.Web.Mvc;
 using Newtonsoft.Json;
 using Microsoft.AspNet.Identity;
 using System.Device.Location;
+using System.Text.RegularExpressions;
+using GoogleMaps.LocationServices;
 
 namespace Capstone.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private string locationServiceApiKey = "AIzaSyBd0o2LU8lvSyx2etULu-bEEiSl7EKTJFM";
+
         IBreweryDAL breweryDAL;
         IBeerDAL beerDAL;
         IBeerRatingDAL beerRatingDAL;
@@ -44,7 +48,28 @@ namespace Capstone.Web.Controllers
             var breweries = breweryDAL.SearchBreweries(searchResult);
             var beers = beerDAL.GetBeerSearchResults(searchResult);
 
-            GeoCoordinate userCoord = new GeoCoordinate(Convert.ToDouble(Session["UserLatitude"]), Convert.ToDouble(Session["UserLongitude"]));
+
+            //var locationKeywords = new List<string> { "around", "near", "in", "at", "by", "close to" };
+
+            Regex location = new Regex(@"(?<=\snear\s|\sby\s|\sat\s|\sin\s)(.+)$");
+
+            GeoCoordinate userCoord;
+
+            if (location.IsMatch(searchResult))
+            {
+                var match = location.Match(searchResult);
+                string address = match.Groups[0].ToString();
+
+
+                var geoCoder = new GoogleLocationService(locationServiceApiKey);
+                var searchLocation = geoCoder.GetLatLongFromAddress(address);
+
+                userCoord = new GeoCoordinate(searchLocation.Latitude, searchLocation.Longitude);
+            }
+            else
+            {
+                userCoord = new GeoCoordinate(Convert.ToDouble(Session["UserLatitude"]), Convert.ToDouble(Session["UserLongitude"]));
+            }
 
             searchResults.Breweries = breweries.OrderBy(brewery => userCoord.GetDistanceTo(new GeoCoordinate(brewery.BreweryLatitude, brewery.BreweryLongitude))).ToList();
             searchResults.Beers = beers.OrderBy(beer => userCoord.GetDistanceTo(new GeoCoordinate(breweryDAL.GetBreweryDetail(beer.BreweryId).BreweryLatitude, breweryDAL.GetBreweryDetail(beer.BreweryId).BreweryLongitude))).ToList();
@@ -72,6 +97,13 @@ namespace Capstone.Web.Controllers
             List<BeerRatingModel> list = beerRatingDAL.GetAllReviewsForOneBeer(id);
 
             return PartialView("BeerRating", list);
+        }
+
+        [HttpPost]
+        public ActionResult BeerRating(BeerRatingModel model)
+        {
+            beerRatingDAL.RateABeer(model);
+            return RedirectToAction("Index", model);
         }
     }
 }
