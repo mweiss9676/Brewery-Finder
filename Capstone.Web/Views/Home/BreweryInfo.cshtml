@@ -43,8 +43,15 @@
                 </div>
                 <div class="breweryBeerDetailContainer">
                     <h1 class="beerName">@beer.BeerName</h1>
-                    <p>ABV: @beer.ABV</p>
-                    <p >@beer.BeerDescription</p>
+                    @if (beer.ABV == 0)
+                    {
+                        <p> ABV: N/A</p>
+                    }
+                    else
+                    {
+                        <p>ABV: @beer.ABV</p>
+                    }
+                    <p>@beer.BeerDescription</p>
                 </div>
 
             </div>

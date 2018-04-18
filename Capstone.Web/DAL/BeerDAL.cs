@@ -67,16 +67,6 @@ namespace Capstone.Web.DAL
                         cmd.Parameters.AddWithValue("@longitude", longitude);
                         cmd.Parameters.AddWithValue("@searchRadius", searchRadius);
 
-                        //SqlCommand cmd = new SqlCommand(@"SELECT * FROM Beer
-                        //                                  JOIN BeerTypes ON BeerTypes.BeerTypeId = Beer.BeerTypeId
-                        //                                  WHERE BeerName LIKE @beer
-                        //                                  OR Beer.BeerDescription LIKE @description
-                        //                                  OR BeerTypes.BeerType LIKE @beertype", conn);
-
-
-                        //cmd.Parameters.AddWithValue("@beer", $"%{searchTerm}%");
-                        //cmd.Parameters.AddWithValue("@description", $"%{searchTerm}%");
-                        //cmd.Parameters.AddWithValue("@beertype", $"%{searchTerm}%");
 
                         SqlDataReader reader = cmd.ExecuteReader();
 
@@ -321,7 +311,7 @@ namespace Capstone.Web.DAL
                 BeerId = Convert.ToInt32(reader["BeerId"]),
                 BeerName = Convert.ToString(reader["BeerName"]),
                 BeerDescription = Convert.ToString(reader["BeerDescription"]),
-                BeerLabelImg = Convert.ToString(reader["BeerLabelImg"] as string ?? "NA"),
+                BeerLabelImg = Convert.ToString(reader["BeerLabelImg"]),
                 ABV = Convert.ToDecimal(reader["ABV"] as decimal?),
                 IBU = Convert.ToInt32(reader["IBU"] as int?),
                 DateBrewed = Convert.ToDateTime(reader["DateBrewed"]),
