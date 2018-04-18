@@ -175,12 +175,10 @@
                         $('.results').animate({ left: '0' }, 'fast');
                     }
                 }
-
             });
 
             window.history.pushState(null, '', `?q=${searchString}`);
         }
-
     };
 });
 
