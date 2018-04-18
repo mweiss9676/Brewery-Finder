@@ -178,17 +178,23 @@ header {
     width: 20%;
     background-color: black;
     color: white;
-    font-size: larger;
+    font-size: 0.85rem;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
     z-index: 100;
-    padding-left:inherit 40%;
+    padding-left: inherit 40%;
     padding-right: 40%;
     border: 1px solid white;
     border-radius: 5px;
+    font-family: var(--headerFont);
+}
+
+.ageCheckerForm{
+    font-family: var(--headerFont);
+    text-align: center;
 }
 
 .ageCheck {
