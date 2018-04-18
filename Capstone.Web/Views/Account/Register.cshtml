@@ -12,21 +12,22 @@
             @Html.ValidationMessage("UserExists")
         </div>
         <div class="registrationInput">
-            @Html.TextBoxFor(m => m.Email, new { placeholder = "email" })
+            @Html.TextBoxFor(m => m.Email, new { placeholder = "Email" })
         </div>      
         <div class="registrationValidation">
             @Html.ValidationMessageFor(m => m.Password)
             @Html.ValidationMessage("BadPassword")
         </div>
         <div class="registrationInput">
-            @Html.PasswordFor(m => m.Password, new { placeholder = "password (must contain caps, letter, number, special)" })
+            @Html.PasswordFor(m => m.Password, new { placeholder = "Password (Include 1 caps, letter, number, special)" })            
         </div>
         <div class="registrationValidation">
             @Html.ValidationMessageFor(m => m.ConfirmPassword)
         </div>
         <div class="registrationInput">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "confirm password" })
+            @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "Confirm Password" })
         </div>
+
         <div>
             <input class="registerSubmitBtn" type="submit" value="Register" />
         </div>
