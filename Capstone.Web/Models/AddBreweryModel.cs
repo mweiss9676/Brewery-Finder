@@ -7,6 +7,7 @@ namespace Capstone.Web.Models
 {
     public class AddBreweryModel
     {
+        public string UserId { get; set; }
         public string BreweryName { get; set; }
         public string BreweryAddress { get; set; }
         public string BreweryCity { get; set; }
