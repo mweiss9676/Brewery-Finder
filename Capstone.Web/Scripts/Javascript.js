@@ -104,6 +104,7 @@
                     noResults.appendChild(notFound);
 
                     $('.searchResults').append($(noResults));
+                    $('.results').animate({ left: '0' }, 'fast');
 
                 } else {
                     for (let i = 0; i < breweries.length; i++) {
