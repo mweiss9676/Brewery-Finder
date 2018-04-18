@@ -56,8 +56,6 @@ namespace Capstone.Web.Controllers
         }
 
         
-
-
         [HttpPost]
         public async Task<ActionResult> GrantRoleToUser(string username, string role)
         {            
