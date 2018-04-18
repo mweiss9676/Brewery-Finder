@@ -24,7 +24,7 @@ namespace Capstone.Web.DAL
             {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand(@"SELECT BeerRating.BeerId, BeerRating.BeerRating, BeerRating.UserId from BeerRating INNER JOIN Beer ON Beer.BeerId = BeerRating.BeerId WHERE BeerRating.BeerId = @beerId" , conn);
+                SqlCommand cmd = new SqlCommand(@"SELECT BeerRating.BeerId, BeerRating.BeerRating, BeerRating.UserId from BeerRating INNER JOIN Beer ON Beer.BeerId = BeerRating.BeerId WHERE BeerRating.BeerId = @beerId", conn);
 
                 cmd.Parameters.AddWithValue("@beerId", BeerId);
 
@@ -45,13 +45,23 @@ namespace Capstone.Web.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-/*(BeerId, BeerRating, UserId) */
+
                     SqlCommand cmd = new SqlCommand(@"INSERT INTO BeerRating VALUES (@beerId, @beerRating, @userId)", conn);
+                    //SqlCommand cmd = new SqlCommand(@"IF EXISTS (SELECT * FROM BeerRating WHERE @beerId = BeerId AND @userId = UserId)
+                    //                                  BEGIN
+                    //                                  INSERT INTO BeerRating VALUES (@beerId, @beerRating, @userId)
+                    //                                  END
+                    //                                  ELSE
+                    //                                  BEGIN
+                    //                                  UPDATE BeerRating
+                    //                                  SET 
+                    //                                  END");
 
                     cmd.Parameters.AddWithValue("@beerId", rating.BeerId);
                     cmd.Parameters.AddWithValue("@beerRating", rating.BeerRating);
                     cmd.Parameters.AddWithValue("@userId", rating.UserId);
                     cmd.ExecuteNonQuery();
+
                 }
             }
             catch (SqlException ex)
