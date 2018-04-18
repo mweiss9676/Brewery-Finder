@@ -246,7 +246,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     bottom: 0;
     left: 1rem;
     color: rgba(255, 255, 255, .9);
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-family: var(--headerFont);
     text-shadow: 2px 2px 2px rgba(30, 30, 30, .8);
     width: 50%;
@@ -294,7 +294,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 
 #breweryInfo {
-    width: 75%;
+    width: 71%;
     height: 70vh;
     display: flex;
     flex-direction: row;
@@ -306,6 +306,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     left: 50%;
     top: 350px;
     transform: translate(-50%, -50%);
+    font-size: 0.85rem;
 }
 
 #breweryInfo h1, h2 {
@@ -341,7 +342,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     padding-bottom: 10px;
 }
 .brewHeader{
-    white-space: nowrap;
+    white-space: nowrap;    
 }
 .brewInfoTxt{
     padding-left: 5px;
@@ -368,6 +369,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     font-family: var(--bodyFont);
     color: var(--secondaryColor);
     text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
+    font-size: 0.8rem;
     
 }
 
@@ -376,14 +378,15 @@ input[type=date]::-webkit-calendar-picker-indicator {
     overflow: hidden;
 }
 
-.breweryImgContainer img {
-    width: auto;
-    height: 100%;
-    object-fit: cover;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-}
+    .breweryImgContainer img {
+        width: auto;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+        left: 15%;
+        transform: translateX(-50%);
+        padding: 5px 5px 5px 5px;
+    }
 
 .breweryBeerDetailContainer {
     width: 50%;
