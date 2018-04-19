@@ -18,7 +18,7 @@
         }
     }
     <div class="searchBarDiv">
-        @if ((Request.Cookies["SearchInstructions"] == null || Request.Cookies["SearchInstructions"].Value != "true") && (Request.Cookies["Over21"].Value == "true" || Request.Cookies["Age21"] != null) )
+        @if(Request.Cookies["SearchInstructions"] == null || Request.Cookies["SearchInstructions"].Value != "true") 
         {
         <div class="searchInstructions">
             <p id="searchInstructionWords">Search by location? Simply type 'near' and the location!</p>

@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    $('.searchInstructions').hide();
 
     //** Jimmy V **//
     // If User Allows Location
@@ -63,6 +64,8 @@
                     zIndex: '-10'
                 });
                 document.cookie = "Over21=true";
+                $('.searchInstructions').show();
+
             } else {
                 alert("You must be 21 years old to view this site.");
             }
