@@ -167,6 +167,10 @@
                         beerDescription.className = 'beerDescription';
                         beerDescription.innerText = beers[i].BeerDescription;
 
+                        let beerDescriptionFade = document.createElement("div");
+                        beerDescriptionFade.className = 'descriptionFade';
+                        beerDiv.appendChild(beerDescriptionFade);
+
                         beerLink.appendChild(beerDiv)
                         beerDiv.appendChild(beerImg);
                         beerDiv.appendChild(beerName);

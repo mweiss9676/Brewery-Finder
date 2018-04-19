@@ -8,7 +8,8 @@
     --headerFont: 'Ubuntu', sans-serif, bold;
     --bodyFont: 'Open Sans', sans-serif;
     --mainColor: white;
-    --secondaryColor: black;
+    --secondaryColor: rgba(30, 30, 30, 1);
+    --headerColor: rgba(20, 20, 20, 1);
     --headerHeight: 50px;
 }
 
@@ -36,7 +37,8 @@ input, select{
 
 /**********************************************HOMEPAGE INDEX***************************************/
 header {
-    background-color: black;
+    /*background-color: rgba(232, 232, 230, 1);*/
+    background-color: var(--headerColor);
     height: 50px;
     position: fixed;
     width: 100%;
@@ -59,15 +61,18 @@ header {
     box-sizing: content-box;
     padding: 12px;
     width: auto;
-    height: 70px;
+    height: 71px;
 
 }
 
 #registerLink {
     text-decoration: none;
+    font-size: 1.1rem;
     color: white;
     text-align: right;
-    font-family: var(--headerFont);
+    font-family: var(--bodyFont);
+    text-shadow: 0 .8px .5px rgba(30, 30, 30, .8);
+    text-transform: uppercase;
     padding-right: 20px;
     z-index: 100;
 }
@@ -76,8 +81,10 @@ header {
     text-decoration: none;
     color: white;
     text-align: right;
-    font-family: var(--headerFont);
-    z-index: 500;
+    font-family: var(--bodyFont);
+    text-shadow: 0 .8px .5px rgba(30, 30, 30, .8);
+    text-transform: uppercase;
+    z-index: 100;
 }
 
 .links {
@@ -115,7 +122,7 @@ header {
     border-width: 2px;
     height: 50px;
     width: 35%;
-    background-color: black;
+    background: linear-gradient(to right, black, var(--headerColor));
     color: white;
     font-family: var(--headerFont);
     font-size: larger;
@@ -126,43 +133,6 @@ header {
     text-align: center;
     z-index: 10;
 }
-
-.searchBar::-webkit-input-placeholder { 
-
-}
-
-.searchBar::-moz-placeholder { 
-}
-
-.searchBar:-ms-input-placeholder { 
-
-}
-
-.searchBar:-moz-placeholder { 
-
-}
-
-/*.locationBar {
-    border-radius: 25px;
-    border: 1px solid white;
-    padding: 5px 5px 5px 5px;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    border-width: 2px;
-    height: 50px;
-    width: 10%;
-    background-color: black;
-    color: white;
-    font-family: '';
-    font-size: larger;
-    position: absolute;
-    left: 63%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    text-align:center;
-    z-index: 11;
-    visibility: hidden;     
-}*/
 
 .searchBar:focus, .locationBar:focus {
     outline: none;
@@ -263,15 +233,12 @@ input[type=date]::-webkit-calendar-picker-indicator {
     display: none;
 }
 
-
 .ageWarning {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
 }
-
-
 
 .barVid{
     position: fixed;
@@ -319,9 +286,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
     
 }
 
-.breweryImage{
+.breweryImage {
     height: 200px;
     width: 50%;
+    z-index: 22;
 }
 
 .beerImage{
@@ -329,6 +297,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     width: auto;
     object-fit: contain;
     padding: 5px 5px 5px 5px;
+    z-index: 22;
 }
 
 .breweryName, .beerName {
@@ -338,10 +307,11 @@ input[type=date]::-webkit-calendar-picker-indicator {
     bottom: 0;
     left: 1rem;
     color: rgba(255, 255, 255, .9);
-    font-size: 1.75rem;
+    font-size: 1.70rem;
     font-family: var(--headerFont);
-    text-shadow: 2px 2px 2px rgba(30, 30, 30, .8);
+    text-shadow: 0px 1px 2px rgba(30, 30, 30, .6);
     width: 50%;
+    z-index: 24;
     
 }
 
@@ -352,9 +322,17 @@ input[type=date]::-webkit-calendar-picker-indicator {
     font-size: .85rem;
     padding: 10px;
     text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
+    position: relative;
 }
 
-
+.descriptionFade {
+    width: 100%;
+    height: 2rem;
+    background: linear-gradient(transparent, rgba(220, 220, 220, 1));
+    position: absolute;
+    bottom: 0;
+    z-index: 20;
+}
 
 .notFoundResults {
     display: flex;
@@ -727,7 +705,7 @@ li#spaceFiller {
 
 .viewTwo, .viewThree, .viewFour {
     position: absolute;
-    top: 1rem;
+    top: .2rem;
     left: 50%;
     transform: translateX(-50%);
     color: white;
@@ -748,7 +726,7 @@ li#spaceFiller {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: rgba(220, 220, 220, .8);
+    background: linear-gradient(to bottom, rgba(180, 180, 180, 1), rgba(220, 220, 220, .8), rgba(220, 220, 220, .8), rgba(220, 220, 220, .8), rgba(220, 220, 220, .8));
     box-shadow: 2px 2px 15px rgba(0, 0, 0, .5);
     border-radius: 5px;
     position: relative;
@@ -776,21 +754,26 @@ li#spaceFiller {
     bottom: 0;
 }
 
+
 #beerInfo h1 {
     margin: auto;
+    color: var(--mainColor);
+    font-size: 3.5rem;
     font-family: var(--headerFont);
-    text-shadow: 2px 2px 2px rgba(30, 30, 30, .8);
+    text-shadow: 0px 1px 1px rgba(30, 30, 30, .6);
+    text-transform: uppercase;
+    position: absolute;
 }
 
 .beerInfoTxt {
-    display: inline;
-    width: 70%;
+    width: 60%;
     margin: 10px;
-    margin-top: 0;
+    margin-top: 7rem;
     font-family: var(--bodyFont);
     color: var(--secondaryColor);
     text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
     position: relative;
+    text-align: justify;
     
 }
 .beerTable{
