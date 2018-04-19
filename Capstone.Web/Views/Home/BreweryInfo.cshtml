@@ -8,6 +8,7 @@
 
     <div class="breweryProfileImageContainer">
         <img id="breweryProfileImg" src='@Model.Brewery.BreweryProfileImg'>
+        <div id="founded">Founded in @Model.Brewery.YearFounded</div>
     </div>
     <h1 class="brewHeader">@Model.Brewery.BreweryName</h1>
 
@@ -19,9 +20,8 @@
 
             <div>Hours of Operation:</div>
             <div class="hours">@Html.Raw(@Model.Brewery.HoursOfOperation)</div>
-            <p id="founded">Founded in: @Model.Brewery.YearFounded</p>
 
-            <div>
+            <div class="phoneAndEmail">
                 <div style="width: 50%">Email: @Model.Brewery.Email</div>
                 <div class="brewPhone">Phone: @Model.Brewery.Phone</div>
             </div>

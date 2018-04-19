@@ -77,6 +77,8 @@
         let searchString = $('.searchBar').val();
 
         if (e.which == 13 && searchString != "") {
+            document.cookie = "SearchInstructions=true";
+            $('.searchInstructions').hide();
             performSearch(searchString);
         }
 
