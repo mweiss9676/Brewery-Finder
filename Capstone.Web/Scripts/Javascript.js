@@ -7,10 +7,10 @@
         // Get User Location
         navigator.geolocation.getCurrentPosition(saveUserPosition)
 
-      // Else Location Not Allowed or Supported
+        // Else Location Not Allowed or Supported
     } else {
 
-         // Alert 'Location Not Supported'
+        // Alert 'Location Not Supported'
         alert('Location Is Not Supported');
     }
 
@@ -23,6 +23,16 @@
         // Send Latitiude and Longitude to GetUserLocationJson() in Home Controller
         $.when($.get(URL, { latitude: position.coords.latitude, longitude: position.coords.longitude }));
     }
+
+    // make favorite beer links animate on mouse over
+    $('.favoriteBeer a').on('mouseenter', function () {
+        var originalFontSize = $('.favoriteBeer a').css('font-size');
+        $(this).css({ padding: '0' });
+        $(this).animate({ fontSize: "+=2" }, "easing");
+    }).on('mouseleave', function () {
+        $(this).stop(true).animate();
+        $(this).animate({ fontSize: "16" }, "easing");
+    });
 
     $(window).bind("pageshow", function () {
 
