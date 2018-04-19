@@ -72,6 +72,56 @@ namespace Capstone.Web.DAL
 
         }
 
+        /// <summary>
+        /// Returns A List Of Users 'Favorite' Beer Names
+        /// </summary>
+        /// <param name="userId">User's Unique GUID</param>
+        /// <returns>List Of Beer Names That User Has Given High Ratings</returns>
+        public List<BeerModel> GetUserFavoriteBeerNames(string guid)
+        {
+            List<BeerModel> result = new List<BeerModel>();
+            try
+            {
+
+
+                // Get All Beer Ratings For The User's GUID
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"SELECT Beer.BeerID, Beer.BreweryId, 
+                                                      Beer.BeerName, BeerRating.UserId, 
+                                                      BeerRating.BeerRating
+                                                      FROM Beer
+                                                      JOIN BeerRating ON BeerRating.BeerID = BeerRating.BeerID 
+                                                      WHERE UserId = @user 
+                                                      AND Beer.BeerID = BeerRating.BeerId AND BeerRating > 3", conn);
+
+                    cmd.Parameters.AddWithValue("@user", guid);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    
+
+                    while (reader.Read())
+                    {
+                        BeerModel beer = new BeerModel();
+                        beer.BeerId = (Convert.ToInt32(reader["BeerID"]));
+                        beer.BreweryId = (Convert.ToInt32(reader["BreweryId"]));
+                        beer.BeerName = (Convert.ToString(reader["BeerName"]));
+                        result.Add(beer);
+                    }
+                    
+                }
+            }
+            catch(SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return result;
+        }
+
         private BeerRatingModel BeerRatingReader(SqlDataReader reader)
         {
             return new BeerRatingModel()
