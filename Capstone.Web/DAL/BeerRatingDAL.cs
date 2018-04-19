@@ -46,16 +46,17 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand(@"INSERT INTO BeerRating VALUES (@beerId, @beerRating, @userId)", conn);
-                    //SqlCommand cmd = new SqlCommand(@"IF EXISTS (SELECT * FROM BeerRating WHERE @beerId = BeerId AND @userId = UserId)
-                    //                                  BEGIN
-                    //                                  INSERT INTO BeerRating VALUES (@beerId, @beerRating, @userId)
-                    //                                  END
-                    //                                  ELSE
-                    //                                  BEGIN
-                    //                                  UPDATE BeerRating
-                    //                                  SET 
-                    //                                  END");
+                    //SqlCommand cmd = new SqlCommand(@"INSERT INTO BeerRating VALUES (@beerId, @beerRating, @userId)", conn);
+                    SqlCommand cmd = new SqlCommand(@"IF EXISTS (SELECT * FROM BeerRating WHERE BeerId = @beerId AND UserId = @userId)
+                                                      BEGIN
+                                                      UPDATE BeerRating
+                                                      SET BeerRating = @beerRating
+                                                      WHERE BeerId = @BeerId AND UserId = @userId
+                                                      END
+                                                      ELSE
+                                                      BEGIN
+                                                      INSERT INTO BeerRating VALUES (@beerId, @beerRating, @userId)                                                                                                        
+                                                      END", conn);
 
                     cmd.Parameters.AddWithValue("@beerId", rating.BeerId);
                     cmd.Parameters.AddWithValue("@beerRating", rating.BeerRating);
