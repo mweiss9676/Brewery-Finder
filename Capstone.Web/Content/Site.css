@@ -353,13 +353,19 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 /******************************************BREWERY INFO***************************************/
 
+.breweryProfileImageContainer {
+    width: 35%;
+    height: 100%;
+    position: relative;
+    
+}
+
 #breweryProfileImg {
     margin: 10px;
     border-radius: 5px;
     width: 100%;
     height: 94%;
     object-fit: cover;
-    display: inline-block;
     box-shadow: 0px 2px 2px rgba(30, 30, 30, .5);
 }
 
@@ -380,47 +386,56 @@ input[type=date]::-webkit-calendar-picker-indicator {
     font-size: 0.85rem;
 }
 
-    #breweryInfo h1, h2 {
-        margin: auto;
-        font-family: var(--headerFont);
-        text-shadow: 2px 2px 2px rgba(30, 30, 30, .8);
-    }
-
-    #breweryInfo .brewInfoTxt {
-        display: inline;
-        width: 75%;
-        margin: 10px;
-        margin-top: 0;
-        font-family: var(--bodyFont);
-        color: var(--secondaryColor);
-        text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
-        position: relative;
-    }
-
-.contactInfo {
+#breweryInfo h1 {
+    font-family: var(--headerFont);
+    color: var(--mainColor);
+    text-shadow: 0px 1px 1px rgba(30, 30, 30, .6);
     position: absolute;
-    bottom: 0;
-    display: inline-block;
+    top: .3rem;
+    font-size: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#hoursHR {
     width: 100%;
+    margin: 0 0 .3rem 0;
 }
 
-.brewPhone {
-    text-align: right;
-    padding-right: 5px;
-    float: right;
-}
-
-.hours {
-    padding-bottom: 10px;
-}
-
-.brewHeader {
-    white-space: nowrap;
+#founded {
+    color: var(--secondaryColor);
+    font-family: var(--bodyFont);
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: 1rem;
+    text-shadow: 0px 1px 1px rgba(30, 30, 30, .6);
 }
 
 .brewInfoTxt {
-    padding-left: 5px;
+    display: inline;
+    width: 60%;
+    height: 85%;
+    font-family: var(--bodyFont);
+    color: var(--secondaryColor);
+    text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
+    position: relative;
+    text-align: justify;
+    top: 4rem;
 }
+
+.contactInfo {
+    margin-top: 2rem;
+}
+
+.hours{
+    margin-bottom: 1rem;
+}
+.brewHeader{
+    white-space: nowrap; 
+    position: absolute;
+    width: 100%;
+}
+
 
 .breweryBeerList {
     top: 900px;
