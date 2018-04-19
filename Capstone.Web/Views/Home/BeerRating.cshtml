@@ -25,7 +25,7 @@
 {
     <div class="userRatings">
         <p >Rate this beer:</p>
-        <form method="post" action="@Url.Action("BeerRating", "Home")" class="beerRatingForm">
+        <form target="_blank" method="post" action="@Url.Action("BeerRating", "Home")" class="beerRatingForm">
             <input type="hidden" name="BeerId" value="@ViewBag.BeerId" />
             <select name="BeerRating" class="ratingSelect">
                 <option value="1">One Star</option>
