@@ -1,7 +1,7 @@
-﻿*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
@@ -13,7 +13,7 @@
     --headerHeight: 50px;
 }
 
-input, select{
+input, select {
     text-align: center;
     width: 90%;
     height: 30px;
@@ -21,6 +21,12 @@ input, select{
     text-align-last: center;
 }
 
+.transform {
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+}
 
 
 /* Set padding to keep content from hitting the edges */
@@ -57,12 +63,11 @@ header {
     top: 10px;
 }
 
-#logo{
+#logo {
     box-sizing: content-box;
     padding: 12px;
     width: auto;
     height: 71px;
-
 }
 
 #registerLink {
@@ -96,21 +101,21 @@ header {
     right: 0;
 }
 
-.links li a {
-    font-family: var(--bodyFont);
-    text-decoration: none;
-    color: gray;
-    margin-right: 1rem;
-}
+    .links li a {
+        font-family: var(--bodyFont);
+        text-decoration: none;
+        color: gray;
+        margin-right: 1rem;
+    }
 
 
-.backgroundMain{ 
+.backgroundMain {
     height: 100%;
     width: 100%;
     background-size: cover;
 }
 
-.searchBarDiv{
+.searchBarDiv {
     height: 100vh;
 }
 
@@ -133,16 +138,16 @@ header {
     z-index: 10;
 }
 
-.searchBar:focus, .locationBar:focus {
-    outline: none;
-}
+    .searchBar:focus, .locationBar:focus {
+        outline: none;
+    }
 
-.searchBar.top {
-    top: 100px;
-    transition-duration: 500ms;
-}
+    .searchBar.top {
+        top: 100px;
+        transition-duration: 500ms;
+    }
 
-.searchInstructions{
+.searchInstructions {
     width: 150px;
     height: 150px;
     color: white;
@@ -186,9 +191,9 @@ header {
     z-index: 120;
 }
 
-#closeBox:hover {
-    cursor: pointer;
-}
+    #closeBox:hover {
+        cursor: pointer;
+    }
 
 .ageCheckerDiv {
     height: 15vh;
@@ -209,7 +214,7 @@ header {
     font-family: var(--headerFont);
 }
 
-.ageCheckerForm{
+.ageCheckerForm {
     font-family: var(--headerFont);
     text-align: center;
 }
@@ -239,7 +244,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     transform: translate(-50%,-50%);
 }
 
-.barVid{
+.barVid {
     position: fixed;
     height: 100vh;
     width: 100vw;
@@ -273,14 +278,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
 }
 
-.searchResults a{
+.searchResults a {
     text-decoration: none;
 }
 
-.breweryResults{
+.breweryResults {
     height: 200px;
 }
 
@@ -292,7 +296,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     object-fit: cover;
 }
 
-.beerImage{
+.beerImage {
     height: 130px;
     width: auto;
     object-fit: contain;
@@ -312,7 +316,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
     text-shadow: 0px 1px 2px rgba(30, 30, 30, .6);
     width: 50%;
     z-index: 24;
-    
 }
 
 .breweryHistory, .beerDescription {
@@ -344,7 +347,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .notFound {
     font-size: 2rem;
     font-family: var(--bodyFont);
-
 }
 
 
@@ -461,10 +463,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
     font-family: var(--bodyFont);
     color: var(--secondaryColor);
     text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
-    font-size: 0.8rem;    
+    font-size: 0.8rem;
 }
 
-.breweryImgContainer{
+.breweryImgContainer {
     width: 50%;
     overflow: hidden;
 }
@@ -482,7 +484,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .breweryBeerDetailContainer {
     width: 50%;
     padding: 5px 5px 5px 5px;
-    
 }
 /******************************************END BREWERY INFO***********************************/
 /****************************************** REGISTRATION PAGE ********************************/
@@ -500,9 +501,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
     height: 30%;
 }
 
-.registerForm {  
+.registerForm {
     height: 100%;
-    width: 100%;   
+    width: 100%;
     text-align: center;
 }
 
@@ -524,7 +525,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     padding-bottom: 5px;
 }
 
-.registerSubmitBtn{
+.registerSubmitBtn {
     background-color: rgb(124,33,17);
     height: 30px;
     width: 65px;
@@ -553,7 +554,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
     top: 50%;
     transform: translate(-50%,-50%);
     border: 1px solid white;
-    
 }
 
 .loginForm {
@@ -583,7 +583,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     padding-bottom: 5px;
 }
 
-.checkBox{
+.checkBox {
     height: 20px;
 }
 
@@ -597,7 +597,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     box-shadow: white 1px 1px;
 }
 
-.regAsNewUserLink{
+.regAsNewUserLink {
     padding-top: 5px;
 }
 
@@ -632,7 +632,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     font-family: var(--bodyFont);
 }
 
-.userInformationContainer{
+.userInformationContainer {
     width: 100%;
     height: 100%;
     position: relative;
@@ -676,17 +676,17 @@ input[type=date]::-webkit-calendar-picker-indicator {
     font-family: var(--bodyFont);
 }
 
-.listActions > li {
-    background-color: black;
-    padding: 1rem 0;
-    display: table;
-    border: 1px solid white;
-    border-left: none;
-    border-collapse: collapse;
-    height: 60px;
-    width: 100%;
-    text-align: center;
-}
+    .listActions > li {
+        background-color: black;
+        padding: 1rem 0;
+        display: table;
+        border: 1px solid white;
+        border-left: none;
+        border-collapse: collapse;
+        height: 60px;
+        width: 100%;
+        text-align: center;
+    }
 
 li#spaceFiller {
     height: 100%;
@@ -701,7 +701,7 @@ li#spaceFiller {
     border-right: none;
 }
 
-.viewOne{
+.viewOne {
     color: white;
     height: 100%;
     width: 100%;
@@ -735,7 +735,31 @@ li#spaceFiller {
     width: 75%;
 }
 
-   
+/***** Jimmy V - Favorite Beers Style *****/
+
+div.viewTwo a {
+    text-decoration: none;
+    position: absolute;
+}
+
+.viewTwo a:active {
+    text-decoration: none;
+}
+
+.viewTwo a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.viewTwo a:hover {
+    text-decoration: underline;
+}
+
+dov.viewTwo.favoriteBeer {
+}
+
+/***** End Favorite Beers Style *****/
+
 
 
 /**************************************END BREWERY OWNER***************************************/
@@ -796,31 +820,30 @@ li#spaceFiller {
     text-shadow: .2px 1px 0px rgba(200, 200, 200, .8);
     position: relative;
     text-align: justify;
-    
 }
-.beerTable{
+
+.beerTable {
     border-spacing: 0;
 }
 
-.beerTd{
-        padding: 5px 15px 5px 15px;
-        border-bottom: 1px solid black;
+.beerTd {
+    padding: 5px 15px 5px 15px;
+    border-bottom: 1px solid black;
 }
 
 /******************************************END BEER INFO***********************************/
 
-.partialRatingsView{
+.partialRatingsView {
     height: 50%;
 }
-.beerStars{
-    
+
+.beerStars {
 }
 
-.ratingSelect{
-   
+.ratingSelect {
 }
 
-.currentRatings{
+.currentRatings {
     padding: 5px;
     border: 1px solid black;
     margin-top: 20px;
@@ -829,7 +852,8 @@ li#spaceFiller {
     background: none;
     border: none;
 }
-.userRatings{
+
+.userRatings {
     padding: 5px;
     margin-top: 20px;
     border: 1px solid black;
@@ -837,20 +861,20 @@ li#spaceFiller {
     height: auto;
 }
 
-form.BeerRatingForm{
-  padding:10px;
-  text-align: center;
+form.BeerRatingForm {
+    padding: 10px;
+    text-align: center;
 }
 
-.ratingsButton{
+.ratingsButton {
     width: 50px;
-   
 }
 
-img.testIMG{
+img.testIMG {
     margin: auto;
 }
-.ratingSelect{
+
+.ratingSelect {
     text-align: center;
 }
 
