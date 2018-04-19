@@ -106,7 +106,7 @@ namespace Capstone.Web.Controllers
         {
             model.UserId = Guid.Parse(User.Identity.GetUserId());
             beerRatingDAL.RateABeer(model);
-            return RedirectToAction("Index", model);
+            return RedirectToAction($"BeerInfo/{model.BeerId}", model);
         }
     }
 }

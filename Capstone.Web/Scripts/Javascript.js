@@ -26,8 +26,6 @@
 
     // make favorite beer links animate on mouse over
     $('.favoriteBeer a').on('mouseenter', function () {
-        var originalFontSize = $('.favoriteBeer a').css('font-size');
-        $(this).css({ padding: '0' });
         $(this).animate({ fontSize: "+=2" }, "easing");
     }).on('mouseleave', function () {
         $(this).stop(true).animate();
