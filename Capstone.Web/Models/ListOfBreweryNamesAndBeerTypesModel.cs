@@ -10,5 +10,6 @@ namespace Capstone.Web.Models
         public List<string> BreweryNames { get; set; }
         public List<string> BeerTypes { get; set; }
         public UserRolesModel User { get; set; }
+        public List<BeerModel> UsersFavoriteBeers { get; set; }
     }
 }

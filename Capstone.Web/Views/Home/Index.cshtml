@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home";    
+    ViewBag.Title = "Home";
 }
 
 <div class="container">
@@ -9,17 +9,25 @@
         {
             <div class="ageCheckerDiv">
                 <div class="ageCheck">
-                    <p>You must be 21 to use this site.</p>
-                    <p>Please enter your birthdate.</p>
+                    <p>Are you 21?</p>
                     <div class="ageCheckerContainer">
                         <input class="ageCheckerForm" type="date" name="ageCheckerForm" autofocus />
                     </div>
                 </div>
             </div>
-        }}
+        }
+    }
     <div class="searchBarDiv">
+        @if (Request.Cookies["SearchInstructions"] == null || Request.Cookies["SearchInstructions"].Value != "true")
+        {
+        <div class="searchInstructions">
+            <p id="searchInstructionWords">Search by location? Simply type 'near' and the location!</p>
+            <div id="closeBox" onclick="CloseBox()">&times;</div>
+            <div class="triangle" id="triangle"></div>
+        </div>
+        }
         <div class="searchBarForm">
-            <input autofocus class="searchBar" type="search" name="SearchString" placeholder="Search for a beer or brewery" autocomplete="off" />
+            <input autofocus class="searchBar" type="search" name="SearchString" placeholder="Search for a beer, brewery, or location" autocomplete="off" />
         </div>
         <div class="searchResultsPage">
             <div class="searchResults"></div>

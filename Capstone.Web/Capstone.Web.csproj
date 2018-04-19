@@ -228,6 +228,7 @@
     <Content Include="Content\IMGS\genericbottle.jpeg" />
     <Content Include="Content\IMGS\kraftRED.png" />
     <Content Include="Content\IMGS\genericBeer.png" />
+    <Content Include="Content\IMGS\kraftRED2.png" />
     <Content Include="Content\IMGS\star.png" />
     <Content Include="Content\IMGS\TestBackground.jpeg" />
     <Content Include="Global.asax" />
