@@ -227,3 +227,8 @@ function ActionFour() {
     $('.viewThree').addClass('hidden');
     $('.viewFour').removeClass('hidden');
 }
+
+function CloseBox() {
+    document.cookie = "SearchInstructions=true";
+    $('.searchInstructions').hide();
+}
