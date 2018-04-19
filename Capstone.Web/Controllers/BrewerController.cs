@@ -16,15 +16,14 @@ namespace Capstone.Web.Controllers
         private IBeerDAL beerDAL;
         private IBreweryDAL breweryDAL;
         private IUserDAL userDAL;
+        private IBeerRatingDAL beerRatingDAL;
 
-
-
-        public BrewerController(IBeerDAL beerDAL, IBreweryDAL breweryDAL, IUserDAL userDAL)
+        public BrewerController(IBeerDAL beerDAL, IBreweryDAL breweryDAL, IUserDAL userDAL, IBeerRatingDAL beerRatingDAL)
         {
             this.beerDAL = beerDAL;
             this.breweryDAL = breweryDAL;
             this.userDAL = userDAL;
-            
+            this.beerRatingDAL = beerRatingDAL;
         }
 
         public ApplicationUserManager UserManager {  get => HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>(); }
@@ -36,6 +35,7 @@ namespace Capstone.Web.Controllers
             breweriesAndBeers.BreweryNames = breweryDAL.GetAllBreweryNames();
             breweriesAndBeers.BeerTypes = beerDAL.GetListOfBeerTypes();
             breweriesAndBeers.User = userDAL.GetUserRole(User.Identity.GetUserId());
+            breweriesAndBeers.UsersFavoriteBeers = beerRatingDAL.GetUserFavoriteBeerNames(User.Identity.GetUserId());
 
             return View("Index", breweriesAndBeers);
         }

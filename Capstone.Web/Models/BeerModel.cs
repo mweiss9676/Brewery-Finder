@@ -17,6 +17,5 @@ namespace Capstone.Web.Models
         public string BeerLabelImg { get; set; }
         public double AverageRating { get; set; }
         public int BreweryId { get; set; }
-
     }
 }

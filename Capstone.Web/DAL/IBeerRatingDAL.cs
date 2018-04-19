@@ -11,5 +11,6 @@ namespace Capstone.Web.DAL
     {
         void RateABeer(BeerRatingModel rating);
         List<BeerRatingModel> GetAllReviewsForOneBeer(int BeerId);
+        List<BeerModel> GetUserFavoriteBeerNames(string guid);
     }
 }
