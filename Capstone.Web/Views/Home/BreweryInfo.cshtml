@@ -6,22 +6,24 @@
 
 <div id="breweryInfo">
 
-    <div style="width: 48%">
+    <div class="breweryProfileImageContainer">
         <img id="breweryProfileImg" src='@Model.Brewery.BreweryProfileImg'>
     </div>
-    <div class="brewInfoTxt">
-        <h1 class="brewHeader">@Model.Brewery.BreweryName</h1>
+    <h1 class="brewHeader">@Model.Brewery.BreweryName</h1>
 
-        <h2>Founded in: @Model.Brewery.YearFounded</h2>
+    <div class="brewInfoTxt">
 
         <div class="history">@Model.Brewery.History</div>
         <div class="contactInfo">
+            <hr id="hoursHR" />
+
             <div>Hours of Operation:</div>
             <div class="hours">@Html.Raw(@Model.Brewery.HoursOfOperation)</div>
+            <p id="founded">Founded in: @Model.Brewery.YearFounded</p>
 
             <div>
-                <span style="width: 50%">Email: @Model.Brewery.Email</span>
-                <span class="brewPhone">Phone: @Model.Brewery.Phone</span>
+                <div style="width: 50%">Email: @Model.Brewery.Email</div>
+                <div class="brewPhone">Phone: @Model.Brewery.Phone</div>
             </div>
         </div>
     </div>
