@@ -5,8 +5,8 @@
 }
 
 :root {
-    --headerFont: 'Archivo Black', sans-serif;
-    --bodyFont: 'Archivo Narrow', sans-serif;
+    --headerFont: 'Ubuntu', sans-serif, bold;
+    --bodyFont: 'Open Sans', sans-serif;
     --mainColor: white;
     --secondaryColor: black;
     --headerHeight: 50px;
@@ -142,7 +142,7 @@ header {
 
 }
 
-.locationBar {
+/*.locationBar {
     border-radius: 25px;
     border: 1px solid white;
     padding: 5px 5px 5px 5px;
@@ -162,7 +162,7 @@ header {
     text-align:center;
     z-index: 11;
     visibility: hidden;     
-}
+}*/
 
 .searchBar:focus, .locationBar:focus {
     outline: none;
@@ -173,22 +173,76 @@ header {
     transition-duration: 500ms;
 }
 
+.searchInstructions{
+    width: 150px;
+    height: 150px;
+    color: white;
+    background-color: black;
+    z-index: 100;
+    position: absolute;
+    left: 76%;
+    top: 56%;
+    transform: translate(-50%, -50%);
+    border: 1px solid white;
+}
+
+
+.triangle {
+    position: absolute;
+    transform: rotate(45deg);
+    z-index: 90;
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    left: -10.5%;
+    top: 15%;
+    border: 1px solid white;
+    border-right: none;
+    border-top: none;
+}
+
+#searchInstructionWords {
+    z-index: 101;
+    position: absolute;
+    font-family: var(--bodyFont);
+    font-size: 1.1rem;
+    padding: 1rem;
+}
+
+#closeBox {
+    position: absolute;
+    top: 0;
+    right: .4rem;
+    font-size: 1.6rem;
+    z-index: 120;
+}
+
+#closeBox:hover {
+    cursor: pointer;
+}
+
 .ageCheckerDiv {
     height: 15vh;
     width: 20%;
     background-color: black;
     color: white;
-    font-size: larger;
+    font-size: 0.85rem;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
     z-index: 100;
-    padding-left:inherit 40%;
+    padding-left: inherit 40%;
     padding-right: 40%;
     border: 1px solid white;
     border-radius: 5px;
+    font-family: var(--headerFont);
+}
+
+.ageCheckerForm{
+    font-family: var(--headerFont);
+    text-align: center;
 }
 
 .ageCheck {
