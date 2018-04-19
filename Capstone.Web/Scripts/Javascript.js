@@ -75,7 +75,7 @@
     function performSearch(searchString) {
         if (searchString != "") {
             $('.searchBar').addClass('top');
-            $('.searchBar').val('');
+            //$('.searchBar').val('');
 
             var URL = 'http://' + window.location.host + '/Home/GetSearchResultsJson';
 
@@ -84,6 +84,7 @@
 
             ).then(function (data) {
 
+                $('.searchResults').empty();
                 let dynamicDiv = $('.searchResults');
                 let searchResultModel = JSON.parse(data);
 

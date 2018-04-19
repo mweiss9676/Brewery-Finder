@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home";    
+    ViewBag.Title = "Home";
 }
 
 <div class="container">
@@ -15,11 +15,16 @@
                     </div>
                 </div>
             </div>
-        }}
+        }
+    }
     <div class="searchBarDiv">
-        <div class="searchBarForm">
-            <input autofocus class="searchBar" type="search" name="SearchString" placeholder="Search for a beer, brewery, or location" autocomplete="off" />
+        @*<div class="searchBarForm">*@
+        <div class="howToSearch">
+            <p>Here is how to search</p>
+            <div class="triangle" id="triangle"></div>
         </div>
+            <input autofocus class="searchBar" type="search" name="SearchString" placeholder="Search for a beer, brewery, or location" autocomplete="off" />
+        @*</div>*@
         <div class="searchResultsPage">
             <div class="searchResults"></div>
         </div>

@@ -142,7 +142,7 @@ header {
 
 }
 
-.locationBar {
+/*.locationBar {
     border-radius: 25px;
     border: 1px solid white;
     padding: 5px 5px 5px 5px;
@@ -162,7 +162,7 @@ header {
     text-align:center;
     z-index: 11;
     visibility: hidden;     
-}
+}*/
 
 .searchBar:focus, .locationBar:focus {
     outline: none;
@@ -171,6 +171,30 @@ header {
 .searchBar.top {
     top: 100px;
     transition-duration: 500ms;
+}
+
+.howToSearch, .triangle {
+    width: 150px;
+    height: 150px;
+    color: white;
+    background-color: black;
+    z-index: 100;
+    position: absolute;
+    left: 75%;
+    top: 58%;
+    transform: translate(-50%, -50%);
+}
+
+.triangle {
+    position: absolute;
+    transform: rotate(45deg);
+    z-index: 90;
+    background-color: black;
+
+    width: 30px;
+    height: 30px;
+    left: -10%;
+    top: 4%;
 }
 
 .ageCheckerDiv {
